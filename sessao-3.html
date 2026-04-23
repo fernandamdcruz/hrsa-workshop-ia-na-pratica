@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 40px auto;
+    color: #1a1a1a;
+  }
+  .cover {
+    text-align: center;
+    padding: 60px 0 80px;
+    border-bottom: 2px solid #222;
+    margin-bottom: 48px;
+  }
+  .cover-label { font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-bottom: 24px; }
+  .cover-title { font-size: 28pt; font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: #111; }
+  .cover-sub { font-size: 14pt; color: #444; margin-bottom: 32px; }
+  .cover-meta { font-size: 10pt; color: #888; }
+  .session-divider { margin: 56px 0 32px; padding-bottom: 10px; border-bottom: 2px solid #111; }
+  .session-num { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .session-title { font-size: 20pt; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .session-meta { font-size: 10pt; color: #666; }
+  h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; }
+  .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
+  .callout.time { border-left-color: #888; background: #f7f7f7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; }
+  .callout.warning { border-left-color: #b45309; background: #fffbeb; }
+  .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout.prework { border-left-color: #b45309; background: #fff7ed; }
+  .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .goal .callout-label { color: #2d6a4f; }
+  .time .callout-label { color: #555; }
+  .prompt .callout-label { color: #1a365d; }
+  .warning .callout-label { color: #b45309; }
+  .tip .callout-label { color: #5b21b6; }
+  .prework .callout-label { color: #9a3412; }
+  .steps { margin: 10px 0; padding-left: 0; list-style: none; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
+  .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+  th { background: #111; color: #fff; padding: 8px 12px; text-align: left; font-size: 9.5pt; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+  .session-outline { font-size: 10pt; color: #555; margin: 8px 0 20px; padding-left: 0; list-style: none; }
+  .session-outline li { padding: 4px 0; border-bottom: 1px solid #eee; }
+  .session-outline li::before { content: "→ "; color: #aaa; }
+  .session-outline .mins { float: right; color: #999; font-size: 9pt; font-weight: 600; }
+  p { margin: 8px 0; font-size: 10.5pt; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 4px; font-size: 10.5pt; }
+  .page-break { page-break-after: always; }
+  .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
+  sup a { font-size: 8pt; vertical-align: super; color: #1a365d; text-decoration: none; font-weight: 600; padding: 0 1px; }
+  sup a:hover { text-decoration: underline; }
+  .footnotes { font-size: 9pt; color: #555; border-top: 1px solid #ddd; padding-top: 12px; margin-top: 24px; }
+  .footnotes ol { padding-left: 20px; margin: 4px 0; }
+  .footnotes li { margin-bottom: 4px; font-size: 9pt; line-height: 1.5; }
+  .footnotes a { color: #1a365d; word-break: break-all; }
+  .checklist { list-style: none; padding-left: 0; margin: 12px 0; }
+  .checklist li { padding: 6px 0 6px 28px; position: relative; font-size: 10.5pt; border-bottom: 1px solid #eee; }
+  .checklist li::before { content: "☐"; position: absolute; left: 4px; top: 6px; font-size: 12pt; color: #555; }
+  .resource-list { list-style: none; padding-left: 0; }
+  .resource-list li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 10.5pt; }
+  .resource-list li strong { display: block; color: #111; margin-bottom: 2px; }
+  .resource-list li a { color: #1a365d; text-decoration: none; border-bottom: 1px dotted #999; font-size: 9.5pt; }
+  .resource-list li a:hover { border-bottom-color: #111; }
+  .resource-list li .desc { display: block; font-size: 9.5pt; color: #666; margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">DC Cruz · HRSA Advogados · Confidencial</div>
+  <div class="cover-title">IA na Prática</div>
+  <div class="cover-sub">Sessão 3 — Pesquisa jurídica com IA</div>
+  <div class="cover-meta">
+    Workshop · Abril / Maio 2026 · 60 minutos<br>
+    Documento de exercícios — abra no seu computador durante a sessão e use para copiar os prompts
+  </div>
+</div>
+
+<!-- PRE-WORK -->
+<div class="callout prework">
+  <div class="callout-label">⏰ Antes de começar — 5 minutos de preparação</div>
+  Esta sessão tem 60 minutos e é 80% mão na massa. Para aproveitar ao máximo, <strong>antes da sessão começar</strong> você deveria ter em mãos:
+  <ul>
+    <li><strong>3 a 5 PDFs de acórdãos, súmulas ou decisões da sua área</strong> — aquelas que você usa com frequência e já validou pessoalmente. Salve-os numa pasta no seu computador. <em>Acórdãos publicados são documentos públicos — não estamos pedindo nada confidencial de cliente.</em></li>
+    <li><strong>Uma pergunta real</strong> — de cliente, de caso em andamento, de hipótese que já apareceu — que possa ser respondida com esse material. Anote em uma frase. (Se preferir não escrever em ferramenta de IA, é só adaptar o caso real para uma hipótese com mesmos fatos e nomes trocados.)</li>
+    <li><strong>Conta Claude ativa</strong> em <a href="https://claude.ai/login">claude.ai/login</a>. Plano gratuito já serve. Se você nunca usou Claude antes (a maioria de vocês respondeu "nunca usei" no formulário), o cadastro leva 2 minutos — e a interface é praticamente idêntica à do ChatGPT.</li>
+  </ul>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚙ Sobre as ferramentas nesta sessão</div>
+  Usamos Claude o tempo todo. A extensão Claude for Chrome exige plano Pro e é demo-only — só o facilitador usa ao vivo, vocês assistem.
+</div>
+
+<!-- ===================== SESSÃO 3 ===================== -->
+<div class="session-divider page-break">
+  <div class="session-num">Sessão 3 de 3</div>
+  <div class="session-title">Pesquisa jurídica com IA — sem inventar</div>
+  <div class="session-meta">Corpus curado · Claude no Chrome · Sua pesquisa rodando no Project</div>
+</div>
+
+<div class="tool-note">No formulário de pré-engajamento, um de vocês pediu isso textualmente: "pesquisas qualificadas de temas jurídicos, com controle das fontes ou indicação de fontes específicas — textos, PDFs, decisões, capítulos de livros." Essa sessão é construída em cima disso.</div>
+
+<ul class="session-outline">
+  <li>O problema: por que a IA sozinha inventa jurisprudência <span class="mins">7 min</span></li>
+  <li>Dois caminhos seguros: corpus curado e plataforma confiável + IA leitora <span class="mins">3 min</span></li>
+  <li>Demo — Claude no Chrome lendo uma matéria do JOTA ao vivo <span class="mins">7 min</span></li>
+  <li>Exercício — Project com suas jurisprudências + teste com pergunta real <span class="mins">33 min</span></li>
+  <li>Links, checklist e encerramento <span class="mins">10 min</span></li>
+</ul>
+
+<hr>
+
+<h2>O problema — IA sozinha inventa jurisprudência</h2>
+
+<p>Antes dos caminhos seguros, precisamos ser claros sobre o que <em>não</em> funciona: pedir jurisprudência diretamente para uma IA genérica (ChatGPT, Gemini, Claude sem contexto) é perigoso, e já rendeu sanções no Brasil.</p>
+
+<p>Uma IA de linguagem foi treinada para prever a próxima palavra plausível — não para devolver um precedente real. Quando não encontra o caso, ela <em>inventa um que parece existir</em>: ementa bem escrita, número de processo convincente, nome de relator plausível. Tudo falso. O termo técnico é "alucinação". A consequência prática é grave.</p>
+
+<h3>Casos brasileiros recentes</h3>
+
+<table>
+  <tr>
+    <th>Tribunal / Data</th>
+    <th>O que aconteceu</th>
+    <th>Consequência</th>
+  </tr>
+  <tr>
+    <td>TJ-PR · abr/2025<sup><a href="#fn1">[1]</a></sup></td>
+    <td>Recurso ao Tribunal do Júri com <strong>43 julgados fictícios</strong>, incluindo magistrados inexistentes, desembargador aposentado há anos, e outro que era do TRF-4 (e não do TJ-PR). O relator, Des. Gamaliel Seme Scaff, registrou que "nem um único julgado do STJ e do STF dentre os mencionados é fidedigno".</td>
+    <td>Recurso não conhecido. Advogado apontado como responsável.</td>
+  </tr>
+  <tr>
+    <td>TJSC · fev/2025<sup><a href="#fn2">[2]</a></sup></td>
+    <td>Agravo de instrumento com jurisprudência e doutrina totalmente fabricadas. O advogado alegou "uso inadvertido" do ChatGPT.</td>
+    <td>Multa + ofício à OAB/SC para apuração disciplinar.</td>
+  </tr>
+  <tr>
+    <td>TRT-SP · fev/2026<sup><a href="#fn3">[3]</a></sup><br><em>(proc. 1001128-84.2024.5.02.0044)</em></td>
+    <td>Recurso ordinário com precedentes inexistentes. O patrono tentou atribuir a falha aos estagiários.</td>
+    <td>Litigância de má-fé + ofício à OAB/SP. O relator foi direto: <em>"a postulação em juízo é ato privativo do advogado, que também é o responsável por seu conteúdo."</em></td>
+  </tr>
+</table>
+
+<div class="callout warning">
+  <div class="callout-label">⚖ Recomendação OAB nº 001/2024<sup><a href="#fn4">[4]</a></sup></div>
+  O Conselho Federal da OAB aprovou, em novembro de 2024, recomendação expressa sobre o uso de IA generativa na prática jurídica. Ela exige <strong>entendimento das limitações, verificação rigorosa das informações, transparência ao cliente</strong> e <strong>veda a delegação de atos privativos sem supervisão qualificada</strong>. Em vários dos casos acima, a decisão cita a Recomendação como parâmetro. A responsabilidade permanece integralmente do advogado que assina.
+</div>
+
+<hr>
+
+<h2>Dois caminhos seguros para pesquisa com IA</h2>
+
+<p>A regra mental desta sessão. Tudo que vamos fazer se encaixa em um dos dois padrões:</p>
+
+<table>
+  <tr>
+    <th>Padrão</th>
+    <th>Quando usar</th>
+    <th>Como funciona</th>
+  </tr>
+  <tr>
+    <td><strong>1. Corpus curado</strong> <br><em>Project com as suas jurisprudências</em></td>
+    <td>80% dos casos — tema recorrente na sua área, você já tem acórdãos de referência.</td>
+    <td>Você sobe acórdãos validados num Project do Claude. A IA responde <strong>apenas</strong> com base no material do Project, cita o trecho literal, e avisa quando não está coberto. Risco de alucinação: zero — tudo que ela cita foi você que curou.</td>
+  </tr>
+  <tr>
+    <td><strong>2. Plataforma confiável + IA leitora</strong> <br><em>Claude for Chrome no JOTA, STJ, Valor</em></td>
+    <td>20% dos casos — tema novo, matéria recente, acórdão que você nunca leu.</td>
+    <td>Você entra numa plataforma que já garante que o material existe. O Claude lê a página pela sua ótica, extrai holding, fundamentos, aplicação. A fonte é a plataforma — a IA só ajuda a processar.</td>
+  </tr>
+</table>
+
+<div class="callout tip">
+  <div class="callout-label">💡 O que os dois padrões têm em comum</div>
+  Em nenhum dos dois a IA <em>gera</em> jurisprudência. Ela só processa material que já existe e foi validado por uma fonte confiável — você mesmo (Padrão 1) ou uma plataforma reconhecida (Padrão 2). É a diferença entre uso responsável e o que deu em multa no TJ-PR.
+</div>
+
+<hr>
+
+<h2>Demo — Claude no Chrome lendo o JOTA ao vivo</h2>
+
+<div class="callout time">
+  <div class="callout-label">Demo do facilitador · 7 minutos · você assiste, não precisa instalar nada</div>
+</div>
+
+<p>O Padrão 2 em 2 minutos, ao vivo. O facilitador vai abrir uma matéria recente do JOTA (ou do Valor, ConJur, site do STJ — qualquer plataforma confiável) sobre um tema que afeta clientes corporativos — reforma tributária, mudança regulatória da CVM, decisão recente do STJ — e pedir ao Claude for Chrome que faça a análise aplicada.</p>
+
+<div class="callout prompt">
+<div class="callout-label">Prompt que o facilitador vai usar ao vivo</div>Leia esta página e me responda, em no máximo 6 linhas:
+1. O que mudou (em 1 frase)?
+2. Quem é afetado?
+3. Quais são as 2 implicações práticas mais importantes para escritórios
+   que assessoram clientes em M&A / tributário?
+4. Se algum ponto não está claro na matéria, diga — não preencha com
+   inferência.</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Por que essa demo importa para vocês</div>
+  A matéria do JOTA é paga. O Claude só consegue analisar porque você está logado e está olhando a página — a extensão lê o que <em>você</em> vê. A mensagem: você não precisa ser o sócio que lê JOTA toda manhã. O Claude lê com você, em 30 segundos, e traz a aplicação para o seu contexto.
+</div>
+
+<hr>
+
+<h2>Exercício — Seu Project de pesquisa em 30 minutos</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Você sai desta sessão com um Project do Claude ativo, com as suas jurisprudências carregadas, com instruções anti-alucinação validadas, e com uma pergunta real de cliente respondida por ele. Pronto para usar na segunda-feira.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Ferramenta: Claude · 33 minutos · totalmente hands-on</div>
+</div>
+
+<h3>Passo 1 — Crie o Project e suba suas jurisprudências · 8 min</h3>
+
+<p>Lembrete do que queremos nesse corpus — pensando em quem está na sala:</p>
+
+<ul>
+  <li><strong>Societário / Empresarial / Contratos:</strong> precedentes do STJ sobre responsabilidade de administradores, direito de retirada, abuso de controle, usucapião de quotas. Enunciados do IBRADEMP.</li>
+  <li><strong>Tributário:</strong> súmulas e acórdãos do CARF na sua matéria, teses do STF em repercussão geral, decisões do STJ em recurso repetitivo, decisões relevantes em ICMS/ISS/IRPJ.</li>
+  <li><strong>Imobiliário:</strong> decisões do STJ sobre incorporação, distrato, condomínio edilício. Jurisprudência do TJSP sobre registro e usucapião.</li>
+  <li><strong>Trabalhista:</strong> súmulas do TST, OJs da SDI-1 e SDI-2, decisões recentes do pleno, teses vinculantes em recursos de revista repetitivos.</li>
+</ul>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Em <a href="https://claude.ai" target="_blank">claude.ai</a>, menu lateral → <strong>Projects</strong> → <strong>Create project</strong>.</span></li>
+  <li><span class="step-n">2</span><span>Nome específico: "Jurisprudência — [sua área]" (ex.: "Jurisprudência — Responsabilidade de administrador").</span></li>
+  <li><span class="step-n">3</span><span>Em <strong>Project knowledge / Add content</strong>, faça upload dos 3-5 PDFs que você trouxe.</span></li>
+</ol>
+
+<h3>Passo 2 — Cole as instruções anti-alucinação · 2 min</h3>
+
+<p>No campo <strong>"Set project instructions"</strong> do Project, cole o texto abaixo. São as regras que impedem o Claude de inventar.</p>
+
+<div class="callout prompt">
+<div class="callout-label">Instruções do Project — cole no campo de instruções</div>Você é um assistente de pesquisa jurídica da HRSA Advogados. As
+decisões, súmulas e acórdãos anexados a este Project são a ÚNICA
+fonte que você pode citar. Trate tudo o que está no Project como
+material validado pelo sócio responsável.
+
+REGRAS ABSOLUTAS:
+1. Nunca invente jurisprudência. Se um tema não está coberto pelos
+   documentos, diga "não encontrei isso no material carregado" —
+   não complete com jurisprudência de memória, de treinamento, ou
+   de outra fonte.
+2. Toda citação deve vir acompanhada do trecho literal do acórdão
+   (ementa ou voto) e identificação do processo, relator e data.
+3. Se for interpretação sua, sinalize: "leitura possível:" ou "o
+   que parece se extrair:". Não parafraseie o holding como se fosse
+   conclusão do tribunal.
+4. Se perceber divergência entre acórdãos do Project, aponte e cite
+   os dois lados.
+5. Se o usuário perguntar sobre caso hipotético, analise a aplicação
+   dos precedentes DO PROJECT ao caso — não busque fora.
+
+Ao final de toda resposta, inclua:
+"Fontes consultadas: [lista dos documentos citados]".</div>
+
+<h3>Passo 3 — Faça a sua pergunta real · 10 min</h3>
+
+<p>Abra uma conversa dentro do Project (não fora) e cole a pergunta que você preparou. Se não trouxe uma, use o template abaixo e adapte.</p>
+
+<div class="callout prompt">
+<div class="callout-label">Template de pergunta — adapte para sua área</div>Cenário: [descreva em 2-3 linhas o caso real ou hipotético].
+
+Com base nas decisões carregadas neste Project:
+1. Quais precedentes são diretamente aplicáveis?
+2. Cite o trecho literal do acórdão que embasa cada ponto.
+3. Há divergência entre os precedentes? Se sim, como cada lado
+   poderia se posicionar?
+4. Se algum ângulo importante não está coberto, diga explicitamente.</div>
+
+<p><strong>O que observar na resposta:</strong> se a pergunta sair do escopo do material carregado, o Claude deve <em>recusar inventar</em>. Isso é o sucesso, não a falha. É o oposto do que aconteceu no TJ-PR — aqui, jurisprudência <em>não pode</em> ser inventada, porque a IA só tem acesso ao que você validou.</p>
+
+<h3>Passo 4 — Customize as instruções para o seu jeito de trabalhar · 10 min</h3>
+
+<p>As instruções do Passo 2 são um baseline bom. Mas cada área tem peculiaridades — tributário quer que o Claude sempre compare CARF com STJ; societário quer formato de parecer; imobiliário quer separar TJSP de STJ e cuidar de registro; trabalhista quer alerta se o precedente pode estar superado. Vamos customizar.</p>
+
+<p>Este é o passo que alguém de vocês descreveu no formulário como "treinar a IA para ter resultados melhores" — e é isso que a gente está fazendo aqui: não é mágica, é ajustar instruções com base em como você realmente trabalha.</p>
+
+<p>Abra uma <strong>conversa nova, fora do Project</strong>, e cole o prompt abaixo. O Claude vai te perguntar o necessário e devolver uma versão customizada das instruções, que você substitui no Project.</p>
+
+<div class="callout prompt">
+<div class="callout-label">Prompt — cole fora do Project e responda 3 perguntas</div>Vou compartilhar as instruções baseline de um Project do Claude
+usado para pesquisa jurídica num escritório corporativo brasileiro.
+Preciso customizá-las para o meu jeito de trabalhar.
+
+Me pergunte, uma por vez:
+1. Qual é a sua área (societário, tributário, etc.) e qual formato
+   de output você quer que a IA entregue?
+   (ex.: "parecer estruturado com ementa, análise aplicada e
+   conclusão"; "memorando curto com holding + aplicação ao caso")
+2. Que regra adicional é crítica na sua área que as 5 regras base
+   não cobrem?
+   (ex.: "sempre sinalizar se o acórdão pode estar superado por
+   tese posterior"; "em tributário, sempre cruzar CARF com STJ";
+   "em trabalhista, verificar se a OJ foi cancelada"; "em imobiliário,
+   distinguir se a decisão é de registro ou de direito material")
+3. Que tipo de erro eu NÃO posso tolerar no seu output?
+   (ex.: "confundir o lado favorecido pelo precedente"; "tratar
+   decisão monocrática como se fosse do colegiado")
+
+Depois das 3 respostas, devolva as instruções completas
+customizadas, prontas para eu substituir no Project.
+
+Instruções baseline:
+[COLE AQUI O TEXTO DAS INSTRUÇÕES DO PASSO 2]</div>
+
+<h3>Passo 5 — Substitua e re-teste · 3 min</h3>
+
+<p>Volte ao Project, cole as instruções customizadas no lugar das originais, e refaça a mesma pergunta do Passo 3 numa conversa nova. Compare. Se a diferença for clara e o output ficou mais próximo do que você entrega, você acabou de criar sua primeira skill de pesquisa jurídica personalizada — que vive no Project e cresce a cada caso novo que você adiciona.</p>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Dados de cliente em acórdãos</div>
+  Acórdãos publicados têm nomes das partes. Para corpus de jurisprudência de referência isso normalmente não é um problema — são decisões públicas. Mas se você subir um acórdão em que a parte é um cliente ativo seu em tema sensível, anonimize primeiro com a Skill A da Sessão 2.
+</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Se você já usa Jusbrasil IA, Gemini ou outra ferramenta jurídica</div>
+  Alguns de vocês já usam IA jurídica direto — ótimo. Este Project não substitui, complementa. A ferramenta externa é boa para <em>descobrir</em> o que existe (Padrão 2). O Project curado é imbatível para as consultas <em>recorrentes</em> — onde você já sabe qual corpus importa, e quer velocidade sem risco de alucinação nem nova busca a cada vez.
+</div>
+
+<hr>
+
+<h2>Links para levar para casa</h2>
+
+<p>Essa é a nossa última sessão. Abaixo, os materiais que valem ficar nos favoritos — para quando uma dúvida aparecer depois que a gente sair da sala.</p>
+
+<h3>Para aprofundar</h3>
+
+<ul class="resource-list">
+  <li>
+    <strong>Anthropic — Claude for Legal Teams (webinar, 45 min)</strong>
+    <span class="desc">Apresentação oficial dos usos jurídicos do Claude: contratos, due diligence, pesquisa. Vale ver pelo menos os primeiros 15 minutos.</span>
+    <a href="https://www.anthropic.com/webinars/claude-for-legal-teams" target="_blank">anthropic.com/webinars/claude-for-legal-teams</a>
+  </li>
+  <li>
+    <strong>OAB — Recomendação nº 001/2024 (texto integral, PDF)</strong>
+    <span class="desc">As diretrizes do Conselho Federal para uso de IA generativa na prática jurídica. Curto (4 páginas). Leitura obrigatória.</span>
+    <a href="https://deoab.oab.org.br/assets/diarios/diario-eletronico-oab-14-11-2024.pdf" target="_blank">deoab.oab.org.br/.../diario-eletronico-oab-14-11-2024.pdf</a>
+  </li>
+  <li>
+    <strong>Anthropic — Guia de prompt engineering</strong>
+    <span class="desc">Manual da Anthropic sobre como escrever prompts melhores. Curva de aprendizado curta, retorno grande.</span>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">docs.anthropic.com/.../prompt-engineering/overview</a>
+  </li>
+</ul>
+
+<h3>Para pesquisa jurídica (Padrão 2, sem precisar de Chrome Pro)</h3>
+
+<ul class="resource-list">
+  <li>
+    <strong>STJ — Jurisprudência oficial (gratuito)</strong>
+    <a href="https://scon.stj.jus.br/SCON/" target="_blank">scon.stj.jus.br/SCON/</a>
+  </li>
+  <li>
+    <strong>STF — Jurisprudência oficial (gratuito)</strong>
+    <a href="https://jurisprudencia.stf.jus.br/" target="_blank">jurisprudencia.stf.jus.br</a>
+  </li>
+  <li>
+    <strong>TJSP — Busca de acórdãos</strong>
+    <a href="https://esaj.tjsp.jus.br/cjsg/consultaCompleta.do" target="_blank">esaj.tjsp.jus.br/cjsg/consultaCompleta.do</a>
+  </li>
+</ul>
+
+<h3>Biblioteca de skills do workshop</h3>
+
+<ul class="resource-list">
+  <li>
+    <strong>Skills HRSA da Sessão 2</strong>
+    <span class="desc">Remoção de PII, preparação de reunião, tradução jurídica, revisão de contrato. Todas em formato .md, prontas para colar no seu Project.</span>
+    <a href="https://hrsa-workshop-ia-na-pratica.netlify.app/sessao-2" target="_blank">hrsa-workshop-ia-na-pratica.netlify.app/sessao-2</a>
+  </li>
+  <li>
+    <strong>Claude for Chrome (extensão — requer plano Pro)</strong>
+    <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank">chromewebstore.google.com/.../claude</a>
+  </li>
+</ul>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Pontes para o que você pediu no formulário</div>
+  Alguns de vocês descreveram dores fora de "pesquisa jurídica" — mas elas já foram trabalhadas neste workshop. Voltem aqui depois:
+  <ul>
+    <li><strong>Comparar minuta antiga × revisada da contraparte, com redline detalhado</strong> — use a <strong>Skill D (Revisão de contrato)</strong> da Sessão 2, adaptada para modo de comparação. A estrutura de semáforo 🟢🟡🔴 funciona bem aqui.</li>
+    <li><strong>Minutas iniciais de peças trabalhistas ou contratos</strong> — mesma Skill D como ponto de partida, combinada com um Project só seu que acumula suas minutas padrão.</li>
+    <li><strong>PPT a partir de resumo de lei / PDF</strong> — veja o <strong>Exercício 2.3</strong> da Sessão 2 (texto → apresentação com identidade visual HRSA). Também funciona muito bem para aulas.</li>
+    <li><strong>Identificação de temas urgentes e pendentes</strong> — MCPs de e-mail + calendário no Claude (beta) permitem varrer sua caixa de entrada para um briefing matinal. Vale conversar separado.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Segunda-feira — checklist da semana que vem</h2>
+
+<p>Não é para fazer tudo. Escolha dois itens e execute na próxima semana. A adoção real da IA começa quando um caso real passa pelo fluxo — não quando o workshop termina.</p>
+
+<ul class="checklist">
+  <li>Amplio o Project para 10 acórdãos de referência da minha área</li>
+  <li>Uso o Project para responder uma pergunta real que chegou esta semana e comparo a resposta com a minha própria análise</li>
+  <li>Refino as instruções customizadas até o output sair pronto para entrega</li>
+  <li>Leio a Recomendação OAB 001/2024 e identifico se algo no meu dia a dia precisa mudar</li>
+  <li>Testo o Padrão 2 numa busca real no STJ ou JOTA (mesmo sem o Claude for Chrome — copia-cola funciona)</li>
+</ul>
+
+<hr>
+
+<div style="text-align: center; padding: 40px 0 20px; border-top: 2px solid #111; margin-top: 40px;">
+  <p style="font-size: 14pt; font-weight: 700; color: #111; margin-bottom: 12px;">Obrigado por participar.</p>
+  <p style="font-size: 11pt; color: #555; margin-bottom: 20px;">Foi um prazer trabalhar com vocês nessas três sessões.<br>
+  Pesquisa jurídica é uma dor concreta — agora vocês têm dois padrões seguros, um Project vivo e uma skill sua.<br>
+  Esperamos que isso faça diferença real já na próxima semana.</p>
+  <p style="font-size: 11pt; color: #333; margin-bottom: 6px;"><strong>Fernanda e Edu — DC Cruz</strong></p>
+  <p style="font-size: 10pt; color: #888;">Qualquer dúvida, skill nova ou caso de uso que aparecer depois do workshop:<br>
+  estamos aqui. Não precisa esperar o próximo encontro.</p>
+</div>
+
+<!-- FOOTNOTES -->
+<div class="footnotes">
+  <p><strong>Fontes citadas</strong></p>
+  <ol>
+    <li id="fn1"><strong>TJ-PR, 1ª Câmara Criminal, Rel. Des. Gamaliel Seme Scaff (abr/2025)</strong> — "TJ-PR não analisa recurso em que IA criou precedentes e relatores", ConJur, 27/04/2025. Disponível em: <a href="https://www.conjur.com.br/2025-abr-27/tj-pr-nao-analisa-recurso-gerado-por-ia-que-inventou-precedentes-e-relatores/" target="_blank">conjur.com.br/2025-abr-27/tj-pr-nao-analisa-recurso-gerado-por-ia-que-inventou-precedentes-e-relatores</a></li>
+    <li id="fn2"><strong>TJSC (fev/2025)</strong> — "TJSC multa autor de recurso por jurisprudência falsa gerada por inteligência artificial", notícia oficial TJSC, 18/02/2025. Disponível em: <a href="https://www.tjsc.jus.br/web/imprensa/-/tjsc-multa-autor-de-recurso-por-jurisprudencia-falsa-gerada-por-ia" target="_blank">tjsc.jus.br/web/imprensa/-/tjsc-multa-autor-de-recurso-por-jurisprudencia-falsa-gerada-por-ia</a></li>
+    <li id="fn3"><strong>TRT-SP, proc. 1001128-84.2024.5.02.0044 (fev/2026)</strong> — "Uso de jurisprudência falsa criada por IA gera multa e ofício à OAB", ConJur, 16/02/2026. Disponível em: <a href="https://www.conjur.com.br/2026-fev-16/uso-de-jurisprudencia-criada-por-ia-gera-multa-por-ma-fe-e-oficio-a-oab/" target="_blank">conjur.com.br/2026-fev-16/uso-de-jurisprudencia-criada-por-ia-gera-multa-por-ma-fe-e-oficio-a-oab</a></li>
+    <li id="fn4"><strong>OAB — Recomendação nº 001/2024 do Conselho Federal</strong>, aprovada em 11/11/2024 e publicada no Diário Eletrônico da OAB em 14/11/2024. Texto integral: <a href="https://deoab.oab.org.br/assets/diarios/diario-eletronico-oab-14-11-2024.pdf" target="_blank">deoab.oab.org.br/assets/diarios/diario-eletronico-oab-14-11-2024.pdf</a>. Anúncio oficial: <a href="https://www.oab.org.br/noticia/62704/oab-aprova-recomendacoes-para-uso-de-ia-na-pratica-juridica" target="_blank">oab.org.br/noticia/62704</a></li>
+  </ol>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 40px auto;
+    color: #1a1a1a;
+  }
+  .cover {
+    text-align: center;
+    padding: 60px 0 80px;
+    border-bottom: 2px solid #222;
+    margin-bottom: 48px;
+  }
+  .cover-label { font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-bottom: 24px; }
+  .cover-title { font-size: 28pt; font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: #111; }
+  .cover-sub { font-size: 14pt; color: #444; margin-bottom: 32px; }
+  .cover-meta { font-size: 10pt; color: #888; }
+  .session-divider { margin: 56px 0 32px; padding-bottom: 10px; border-bottom: 2px solid #111; }
+  .session-num { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .session-title { font-size: 20pt; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .session-meta { font-size: 10pt; color: #666; }
+  h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; }
+  .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
+  .callout.time { border-left-color: #888; background: #f7f7f7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; }
+  .callout.warning { border-left-color: #b45309; background: #fffbeb; }
+  .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .goal .callout-label { color: #2d6a4f; }
+  .time .callout-label { color: #555; }
+  .prompt .callout-label { color: #1a365d; }
+  .warning .callout-label { color: #b45309; }
+  .tip .callout-label { color: #5b21b6; }
+  .steps { margin: 10px 0; padding-left: 0; list-style: none; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
+  .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .levels { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .badge { font-size: 9pt; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .badge.basic { background: #d1fae5; color: #065f46; }
+  .badge.plus { background: #ede9fe; color: #4c1d95; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+  th { background: #111; color: #fff; padding: 8px 12px; text-align: left; font-size: 9.5pt; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+  .session-outline { font-size: 10pt; color: #555; margin: 8px 0 20px; padding-left: 0; list-style: none; }
+  .session-outline li { padding: 4px 0; border-bottom: 1px solid #eee; }
+  .session-outline li::before { content: "→ "; color: #aaa; }
+  p { margin: 8px 0; font-size: 10.5pt; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 4px; font-size: 10.5pt; }
+  .page-break { page-break-after: always; }
+  .setup-box { border: 1.5px solid #111; border-radius: 8px; padding: 16px 20px; margin: 16px 0; background: #fafafa; }
+  .setup-box h3 { margin-top: 0; }
+  .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
+  .skill-download { font-size: 9.5pt; font-weight: 400; margin-left: 10px; color: #555; text-decoration: none; border-bottom: 1px dotted #999; }
+  .skill-download:hover { color: #111; border-bottom-color: #111; }
+</style>
+</head>
+<body>
+
+<!-- COMPACT COVER -->
+<div class="cover">
+  <div class="cover-label">DC Cruz · HRSA Advogados · Confidencial</div>
+  <div class="cover-title">IA na Prática</div>
+  <div class="cover-sub">Sessão 2 — Produtividade na prática</div>
+  <div class="cover-meta">
+    Workshop · Abril / Maio 2026<br>
+    Documento de exercícios — abra no seu computador durante a sessão e use para copiar os prompts
+  </div>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚙ Sobre as ferramentas nesta sessão</div>
+  Use a ferramenta de IA que você já usa e se sente mais confortável — ChatGPT, Claude, Copilot, Gemini. Os prompts funcionam em qualquer uma delas.
+</div>
+
+<!-- ===================== SESSÃO 2 ===================== -->
+<div class="session-divider page-break">
+  <div class="session-num">Sessão 2 de 3</div>
+  <div class="session-title">Produtividade na prática</div>
+  <div class="session-meta">Skills · Plugins · Projects · PPT · Minutas · Tradução · Preparação de reunião</div>
+</div>
+
+<div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
+
+<ul class="session-outline">
+  <li>A. Skill, plugin e project — o que é cada um</li>
+  <li>2.1 Exercício — Notas de reunião → ata estruturada</li>
+  <li>2.2 Exercício — Texto → estrutura de apresentação (PPT)</li>
+  <li>Skills prontas — biblioteca para levar para o dia a dia</li>
+  <li>Wrap-up e preview da Sessão 3</li>
+</ul>
+
+<hr>
+
+<h2>A. Skill, plugin e project: o que é cada um</h2>
+
+<p>Na Sessão 1 vimos o que é um prompt e o que separa um bom de um ruim. Agora vamos um passo além: como transformar um prompt que funciona em algo reutilizável, organizado e sempre à mão.</p>
+
+<h3>Skill</h3>
+<p>Uma skill é um prompt salvo que você reutiliza. Em vez de reescrever as instruções toda vez, você salva uma vez — como um modelo no Word, mas para a IA. Uma skill cobre uma tarefa específica: transformar notas em ata, gerar um tipo de cláusula, preparar um briefing de reunião.</p>
+<p>Skills geralmente vivem em arquivos <code>.md</code> (markdown) — é só um formato de texto simples, como um <code>.txt</code>, que a IA lê e segue como instrução. Você baixa, carrega na sua ferramenta, e pronto.</p>
+
+<h3>Plugin</h3>
+<p>Um plugin é um conjunto de skills empacotadas juntas para uma função ou fluxo de trabalho completo. Em vez de instalar cada skill separadamente, o plugin traz tudo de uma vez. Por exemplo: um plugin jurídico poderia incluir skills de revisão de contrato, tradução, ata de reunião e pesquisa de jurisprudência — tudo junto, pronto para usar.</p>
+
+<h3>Project</h3>
+<p>Um Project existe no Claude, no ChatGPT e no Copilot — os três chamam de "Project". É um espaço onde você salva um briefing permanente para a IA: quem você é, onde você trabalha, como você escreve, o que ela nunca deve fazer. A IA começa cada conversa dentro daquele Project já sabendo tudo isso — sem você precisar repetir.</p>
+<p>Na prática, o arquivo de instruções de um Project funciona como um documento que diz à IA o que significa ser advogado da HRSA: seu tom, sua área, suas regras, os termos que você usa. As skills que você cria nesta sessão podem ser carregadas dentro de um Project para ficarem sempre disponíveis.</p>
+
+<div class="callout tip">
+  <div class="callout-label">💡 A relação entre os três</div>
+  Na Sessão 1 você viu: prompt = instrução que você escreve agora, uma vez. Agora: Skill = prompt salvo para reutilizar sempre. Plugin = coleção de skills para uma área inteira. Project = o briefing permanente onde suas skills ficam sempre ativas.
+</div>
+
+<hr>
+
+<h2>2.1 Exercício — Notas de reunião → ata estruturada</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Transformar anotações manuscritas em uma ata da reunião digitalizada e organizada.
+</div>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Escolha uma reunião recente para a qual você tenha anotações em papel — bloco, caderno, post-it. Se não tiver nada em mãos, pode usar <a href="https://drive.google.com/drive/folders/1JqrWBC4gRA2vVhShqCNYhl5OBj7gN3tg" target="_blank">essas fotos de exemplo</a>.</span></li>
+  <li><span class="step-n">2</span><span>Tire foto das notas com o celular.</span></li>
+  <li><span class="step-n">3</span><span>Abra a ferramenta (Copilot se for assunto confidencial), cole o prompt abaixo e anexe a(s) foto(s).</span></li>
+  <li><span class="step-n">4</span><span>Revise o resultado. Se alguma seção ficou incompleta ou algo ficou faltando, diga o que está faltando e peça para a IA melhorar a ata — ela ajusta na hora.</span></li>
+</ol>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Sobre fotos de notas</div>
+  Uma foto é o mesmo risco que colar o texto. Se as anotações tocam em assuntos confidenciais, use Copilot (M365) — não ChatGPT, Claude ou Gemini pessoal.
+</div>
+
+<p><strong>Skill — Notas de reunião → ata estruturada</strong> <a href="hrsa-skills/skill-ata-reuniao.md" class="skill-download" download>📄 baixar .md</a></p>
+
+<div class="callout prompt">
+<strong>SKILL: NOTAS DE REUNIÃO → ATA ESTRUTURADA</strong>
+
+Você é um assistente jurídico da HRSA. Transforme as notas abaixo em uma ata organizada.
+
+Formato:
+
+ATA DE REUNIÃO
+Data: [das notas, ou em branco]
+Participantes: [das notas, ou em branco]
+Assunto: [uma linha]
+
+TEMAS DISCUTIDOS
+[Agrupe tópicos relacionados em seções com subtítulo curto (ex.: "Masterplan", "Fluxo de reclamações"). Transforme os fragmentos em frases legíveis. Não deixe 20 bullets soltos.]
+
+DECISÕES TOMADAS
+[Só inclua se houver decisões explícitas nas notas. Caso contrário, omita a seção e pergunte no final.]
+
+PRÓXIMOS PASSOS
+[Só inclua se houver ações explícitas nas notas, no formato "- Ação (responsável, prazo)". Caso contrário, omita a seção e pergunte no final.]
+
+Ao final, adicione uma seção PARA COMPLETAR com perguntas (máximo 3-4) para eu preencher o que faltou — participantes, decisões, próximos passos, ou trechos ambíguos. Tom colaborativo.
+
+Regras:
+- Preserve siglas, nomes próprios, números e bases legais literais.
+- Se algo está ambíguo nas notas, use [trecho pouco claro] ou [palavra?].
+- Nada de placeholders como "não mencionado" — se falta info, omita a seção e pergunte depois.</div>
+
+<hr>
+
+<h2>2.2 Exercício — Texto → estrutura de apresentação</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Gerar um arquivo .pptx completo explicando um conceito jurídico para um cliente, com design que você não precise refazer.
+</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Sobre o resultado</div>
+  Gerar .pptx bem-feito é um recurso ainda em evolução, e os modelos variam bastante. Claude tem, de longe, os melhores resultados — se puder, use Claude para este exercício. Nos outros modelos (ChatGPT, Copilot, Gemini), o resultado inicial costuma ser mais fraco: slides densos, layouts repetitivos, hierarquia visual fraca. Nesse caso, itere — peça para refazer com mais espaço em branco, títulos maiores, referências concretas ("estilo McKinsey", "estilo consultoria estratégica"). Quanto mais específico o feedback, melhor o segundo resultado.
+</div>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Escolha um texto jurídico — uma lei, uma decisão, um artigo, um memorando. Pode ser curto. Por exemplo, copie os arts. 31 a 35 da <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank">LC 214/25</a> (Split Payment da Reforma Tributária).</span></li>
+  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta preferida.</span></li>
+  <li><span class="step-n">3</span><span>Cole o texto logo depois do prompt e envie. Se usar a LC 214/25, copie só os arts. 31-35 — não cole a lei inteira.</span></li>
+  <li><span class="step-n">4</span><span>Baixe o arquivo .pptx gerado. Abra, revise, peça ajustes se necessário.</span></li>
+</ol>
+
+<p><strong>Prompt — copie e cole</strong></p>
+
+<div class="callout prompt">
+Gere uma apresentação em arquivo .pptx explicando o conteúdo do texto abaixo para um cliente empresarial — pessoa inteligente, mas sem formação jurídica. Objetivo: que ele entenda o conceito e por que é relevante para o negócio dele.
+
+Estrutura: entre 5 e 8 slides. Para cada slide: título curto + 3 a 4 bullets concisos.
+
+Identidade visual HRSA (aplicar em todos os slides):
+- Cor principal: #414042 (charcoal escuro) — usada em títulos e como cor de destaque
+- Cor secundária: #dbdcdd (cinza claro) — usada em fundos de seção, divisores, ou barras de destaque
+- Fundo dos slides: #ffffff (branco)
+- Cor do texto: #414042
+- Fonte: Segoe UI em todos os textos — peso regular para corpo, peso bold para títulos
+- Paleta monocromática: não adicione azuis, dourados ou outras cores pop. O contraste vem só do charcoal, cinza claro e branco.
+
+Design:
+- Slide de capa com título da apresentação em fonte grande, sobre fundo branco com uma barra de cor charcoal no topo ou na lateral
+- Hierarquia visual clara: títulos muito maiores que bullets
+- Uso generoso de espaço em branco — slides densos cansam
+- Se fizer sentido para algum slide, inclua uma tabela ou um diagrama simples usando a paleta acima
+
+Idioma: português jurídico brasileiro.</div>
+
+<hr>
+
+<h2>Skills prontas — biblioteca para levar para o dia a dia</h2>
+
+<p>Um conjunto de skills prontas para tarefas jurídicas recorrentes. Baixe o arquivo <code>.md</code> da skill que te interessa, salve no seu Project do Claude (ou ChatGPT/Copilot) e use quando precisar. Ajuste conforme a sua rotina — é assim que ela vira sua.</p>
+
+<h3>Skill A — Remoção de dados pessoais (PII) <a href="hrsa-skills/skill-remocao-pii.md" class="skill-download" download>📄 baixar .md</a></h3>
+<p>Use antes de colocar qualquer documento com dados de cliente em ferramentas externas. Quando trabalhar em ambiente corporativo (Copilot dentro do M365), esta skill não é estritamente necessária — o documento já está protegido.</p>
+
+<div class="callout prompt">
+<strong>SKILL: REMOÇÃO DE DADOS PESSOAIS (PII)</strong>
+
+Você é um assistente jurídico da HRSA.
+
+<strong>OBJETIVO PRINCIPAL</strong>
+Reproduzir o texto completo fornecido, aplicando substituições literais de dados pessoais, e retornar o resultado INTEGRAL no chat.
+
+<strong>IMPORTANTE SOBRE O FORMATO</strong>
+- A ferramenta pode falhar ao lidar com textos longos.
+- Portanto, se necessário, você PODE dividir a resposta em múltiplas partes.
+- Porém:
+   - Cada parte deve continuar exatamente de onde a anterior parou
+   - Nenhuma linha pode ser omitida
+   - Nenhum trecho pode ser resumido
+- Ao final, o texto completo deve estar integralmente reproduzido no conjunto das respostas.
+
+<strong>TAREFA</strong>
+Aplicar substituições literais no texto fornecido.
+
+<strong>REGRAS ABSOLUTAS</strong>
+
+1. <strong>REPRODUÇÃO INTEGRAL</strong>
+   - Reproduzir 100% do texto original
+   - Linha por linha
+   - Sem omissões
+
+2. <strong>SUBSTITUIÇÃO LITERAL APENAS</strong>
+   - NÃO reescrever frases
+   - NÃO melhorar o texto
+   - NÃO corrigir gramática
+   - NÃO interpretar conteúdo
+   - NÃO reorganizar parágrafos ou formatação
+
+3. <strong>PROIBIÇÕES</strong>
+   - PROIBIDO resumir
+   - PROIBIDO usar "[…]"
+   - PROIBIDO omitir qualquer trecho
+   - PROIBIDO alterar estrutura visual
+
+4. <strong>SUBSTITUIÇÕES OBRIGATÓRIAS</strong>
+   - Nomes de pessoas → [NOME_PESSOA]
+   - Nomes de empresas → [NOME_EMPRESA]
+   - CPF / CNPJ → [CPF] / [CNPJ]
+   - Endereços completos de partes (rua, número, bairro, CEP) → [ENDEREÇO]
+   - E-mails → [EMAIL]
+   - Telefones → [TELEFONE]
+   - Valores financeiros → R$ [VALOR]
+   - Datas específicas que identifiquem o caso (ex.: "12 de março de 2024") → [DATA]
+
+   <strong>NÃO substituir:</strong>
+   - Referências jurisdicionais ou contextuais (ex.: "legislação paulista", "Justiça Federal em São Paulo", "TJSP")
+   - Prazos e linguagem temporal estrutural (ex.: "em 15 dias", "prazo de 90 dias", "no prazo contratual")
+
+5. <strong>REGRA DE INCERTEZA</strong>
+   - Se houver dúvida sobre classificação: → usar [VERIFICAR: trecho original] → NÃO inferir
+
+6. <strong>FIDELIDADE TOTAL DE FORMATAÇÃO</strong>
+   Manter exatamente:
+   - Pontuação
+   - Espaços
+   - Quebras de linha
+   - Numeração
+   - Estrutura do documento
+
+7. <strong>SAÍDA FINAL (OBRIGATÓRIA)</strong>
+   Após reproduzir TODO o texto anonimizado, incluir ao final:
+
+   <strong>TABELA DE SUBSTITUIÇÕES</strong>
+   | Original | Substituído por |
+
+<strong>CRITÉRIO DE ERRO</strong>
+Se qualquer parte do texto original não aparecer no resultado final, a resposta está incorreta.</div>
+
+<h3>Skill B — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
+<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção.</p>
+
+<div class="callout prompt">
+<strong>SKILL: PREPARAÇÃO DE REUNIÃO</strong>
+
+Você é um assistente jurídico da HRSA.
+
+Com base no contexto abaixo, prepare um briefing de reunião com:
+
+1. Objetivo da reunião (em uma linha)
+2. Agenda sugerida (tópicos em ordem lógica, com tempo estimado por tópico)
+3. Pontos de atenção: o que o advogado precisa saber antes de entrar na reunião
+4. Perguntas-chave a fazer durante a reunião
+5. Documentos que devem estar em mãos
+
+Contexto da reunião:
+- Tipo: [cliente / contraparte / interna / audiência]
+- Assunto: [descrever]
+- Participantes: [listar]
+- Histórico relevante: [descrever ou deixar em branco]
+
+Regras:
+- Se o contexto fornecido não for suficiente para responder algum item do briefing, diga qual informação está faltando — não preencha com suposições
+- Não invente histórico ou contexto que não foi informado</div>
+
+<h3>Skill C — Tradução jurídica <a href="hrsa-skills/skill-traducao-juridica.md" class="skill-download" download>📄 baixar .md</a></h3>
+
+<div class="callout prompt">
+<strong>SKILL: TRADUÇÃO JURÍDICA</strong>
+
+Você é um tradutor jurídico especializado em direito brasileiro e internacional.
+
+Traduza o texto abaixo do [inglês / espanhol] para o português jurídico brasileiro.
+
+Regras:
+- Mantenha a precisão técnica — não simplifique termos jurídicos
+- Use os equivalentes consagrados na doutrina brasileira
+- Para termos sem equivalente direto, mantenha o original entre parênteses: ex. "representations and warranties (declarações e garantias)"
+- Se encontrar um termo cuja tradução jurídica você não tiver certeza, sinalize com [VERIFICAR TRADUÇÃO: termo] em vez de arriscar uma versão incorreta
+
+Ao final, liste em tabela os 5 termos mais relevantes traduzidos:
+| Termo original | Tradução utilizada | Observação |</div>
+
+<h3>Skill D — Revisão de contrato <a href="hrsa-skills/skill-revisao-contrato.md" class="skill-download" download>📄 baixar .md</a></h3>
+<p>Análise cláusula-por-cláusula contra a posição do cliente, com semáforo de risco (🟢🟡🔴), redlines sugeridos e estratégia de negociação. Skill longa e estruturada — pensada para você carregar no seu Project e usar em contratos reais da sua rotina.</p>
+<p style="font-size:9.5pt; color:#666; font-style:italic;">Adaptada do skill <code>contract-review</code> da Anthropic (Claude).</p>
+
+<hr>
+
+
+</body>
+</html>

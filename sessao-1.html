@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 40px auto;
+    color: #1a1a1a;
+  }
+  .cover {
+    text-align: center;
+    padding: 60px 0 80px;
+    border-bottom: 2px solid #222;
+    margin-bottom: 48px;
+  }
+  .cover-label { font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-bottom: 24px; }
+  .cover-title { font-size: 28pt; font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: #111; }
+  .cover-sub { font-size: 14pt; color: #444; margin-bottom: 32px; }
+  .cover-meta { font-size: 10pt; color: #888; }
+  .session-divider { margin: 56px 0 32px; padding-bottom: 10px; border-bottom: 2px solid #111; }
+  .session-num { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .session-title { font-size: 20pt; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .session-meta { font-size: 10pt; color: #666; }
+  h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; }
+  .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
+  .callout.time { border-left-color: #888; background: #f7f7f7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; }
+  .callout.warning { border-left-color: #b45309; background: #fffbeb; }
+  .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .goal .callout-label { color: #2d6a4f; }
+  .time .callout-label { color: #555; }
+  .prompt .callout-label { color: #1a365d; }
+  .warning .callout-label { color: #b45309; }
+  .tip .callout-label { color: #5b21b6; }
+  .steps { margin: 10px 0; padding-left: 0; list-style: none; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
+  .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .levels { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .badge { font-size: 9pt; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .badge.basic { background: #d1fae5; color: #065f46; }
+  .badge.plus { background: #ede9fe; color: #4c1d95; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+  th { background: #111; color: #fff; padding: 8px 12px; text-align: left; font-size: 9.5pt; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+  .session-outline { font-size: 10pt; color: #555; margin: 8px 0 20px; padding-left: 0; list-style: none; }
+  .session-outline li { padding: 4px 0; border-bottom: 1px solid #eee; }
+  .session-outline li::before { content: "→ "; color: #aaa; }
+  p { margin: 8px 0; font-size: 10.5pt; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 4px; font-size: 10.5pt; }
+  .page-break { page-break-after: always; }
+  .setup-box { border: 1.5px solid #111; border-radius: 8px; padding: 16px 20px; margin: 16px 0; background: #fafafa; }
+  .setup-box h3 { margin-top: 0; }
+  .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
+  .skill-download { font-size: 9.5pt; font-weight: 400; margin-left: 10px; color: #555; text-decoration: none; border-bottom: 1px dotted #999; }
+  .skill-download:hover { color: #111; border-bottom-color: #111; }
+</style>
+</head>
+<body>
+
+<!-- COMPACT COVER -->
+<div class="cover">
+  <div class="cover-label">DC Cruz · HRSA Advogados · Confidencial</div>
+  <div class="cover-title">IA na Prática</div>
+  <div class="cover-sub">Sessão 1 — Confiança e fundamentos</div>
+  <div class="cover-meta">
+    Workshop · Abril / Maio 2026<br>
+    Documento de exercícios — abra no seu computador durante a sessão e use para copiar os prompts
+  </div>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚙ Sobre as ferramentas nesta sessão</div>
+  Use a ferramenta de IA que você já usa e se sente mais confortável — ChatGPT, Claude, Copilot, Gemini. Só usamos NotebookLM quando o exercício pede especificamente.
+</div>
+
+<!-- ===================== SESSÃO 1 ===================== -->
+<div class="session-divider page-break">
+  <div class="session-num">Sessão 1 de 3</div>
+  <div class="session-title">Confiança e fundamentos</div>
+  <div class="session-meta">Segurança de dados · NotebookLM · Copilot + SharePoint · Como a IA funciona</div>
+</div>
+
+<ul class="session-outline">
+  <li>Check-in: quem já usa e como</li>
+  <li>A. Fundamentos: o que é uma IA, token, contexto, memória</li>
+  <li>B. O que é um prompt — e o que separa um bom de um ruim</li>
+  <li>1.1 Exercício — três personalidades: sentindo o efeito do prompt</li>
+  <li>C. Segurança de dados e sigilo profissional</li>
+  <li>1.2 Exercício — ajuste de configurações da sua conta pessoal</li>
+  <li>1.3 Exercício — NotebookLM: perguntas ao nosso notebook</li>
+  <li>D. Como a IA funciona: alucinações e como evitar</li>
+  <li>Wrap-up</li>
+</ul>
+
+<hr>
+
+<h2>A. Fundamentos: como uma IA funciona na prática</h2>
+
+<p>Antes de qualquer exercício, vale entender o que essas ferramentas realmente são — e o que elas não são. Cinco conceitos resolvem 90% da confusão.</p>
+
+<h3>Uma IA é um autocomplete muito sofisticado</h3>
+
+<p>Um LLM (<em>Large Language Model</em> — modelo de linguagem de grande escala) é, no fundo, um autocomplete. Ele recebe um texto e prevê qual é a próxima palavra mais provável, depois a próxima, depois a próxima. Faz isso bilhões de vezes, treinado em uma fração relevante da internet e da literatura mundial. O resultado é bom o suficiente para parecer que ele "entende" — mas a mecânica subjacente continua sendo previsão estatística.</p>
+
+<p>Isso tem uma consequência prática importante: <strong>a IA não sabe o que é verdade. Ela sabe o que é provável.</strong> Quando você pergunta algo que ela não sabe, a resposta "mais provável" é inventar algo plausível — e é exatamente isso que chamamos de alucinação. Voltamos nisso no final da sessão.</p>
+
+<h3>Token: a unidade que a IA usa para pensar</h3>
+
+<p>A IA não lê palavras — ela lê <strong>tokens</strong>. Um token é um pedaço de texto: pode ser uma palavra inteira ("casa"), um pedaço de palavra ("inconstitucionalidade" vira vários tokens), um sinal de pontuação ou um espaço. Em português, a conta aproximada é <em>1 token ≈ 0,75 palavra</em>.</p>
+
+<p>Isso importa porque nos planos pagos por uso (API, alguns planos corporativos) você paga por token — textos longos custam mais e demoram mais para responder.</p>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Veja na prática</div>
+  Cole qualquer texto em <a href="https://platform.openai.com/tokenizer" target="_blank">platform.openai.com/tokenizer</a> e veja como ele é quebrado em tokens. Experimente com um nome jurídico complicado — "inconstitucionalidade", "Superior Tribunal de Justiça" — e veja quantos tokens cada um consome.
+</div>
+
+<h3>Contexto: a memória curta da conversa</h3>
+
+<p>O <strong>contexto</strong> (ou <em>context window</em> — janela de contexto) é a mesa de trabalho da IA: tudo que ela consegue "ver" de uma vez — sua mensagem, o histórico da conversa, os documentos anexados, as instruções do Project. Cabe muita coisa (centenas de milhares de tokens — um livro inteiro), mas tem tamanho finito. Dois efeitos práticos:</p>
+
+<ul>
+  <li><strong>Conversas muito longas começam a "esquecer" o início.</strong> Quando a janela enche, as mensagens mais antigas saem. Se você está numa conversa de 2 horas e a IA parece ter perdido o fio, provavelmente o início já saiu do contexto. Melhor abrir uma nova conversa e trazer só o que importa.</li>
+  <li><strong>Documentos muito grandes podem não caber inteiros.</strong> Se você cola 500 páginas de contrato, parte pode ficar fora. Prefira recortar o que interessa — ou dividir a tarefa.</li>
+</ul>
+
+<h3>Memória: o que fica entre conversas</h3>
+
+<p>Contexto dura uma conversa. <strong>Memória</strong> é diferente: é o que a IA guarda sobre você entre conversas. Claude, ChatGPT e Gemini já têm memória persistente (você pode ligar ou desligar nas configurações): a IA lembra que você é advogada societária da HRSA, que prefere respostas diretas, que trabalha com clientes do setor financeiro.</p>
+
+<hr>
+
+<h2>B. O que é um prompt (e o que separa um bom de um ruim)</h2>
+
+<p>Um <strong>prompt</strong> é a instrução que você dá para a IA. É o único canal pelo qual você se comunica com ela. Todo o resto — qualidade da resposta, tom, formato, precisão — depende de quão bem você escreveu essa instrução.</p>
+
+<p>Quanto mais específico e contextualizado, melhor o resultado. Um prompt ruim gera um resultado genérico. Um prompt bem feito gera um rascunho que você só precisa revisar.</p>
+
+<p><strong>Exemplo: prompt ruim vs. prompt bom</strong></p>
+
+<div class="callout prompt">
+❌  "Resuma esse contrato."
+
+✅  "Você é um advogado societário. Resuma o contrato abaixo em 5 bullet points,
+    destacando: prazo, obrigações das partes, penalidades e cláusulas de saída.
+    Se algum ponto não estiver claro no contrato, sinalize com [VERIFICAR].
+    Se não encontrar alguma dessas informações, diga explicitamente que não está
+    no contrato — não tente inferir.
+    Contrato: [colar aqui]"</div>
+
+<p>O que o segundo prompt faz de diferente:</p>
+
+<ul>
+  <li><strong>Define um papel</strong> ("você é um advogado societário") — isso calibra o tom, o vocabulário e o nível de profundidade.</li>
+  <li><strong>Especifica o formato</strong> (5 bullet points) — a IA não precisa adivinhar se você quer um parágrafo, uma tabela ou uma lista.</li>
+  <li><strong>Lista o que importa</strong> (prazo, obrigações, penalidades, saída) — em vez de receber um resumo genérico, você recebe exatamente o que precisa.</li>
+  <li><strong>Dá permissão para não saber</strong> ("sinalize com [VERIFICAR]", "diga explicitamente que não está no contrato") — essa é a instrução mais importante de todas. Sem ela, a IA tende a preencher lacunas com algo plausível mas errado.</li>
+</ul>
+
+<div class="callout tip">
+  <div class="callout-label">💡 A regra que resolve metade dos problemas</div>
+  Sempre inclua no prompt: <em>"Se não encontrar a informação, diga explicitamente — não tente inferir."</em> Essa única frase reduz drasticamente o risco de alucinação. Vamos usar ela em praticamente toda skill do workshop.
+</div>
+
+<hr>
+
+<h2>1.1 Exercício — Três personalidades: sentindo o efeito do prompt</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Ver, na prática, como uma única instrução no prompt muda completamente o tom, o estilo e até o tipo de ajuda que a IA oferece. Mesma tarefa, três personalidades, três resultados muito diferentes.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Ferramenta: a que você já usa</div>
+</div>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Copie o prompt abaixo e cole na sua ferramenta preferida.</span></li>
+  <li><span class="step-n">2</span><span>Escolha um dos três perfis (1, 2 ou 3) e deixe a IA te ajudar com o e-mail.</span></li>
+  <li><span class="step-n">3</span><span>Responda as duas perguntas de acompanhamento que a IA vai fazer.</span></li>
+  <li><span class="step-n">4</span><span>Quando quiser sentir a diferença, digite <strong>RECOMEÇAR</strong> e escolha outro perfil. Compare os dois resultados.</span></li>
+</ol>
+
+<p><strong>Prompt — copie e cole</strong></p>
+
+<div class="callout prompt">
+Você vai me ajudar com uma tarefa jurídica simples, mas primeiro preciso escolher um estilo de atendimento — e os estilos são bem diferentes do normal.
+
+Me apresente exatamente 3 perfis de assistente, cada um com um nome, uma personalidade MUITO distinta e um emoji. Os perfis devem ser:
+
+1. 🎓 O Professor Catedrático — um professor universitário de Direito, metódico e didático. Fala de forma formal e acadêmica, sempre começa pelo conceito geral, cita a doutrina majoritária, usa expressões como "vale destacar que", "conforme o entendimento consolidado", "em outras palavras". Trata o usuário como um aluno brilhante que merece a explicação completa. Prefere pecar pelo excesso de contexto.
+
+2. 🎤 O Mano da Quebrada — um rapper brasileiro consciente, tipo um Mano Brown explicando as coisas. Usa gírias de quebrada e tom de conversa de esquina ("é o seguinte, parceiro", "cola aqui que eu te explico", "sem mimimi", "tá ligado?", "a parada é a seguinte"). Faz analogias do corre do dia a dia, da periferia, da cultura de rua — mas sempre com conteúdo sólido por trás. Trata o usuário como um parceiro que merece a real sem enrolação.
+
+3. ⚽ O Galvão do Direito — um narrador esportivo dramático, estilo Galvão Bueno narrando uma final de Copa. Transforma qualquer assunto jurídico em grande decisão do campeonato. Usa expressões como "HAJA CORAÇÃO!", "ATENÇÃO BRASIL!", "amigos da Rede Globo", "é o Brasil na área!", e vibra com cada detalhe como se fosse gol no último minuto. O conteúdo é sério, mas a narração é puro futebol.
+
+Apresente os 3 perfis de forma curta (2-3 linhas cada, já dando um gostinho do estilo de cada um) e me peça para escolher um número (1, 2 ou 3).
+
+Depois que eu escolher, adote COMPLETAMENTE aquela personalidade e me ajude com a seguinte tarefa:
+
+Preciso redigir um e-mail curto para um cliente explicando que o prazo do processo dele foi adiado em 30 dias.
+
+Mantenha a personalidade escolhida durante toda a conversa — inclusive ao sugerir o texto do e-mail (com o tempero do personagem, mas ainda algo que faça sentido para o cliente ler). Depois de me ajudar com o e-mail, me faça 2 perguntas de acompanhamento (ainda no personagem) para melhorar o resultado.
+
+Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente para eu escolher outro.</div>
+
+<hr>
+
+<h2>C. Segurança de dados e sigilo profissional</h2>
+
+<h3>Diferença entre as ferramentas</h3>
+<table>
+  <tr><th>Ferramenta</th><th>Onde os dados ficam</th><th>Treina modelos com seus dados?</th><th>Quem pode ver o que você digita?</th></tr>
+  <tr><td><strong>Copilot dentro do M365</strong></td><td>Servidores da Microsoft (parceria com a OpenAI) — sob contrato corporativo com proteções equivalentes às do seu e-mail corporativo</td><td>Não — dados de contas corporativas são explicitamente excluídos do treinamento</td><td>Apenas você e quem tem acesso ao ambiente M365 da HRSA — mesma lógica do seu e-mail corporativo</td></tr>
+  <tr><td><strong>Claude e ChatGPT — planos pessoais</strong><br><span style="font-weight:400; font-size:9.5pt; color:#666;">(Free, Pro, Plus, Max)</span></td><td>Servidores da Anthropic ou OpenAI, nos EUA</td><td>Sim, por padrão. É possível desativar nas configurações.</td><td>Funcionários da empresa, para revisão de qualidade e moderação. Autoridades, em caso de intimação judicial.</td></tr>
+  <tr><td><strong>Claude e ChatGPT — planos Team ou Enterprise</strong></td><td>Mesmos servidores, sob contrato formal com DPA (acordo de processamento de dados), logs de auditoria e retenção reduzida</td><td>Não — a menos que você dê feedback (👍/👎) sobre uma resposta.</td><td>Apenas você e quem tem acesso à sua conta corporativa. Acesso de funcionários é restrito a casos específicos (suporte, segurança, abuso) e registrado em log.</td></tr>
+  <tr><td><strong>NotebookLM</strong></td><td>Servidores do Google</td><td>Não — a menos que você dê feedback (👍/👎) sobre uma resposta</td><td>Apenas você e quem você convidar. Se você der feedback, o conteúdo relacionado pode ser revisado por funcionários do Google (sem vínculo com sua conta).</td></tr>
+</table>
+
+<p style="font-size:9.5pt; color:#666; margin-top:-8px;"><em>Em todas elas — inclusive as corporativas — o provedor se reserva o direito de processar conteúdo para prevenir fraude, abuso e falhas técnicas. Sistemas automatizados sempre tocam o conteúdo; em casos excepcionais (suspeita de abuso, processo legal), funcionários também. É a mesma ressalva de qualquer serviço em nuvem, incluindo o e-mail corporativo.</em></p>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ <em>United States v. Heppner</em> (SDNY, fev/2026)</div>
+  O Juiz Jed Rakoff decidiu que documentos gerados por um réu usando a versão pública do Claude não estavam protegidos por <em>attorney-client privilege</em> nem pela <em>work product doctrine</em>. Três fatos pesaram: (i) uso de versão pública, cujos termos permitem coleta e compartilhamento; (ii) sem orientação do advogado; (iii) política de privacidade que afastava expectativa de confidencialidade. A corte sinalizou que o resultado poderia ter sido diferente em ferramenta corporativa usada sob direção do advogado. Ou seja: o que contamina o sigilo não é a IA — é o plano, o ambiente e a forma de uso. <a href="https://www.justice.gov/usao-sdny/us-v-heppner-25-cr-503">Link para o caso</a>.
+</div>
+
+<hr>
+
+<h2>1.2 Exercício — Ajuste as configurações da sua conta pessoal</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Desativar, nas contas pessoais que você já usa, o treinamento com seus dados. É o primeiro passo de higiene — não resolve tudo (retenção e revisão continuam existindo), mas fecha a porta mais óbvia.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Ferramenta: a conta que você já tem — Claude, ChatGPT ou Gemini</div>
+</div>
+
+<div class="setup-box">
+  <h3>⚙ Se você já tem uma conta em pelo menos uma das três ferramentas</h3>
+  <p>Abra a ferramenta que você usa e siga o caminho correspondente:</p>
+  <table>
+    <tr><th>Ferramenta</th><th>Caminho</th></tr>
+    <tr><td><strong>Claude</strong></td><td><a href="https://claude.ai/settings/data-privacy-controls">claude.ai/settings/data-privacy-controls</a> → desligar <em>"Help improve Claude"</em></td></tr>
+    <tr><td><strong>ChatGPT</strong></td><td>Perfil (canto inferior esquerdo) → Settings → Data Controls → desligar <em>"Improve the model for everyone"</em></td></tr>
+    <tr><td><strong>Gemini</strong></td><td><a href="https://myactivity.google.com/product/gemini">myactivity.google.com/product/gemini</a> → desligar <em>"Atividade do Gemini Apps"</em> (ou ajustar auto-delete para 3 meses)</td></tr>
+  </table>
+
+  <h3 style="margin-top:16px;">⚙ Se você não tem conta em nenhuma das três</h3>
+  <p>Crie uma conta gratuita no Claude em <a href="https://claude.ai/login">claude.ai</a> (digite seu e-mail e siga o fluxo de cadastro) e, logo após o cadastro, ajuste a configuração acima.</p>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Regra de ouro</div>
+  Desativar o treinamento reduz o risco, mas não elimina a transmissão e a retenção dos dados. A proteção real é não colocar dados identificáveis de clientes em ferramentas pessoais. Se precisar usar um documento real: anonimize primeiro com a Skill A da Sessão 2.
+</div>
+
+<hr>
+
+<h2>1.3 Exercício — NotebookLM: perguntas ao nosso notebook</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Experimentar o que é RAG (<em>Retrieval-Augmented Generation</em>) na prática: a IA responde com base nos documentos que você carregou — não inventa, e cita a fonte.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Ferramenta: NotebookLM · link compartilhado pelo facilitador</div>
+</div>
+
+<div class="setup-box">
+  <h3>⚙ Setup — faça agora</h3>
+  <ol class="steps">
+    <li><span class="step-n">1</span><span>Abra o link do NotebookLM abaixo. O notebook já está criado com os documentos carregados — você não precisa fazer upload de nada.<br><a href="https://notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797">notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797</a></span></li>
+    <li><span class="step-n">2</span><span>Certifique-se de estar logado com sua conta Gmail.</span></li>
+    <li><span class="step-n">3</span><span>Você vai ver os documentos carregados na barra lateral esquerda.</span></li>
+  </ol>
+</div>
+
+<h3>Perguntas ao notebook</h3>
+<p>Copie e cole uma das perguntas abaixo no chat do NotebookLM — ou faça a sua própria sobre mitologia grega. Observe como ele cita o trecho do documento de onde tirou cada resposta — clique na citação para ir direto ao ponto exato no texto fonte.</p>
+
+<p><strong>Perguntas — escolha uma (ou mais):</strong></p>
+
+<div class="callout prompt">
+1. Panorama:
+   Quais são os doze deuses olímpicos principais? Para cada um, cite o domínio
+   (guerra, amor, etc.) e indique de qual documento veio a resposta.
+
+2. Texto primário:
+   No primeiro canto da Ilíada, qual é a origem da briga entre Agamêmnon e
+   Aquiles? Cite o trecho literal do poema.
+
+3. Teste de limites:
+   Os documentos mencionam alguma divindade da mitologia nórdica (Thor, Odin,
+   Loki)?
+
+4. Fontes divergentes:
+   Os doze trabalhos de Hércules aparecem em mais de um documento? Se sim, há
+   diferenças entre as versões? Cite os trechos que sustentam cada versão.</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 O que observar</div>
+  O NotebookLM sempre cita a fonte, e a pergunta sobre mitologia nórdica (item 3) é o teste crítico: uma IA sem RAG tentaria responder de memória — e provavelmente com erros. Com RAG, ela responde apenas com base no que está no notebook, e avisa quando a informação não está lá.
+</div>
+
+<h3>Recursos do Studio <span style="font-weight:400; font-size:0.75em; color:#666;">(demo do facilitador)</span></h3>
+
+<p>Esta parte é demo — os recursos do <strong>Studio</strong> do NotebookLM (painel direito) só estão disponíveis para o <em>dono</em> do notebook, e o nosso é compartilhado. O facilitador vai mostrar ao vivo, a partir dos mesmos documentos de mitologia grega, três saídas que o NotebookLM gera com um clique:</p>
+
+<ul>
+  <li><strong>Visão geral em áudio (podcast)</strong> — dois apresentadores conversando sobre o conteúdo do notebook, em tom de podcast. Dá para customizar foco e tom antes de gerar.</li>
+  <li><strong>Vídeo</strong> — uma explicação narrada com slides animados, gerada a partir dos documentos.</li>
+  <li><strong>Apresentação em slides (Slide Deck)</strong> — um deck estruturado pronto para apresentar, com bullets e referência aos documentos fonte.</li>
+</ul>
+
+<p>Existem outros: mapas mentais, flashcards, quizzes, relatórios. Todos seguem o mesmo princípio — <strong>tudo é gerado a partir do conteúdo do notebook</strong>, com fontes rastreáveis.</p>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Quer testar no seu próprio notebook</div>
+  Para ter acesso ao Studio, você precisa ser o dono do notebook. Crie um notebook próprio em <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a>, carregue seus documentos (uma lei, uma decisão, um artigo da sua área) e os recursos do painel Studio vão aparecer para você.
+</div>
+
+<hr>
+
+<h2>D. Como a IA funciona: alucinações e como evitar</h2>
+
+<h3>3 regras para REDUZIR alucinações</h3>
+<table>
+  <tr><th>Regra</th><th>Por quê funciona</th><th>Exemplo prático</th></tr>
+  <tr><td><strong>Seja específico</strong></td><td>Contexto reduz ambiguidade</td><td>"Revise essa cláusula de não concorrência para contrato societário brasileiro" é melhor que "revise isso"</td></tr>
+  <tr><td><strong>Peça para citar a fonte</strong></td><td>Força a IA a ancorar na realidade</td><td>"Cite o artigo e número exato" — se não existir, o modelo vai admitir que não encontrou. Teste agora: <a href="https://claude.ai" target="_blank">claude.ai</a></td></tr>
+  <tr><td><strong>Diga "se não souber, fale"</strong></td><td>Sem essa instrução, a IA tende a preencher lacunas com algo plausível mas errado</td><td>Inclua sempre: "Se não encontrar a informação, diga explicitamente — não tente inferir." É obrigatório em toda skill.</td></tr>
+</table>
+
+<div class="callout warning">
+  <div class="callout-label">Regra de ouro</div>
+  <strong>Sempre revise.</strong> A IA é um estagiário muito rápido — útil, incansável, mas sem OAB. O output dela é um ponto de partida, não um produto final. Você ainda assina o trabalho.
+</div>
+
+
+</body>
+</html>
