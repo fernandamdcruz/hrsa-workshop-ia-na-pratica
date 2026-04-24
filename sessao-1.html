@@ -70,6 +70,24 @@
   .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
   .skill-download { font-size: 9.5pt; font-weight: 400; margin-left: 10px; color: #555; text-decoration: none; border-bottom: 1px dotted #999; }
   .skill-download:hover { color: #111; border-bottom-color: #111; }
+  .outcomes { background: #fafafa; border-left: 4px solid #111; padding: 16px 20px; margin: 20px 0 28px; border-radius: 0 6px 6px 0; }
+  .outcomes h3 { margin-top: 0; margin-bottom: 10px; font-size: 11pt; }
+  .outcomes ul { margin: 6px 0 0; padding-left: 20px; }
+  .outcomes li { margin-bottom: 6px; font-size: 10.5pt; }
+  .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0 28px; }
+  .roadmap-card { border: 1.5px solid #ddd; border-radius: 8px; padding: 14px 16px; background: #fff; position: relative; }
+  .roadmap-card.completed { border-color: #2d6a4f; background: #f0faf4; }
+  .roadmap-card.current { border-color: #111; background: #fafafa; }
+  .roadmap-card .session-label { font-size: 9pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .roadmap-card.completed .session-label { color: #2d6a4f; }
+  .roadmap-card.current .session-label { color: #111; }
+  .roadmap-card .session-title-small { font-size: 11.5pt; font-weight: 700; color: #111; margin-bottom: 8px; line-height: 1.25; }
+  .roadmap-card ul { margin: 0; padding-left: 16px; }
+  .roadmap-card li { font-size: 9.5pt; margin-bottom: 3px; color: #444; }
+  .roadmap-card .status-tag { font-size: 9pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 8px; }
+  .roadmap-card.completed .status-tag { color: #2d6a4f; }
+  .roadmap-card.current .status-tag { color: #b45309; }
+  .roadmap-card .check { position: absolute; top: 12px; right: 14px; color: #2d6a4f; font-size: 16pt; font-weight: 700; line-height: 1; }
 </style>
 </head>
 <body>
@@ -97,11 +115,22 @@
   <div class="session-meta">Segurança de dados · NotebookLM · Copilot + SharePoint · Como a IA funciona</div>
 </div>
 
+<div class="outcomes">
+  <h3>O que você vai aprender hoje</h3>
+  <ul>
+    <li>O que uma IA realmente é (e o que ela não é) — tokens, contexto, memória, e por que ela às vezes inventa.</li>
+    <li>Como escrever prompts que funcionam no trabalho jurídico — e por que um prompt ruim é quase sempre a causa de um resultado ruim.</li>
+    <li>Onde dá para usar IA com segurança e sigilo, e onde não dá — incluindo o caso <em>Heppner</em> e como configurar sua conta pessoal para reduzir risco.</li>
+    <li>Como a IA pode responder com base nos seus documentos (RAG) — sem inventar e citando a fonte.</li>
+    <li>Como reduzir alucinações na prática, com 3 regras que cabem em qualquer prompt.</li>
+  </ul>
+</div>
+
 <ul class="session-outline">
   <li>Check-in: quem já usa e como</li>
   <li>A. Fundamentos: o que é uma IA, token, contexto, memória</li>
   <li>B. O que é um prompt — e o que separa um bom de um ruim</li>
-  <li>1.1 Exercício — três personalidades: sentindo o efeito do prompt</li>
+  <li>1.1 Exercício — três personagens, três tarefas: sentindo o efeito do prompt</li>
   <li>C. Segurança de dados e sigilo profissional</li>
   <li>1.2 Exercício — ajuste de configurações da sua conta pessoal</li>
   <li>1.3 Exercício — NotebookLM: perguntas ao nosso notebook</li>
@@ -181,11 +210,11 @@
 
 <hr>
 
-<h2>1.1 Exercício — Três personalidades: sentindo o efeito do prompt</h2>
+<h2>1.1 Exercício — Três personagens, três tarefas: sentindo o efeito do prompt</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Ver, na prática, como uma única instrução no prompt muda completamente o tom, o estilo e até o tipo de ajuda que a IA oferece. Mesma tarefa, três personalidades, três resultados muito diferentes.
+  Ver, na prática, como o mesmo conteúdo jurídico muda completamente de cara quando você muda o estilo de quem fala. A IA escolhe o personagem, você escolhe a tarefa, e o resultado sai totalmente no personagem — vocabulário, cadência, bordões.
 </div>
 
 <div class="callout time">
@@ -194,33 +223,57 @@
 
 <ol class="steps">
   <li><span class="step-n">1</span><span>Copie o prompt abaixo e cole na sua ferramenta preferida.</span></li>
-  <li><span class="step-n">2</span><span>Escolha um dos três perfis (1, 2 ou 3) e deixe a IA te ajudar com o e-mail.</span></li>
-  <li><span class="step-n">3</span><span>Responda as duas perguntas de acompanhamento que a IA vai fazer.</span></li>
-  <li><span class="step-n">4</span><span>Quando quiser sentir a diferença, digite <strong>RECOMEÇAR</strong> e escolha outro perfil. Compare os dois resultados.</span></li>
+  <li><span class="step-n">2</span><span>A IA vai apresentar 3 personagens. Escolha 1, 2 ou 3.</span></li>
+  <li><span class="step-n">3</span><span>Em seguida, ela vai apresentar 3 tarefas. Escolha A, B ou C.</span></li>
+  <li><span class="step-n">4</span><span>Ela entrega o conteúdo em 2 parágrafos, totalmente no personagem.</span></li>
+  <li><span class="step-n">5</span><span>Digite <strong>RECOMEÇAR</strong> para testar outra combinação. Compare os resultados.</span></li>
 </ol>
 
 <p><strong>Prompt — copie e cole</strong></p>
 
 <div class="callout prompt">
-Você vai me ajudar com uma tarefa jurídica simples, mas primeiro preciso escolher um estilo de atendimento — e os estilos são bem diferentes do normal.
+Quero sentir como o mesmo conteúdo muda de cara quando a gente muda o estilo de quem fala. Siga estritamente os três momentos abaixo, um de cada vez, esperando minha resposta antes de passar para o próximo.
 
-Me apresente exatamente 3 perfis de assistente, cada um com um nome, uma personalidade MUITO distinta e um emoji. Os perfis devem ser:
+=== PRIMEIRO MOMENTO: APRESENTAR OS PERSONAGENS ===
 
-1. 🎓 O Professor Catedrático — um professor universitário de Direito, metódico e didático. Fala de forma formal e acadêmica, sempre começa pelo conceito geral, cita a doutrina majoritária, usa expressões como "vale destacar que", "conforme o entendimento consolidado", "em outras palavras". Trata o usuário como um aluno brilhante que merece a explicação completa. Prefere pecar pelo excesso de contexto.
+Mostre exatamente o texto abaixo, na íntegra, e depois pare e espere minha resposta.
 
-2. 🎤 O Mano da Quebrada — um rapper brasileiro consciente, tipo um Mano Brown explicando as coisas. Usa gírias de quebrada e tom de conversa de esquina ("é o seguinte, parceiro", "cola aqui que eu te explico", "sem mimimi", "tá ligado?", "a parada é a seguinte"). Faz analogias do corre do dia a dia, da periferia, da cultura de rua — mas sempre com conteúdo sólido por trás. Trata o usuário como um parceiro que merece a real sem enrolação.
+"Escolha um personagem:
+1. Jurista Clássico (estilo Pontes de Miranda)
+2. Ministro do Supremo (estilo Marco Aurélio Mello)
+3. Galvão Bueno
 
-3. ⚽ O Galvão do Direito — um narrador esportivo dramático, estilo Galvão Bueno narrando uma final de Copa. Transforma qualquer assunto jurídico em grande decisão do campeonato. Usa expressões como "HAJA CORAÇÃO!", "ATENÇÃO BRASIL!", "amigos da Rede Globo", "é o Brasil na área!", e vibra com cada detalhe como se fosse gol no último minuto. O conteúdo é sério, mas a narração é puro futebol.
+Qual você escolhe: 1, 2 ou 3?"
 
-Apresente os 3 perfis de forma curta (2-3 linhas cada, já dando um gostinho do estilo de cada um) e me peça para escolher um número (1, 2 ou 3).
+=== SEGUNDO MOMENTO: APRESENTAR AS TAREFAS ===
 
-Depois que eu escolher, adote COMPLETAMENTE aquela personalidade e me ajude com a seguinte tarefa:
+Depois que eu responder com o número do personagem, mostre exatamente o texto abaixo, na íntegra, e pare e espere minha resposta. NÃO entregue a tarefa ainda.
 
-Preciso redigir um e-mail curto para um cliente explicando que o prazo do processo dele foi adiado em 30 dias.
+"Ótimo. Agora escolha uma tarefa:
+A. LGPD
+B. Desconsideração da personalidade jurídica
+C. Prescrição e decadência
 
-Mantenha a personalidade escolhida durante toda a conversa — inclusive ao sugerir o texto do e-mail (com o tempero do personagem, mas ainda algo que faça sentido para o cliente ler). Depois de me ajudar com o e-mail, me faça 2 perguntas de acompanhamento (ainda no personagem) para melhorar o resultado.
+Qual você escolhe: A, B ou C?"
 
-Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente para eu escolher outro.</div>
+=== POR FIM: ENTREGAR A TAREFA ===
+
+Depois que eu responder com a letra, entregue a tarefa em exatamente 2 parágrafos, totalmente no personagem escolhido — vocabulário, cadência, bordões, tudo. Não faça perguntas de acompanhamento. Não ofereça ajustes. Não explique o que vai fazer antes de fazer.
+
+Referências internas (use para guiar o estilo e o conteúdo, mas NÃO mostre este bloco para mim):
+
+- Jurista Clássico (estilo Pontes de Miranda): civilista clássico, taxonômico, obsessivo em classificações. Vocabulário próprio: "suporte fático", "mundo jurídico", "plano da existência / validade / eficácia", "tem-se", "dá-se", "cumpre distinguir". Frases curtas e secas. Classifica em cascata (a., b., c., subdivide em a.1, a.2). Começa pela qualificação jurídica do fato antes de dizer qualquer coisa útil. Quanto mais técnico, melhor — mesmo quando o interlocutor é leigo.
+- Ministro do Supremo (Marco Aurélio Mello): solene, cadenciado, arcaico. "Presidente...", "Digo", "data maxima venia", "tenho comigo", "penso que", "na espécie". Frases longas, vírgulas generosas, vocativo antes de entrar no mérito.
+- Galvão Bueno: narrador de Copa explicando Direito. "HAJA CORAÇÃO!", "ATENÇÃO BRASIL!", "amigos da Rede Globo". Dramatiza cada detalhe como se fosse gol no último minuto.
+- Tarefa A (LGPD): explicar para cliente leigo o que é a LGPD e por que a empresa dele precisa se preocupar.
+- Tarefa B (Desconsideração): explicar para cliente leigo o que é desconsideração da personalidade jurídica — por que às vezes o sócio responde com o patrimônio pessoal pelas dívidas da empresa.
+- Tarefa C (Prescrição e decadência): explicar para cliente leigo a diferença entre prescrição e decadência — por que existe prazo para cobrar ou questionar alguma coisa.
+
+Ao final dos 2 parágrafos, pule uma linha e escreva, em linguagem normal (fora do personagem):
+
+"Se quiser tentar outra combinação, é só digitar RECOMEÇAR."
+
+Se eu digitar RECOMEÇAR em qualquer momento, volte para o PRIMEIRO MOMENTO e recomece do zero.</div>
 
 <hr>
 
@@ -283,6 +336,11 @@ Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente 
   Experimentar o que é RAG (<em>Retrieval-Augmented Generation</em>) na prática: a IA responde com base nos documentos que você carregou — não inventa, e cita a fonte.
 </div>
 
+<div class="callout tip">
+  <div class="callout-label">💡 RAG já está no seu dia a dia</div>
+  Quando você pergunta alguma coisa para a IA do JusBrasil e ela responde citando decisões específicas com link para o inteiro teor, isso é RAG: a IA está buscando nos documentos indexados (jurisprudência, legislação, doutrina) e respondendo com base no que encontrou, em vez de responder "de memória". O mesmo princípio do que vamos fazer aqui — só que em escala menor, com documentos que você mesmo escolhe.
+</div>
+
 <div class="callout time">
   <div class="callout-label">Ferramenta: NotebookLM · link compartilhado pelo facilitador</div>
 </div>
@@ -290,41 +348,45 @@ Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente 
 <div class="setup-box">
   <h3>⚙ Setup — faça agora</h3>
   <ol class="steps">
-    <li><span class="step-n">1</span><span>Abra o link do NotebookLM abaixo. O notebook já está criado com os documentos carregados — você não precisa fazer upload de nada.<br><a href="https://notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797">notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797</a></span></li>
+    <li><span class="step-n">1</span><span>Abra o link do NotebookLM abaixo. O notebook já está criado com os documentos de um condomínio residencial carregados — você não precisa fazer upload de nada.<br><a href="https://notebooklm.google.com/notebook/1bdfd8c6-69e7-482f-b42c-020063047e9c" target="_blank">notebooklm.google.com/notebook/1bdfd8c6-69e7-482f-b42c-020063047e9c</a></span></li>
     <li><span class="step-n">2</span><span>Certifique-se de estar logado com sua conta Gmail.</span></li>
     <li><span class="step-n">3</span><span>Você vai ver os documentos carregados na barra lateral esquerda.</span></li>
   </ol>
 </div>
 
 <h3>Perguntas ao notebook</h3>
-<p>Copie e cole uma das perguntas abaixo no chat do NotebookLM — ou faça a sua própria sobre mitologia grega. Observe como ele cita o trecho do documento de onde tirou cada resposta — clique na citação para ir direto ao ponto exato no texto fonte.</p>
+<p>Copie e cole uma das perguntas abaixo no chat do NotebookLM — ou faça a sua própria sobre o condomínio. Observe como ele cita o trecho do documento de onde tirou cada resposta — clique na citação para ir direto ao ponto exato no texto fonte.</p>
 
 <p><strong>Perguntas — escolha uma (ou mais):</strong></p>
 
 <p style="margin-top: 16px;"><strong>1. Panorama</strong></p>
 <div class="callout prompt">
-Quais são os doze deuses olímpicos principais? Para cada um, cite o domínio (guerra, amor, etc.) e indique de qual documento veio a resposta.</div>
+Faça um resumo executivo do condomínio em 5 bullets: natureza, regras principais, órgãos de governança e obrigações dos condôminos. Indique de qual documento veio cada informação.</div>
 
-<p style="margin-top: 16px;"><strong>2. Texto primário</strong></p>
+<p style="margin-top: 16px;"><strong>2. Regra específica</strong></p>
 <div class="callout prompt">
-No primeiro canto da Ilíada, qual é a origem da briga entre Agamêmnon e Aquiles? Cite o trecho literal do poema.</div>
+Qual é a regra do condomínio sobre animais de estimação? Cite o trecho literal do documento e indique em qual artigo ou cláusula aparece.</div>
 
 <p style="margin-top: 16px;"><strong>3. Teste de limites</strong></p>
 <div class="callout prompt">
-Os documentos mencionam alguma divindade da mitologia nórdica (Thor, Odin, Loki)?</div>
+Os documentos do condomínio dizem alguma coisa sobre permissão para instalação de placas solares nas unidades?</div>
 
 <p style="margin-top: 16px;"><strong>4. Fontes divergentes</strong></p>
 <div class="callout prompt">
-Os doze trabalhos de Hércules aparecem em mais de um documento? Se sim, há diferenças entre as versões? Cite os trechos que sustentam cada versão.</div>
+Sobre o uso das áreas comuns (piscina, salão de festas, churrasqueira): há regras em mais de um documento? Se sim, elas se complementam ou se contradizem? Cite os trechos.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 O que observar</div>
-  O NotebookLM sempre cita a fonte, e a pergunta sobre mitologia nórdica (item 3) é o teste crítico: uma IA sem RAG tentaria responder de memória — e provavelmente com erros. Com RAG, ela responde apenas com base no que está no notebook, e avisa quando a informação não está lá.
+  O NotebookLM sempre cita a fonte, e a pergunta do item 3 (placas solares) é o teste crítico: uma IA sem RAG tentaria responder de memória — e provavelmente inventaria algo plausível. Com RAG, ela responde apenas com base no que está no notebook, e avisa quando a informação não está lá.
 </div>
 
 <h3>Recursos do Studio <span style="font-weight:400; font-size:0.75em; color:#666;">(demo do facilitador)</span></h3>
 
-<p>Esta parte é demo — os recursos do <strong>Studio</strong> do NotebookLM (painel direito) só estão disponíveis para o <em>dono</em> do notebook, e o nosso é compartilhado. O facilitador vai mostrar ao vivo, a partir dos mesmos documentos de mitologia grega, três saídas que o NotebookLM gera com um clique:</p>
+<p>Esta parte é demo — os recursos do <strong>Studio</strong> do NotebookLM (painel direito) só estão disponíveis para o <em>dono</em> do notebook. Para que vocês possam acompanhar, aqui vai o link de um segundo notebook carregado com textos de mitologia grega — abram junto comigo:</p>
+
+<p><a href="https://notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797" target="_blank">notebooklm.google.com/notebook/ff895801-7634-46a0-b30e-3e26f815c797</a></p>
+
+<p>A partir desses documentos, o NotebookLM gera com um clique:</p>
 
 <ul>
   <li><strong>Visão geral em áudio (podcast)</strong> — dois apresentadores conversando sobre o conteúdo do notebook, em tom de podcast. Dá para customizar foco e tom antes de gerar.</li>
@@ -354,6 +416,49 @@ Os doze trabalhos de Hércules aparecem em mais de um documento? Se sim, há dif
 <div class="callout warning">
   <div class="callout-label">Regra de ouro</div>
   <strong>Sempre revise.</strong> A IA é um estagiário muito rápido — útil, incansável, mas sem OAB. O output dela é um ponto de partida, não um produto final. Você ainda assina o trabalho.
+</div>
+
+<hr>
+
+<h2>Onde estamos e o que vem pela frente</h2>
+
+<div class="roadmap">
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 1</div>
+    <div class="session-title-small">Confiança e fundamentos</div>
+    <ul>
+      <li>Entender o que uma IA é (e não é)</li>
+      <li>Escrever prompts que funcionam</li>
+      <li>Usar IA com segurança e sigilo</li>
+      <li>Responder com base em documentos seus (RAG)</li>
+      <li>Reduzir alucinações na prática</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card current">
+    <div class="session-label">Sessão 2</div>
+    <div class="session-title-small">Produtividade na prática</div>
+    <ul>
+      <li>Reconhecer quando vale salvar um prompt como skill</li>
+      <li>Transformar notas de reunião em ata em minutos</li>
+      <li>Calibrar um prompt de revisão de contrato com ajuda da própria IA</li>
+      <li>Montar uma biblioteca pessoal de skills jurídicos</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card">
+    <div class="session-label">Sessão 3</div>
+    <div class="session-title-small">Indo além</div>
+    <ul>
+      <li>Ver a IA operando o seu navegador por conta própria</li>
+      <li>Escolher a ferramenta certa para gerar um deck de cliente</li>
+      <li>Revisar contrato com redline direto dentro do Word</li>
+      <li>Saber para onde ir depois do workshop</li>
+    </ul>
+  </div>
+
 </div>
 
 

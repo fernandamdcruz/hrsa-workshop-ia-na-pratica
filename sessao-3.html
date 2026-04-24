@@ -70,6 +70,21 @@
   .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
   .skill-download { font-size: 9.5pt; font-weight: 400; margin-left: 10px; color: #555; text-decoration: none; border-bottom: 1px dotted #999; }
   .skill-download:hover { color: #111; border-bottom-color: #111; }
+  .outcomes { background: #fafafa; border-left: 4px solid #111; padding: 16px 20px; margin: 20px 0 28px; border-radius: 0 6px 6px 0; }
+  .outcomes h3 { margin-top: 0; margin-bottom: 10px; font-size: 11pt; }
+  .outcomes ul { margin: 6px 0 0; padding-left: 20px; }
+  .outcomes li { margin-bottom: 6px; font-size: 10.5pt; }
+  .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0 28px; }
+  .roadmap-card { border: 1.5px solid #ddd; border-radius: 8px; padding: 14px 16px; background: #fff; position: relative; }
+  .roadmap-card.completed { border-color: #2d6a4f; background: #f0faf4; }
+  .roadmap-card.current { border-color: #111; background: #fafafa; }
+  .roadmap-card .session-label { font-size: 9pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .roadmap-card.completed .session-label { color: #2d6a4f; }
+  .roadmap-card.current .session-label { color: #111; }
+  .roadmap-card .session-title-small { font-size: 11.5pt; font-weight: 700; color: #111; margin-bottom: 8px; line-height: 1.25; }
+  .roadmap-card ul { margin: 0; padding-left: 16px; }
+  .roadmap-card li { font-size: 9.5pt; margin-bottom: 3px; color: #444; }
+  .roadmap-card .check { position: absolute; top: 12px; right: 14px; color: #2d6a4f; font-size: 16pt; font-weight: 700; line-height: 1; }
 </style>
 </head>
 <body>
@@ -93,6 +108,16 @@
 </div>
 
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
+
+<div class="outcomes">
+  <h3>O que você vai aprender hoje</h3>
+  <ul>
+    <li>Como a IA pode operar o seu navegador por conta própria — buscando, clicando, extraindo informação em sistemas logados.</li>
+    <li>Como escolher a ferramenta certa para gerar um deck de cliente — e por que o resultado varia tanto entre os LLMs.</li>
+    <li>Como revisar um contrato com redline diretamente dentro do Word, usando controle de alterações.</li>
+    <li>Para onde ir depois do workshop — Claude Desktop, plugin jurídico, Cowork.</li>
+  </ul>
+</div>
 
 <ul class="session-outline">
   <li>Conceito: expandindo o alcance da IA</li>
@@ -247,6 +272,51 @@ Idioma: português jurídico brasileiro.</div>
 <div class="callout tip">
   <div class="callout-label">💬 Estamos aqui</div>
   Qualquer dúvida, ideia nova ou skill que queira refinar: nos manda mensagem no WhatsApp. Não precisa esperar o próximo workshop.
+</div>
+
+<hr>
+
+<h2>O que aprendemos</h2>
+
+<div class="roadmap">
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 1</div>
+    <div class="session-title-small">Confiança e fundamentos</div>
+    <ul>
+      <li>Entender o que uma IA é (e não é)</li>
+      <li>Escrever prompts que funcionam</li>
+      <li>Usar IA com segurança e sigilo</li>
+      <li>Responder com base em documentos seus (RAG)</li>
+      <li>Reduzir alucinações na prática</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 2</div>
+    <div class="session-title-small">Produtividade na prática</div>
+    <ul>
+      <li>Reconhecer quando vale salvar um prompt como skill</li>
+      <li>Transformar notas de reunião em ata em minutos</li>
+      <li>Calibrar um prompt de revisão de contrato com ajuda da própria IA</li>
+      <li>Montar uma biblioteca pessoal de skills jurídicos</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 3</div>
+    <div class="session-title-small">Indo além</div>
+    <ul>
+      <li>Ver a IA operando o seu navegador por conta própria</li>
+      <li>Escolher a ferramenta certa para gerar um deck de cliente</li>
+      <li>Revisar contrato com redline direto dentro do Word</li>
+      <li>Saber para onde ir depois do workshop</li>
+    </ul>
+  </div>
+
 </div>
 
 <hr>
