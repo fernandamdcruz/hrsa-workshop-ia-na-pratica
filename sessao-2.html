@@ -94,7 +94,7 @@
 <div class="session-divider page-break">
   <div class="session-num">Sessão 2 de 3</div>
   <div class="session-title">Produtividade na prática</div>
-  <div class="session-meta">Skills · Plugins · Projects · Minutas · Personalizando skills · Tradução · Preparação de reunião</div>
+  <div class="session-meta">Skills · Plugins · Projects · Ata de reunião · Revisão de contrato de locação</div>
 </div>
 
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
@@ -102,7 +102,7 @@
 <ul class="session-outline">
   <li>A. Skill, plugin e project — o que é cada um</li>
   <li>2.1 Exercício — Notas de reunião → ata estruturada</li>
-  <li>2.2 Exercício — Personalizando uma skill</li>
+  <li>2.2 Exercício — Melhorando um prompt de revisão de contrato</li>
   <li>Biblioteca de skills — pontos de partida para personalizar</li>
   <li>Wrap-up e preview da Sessão 3</li>
 </ul>
@@ -141,7 +141,7 @@
 <ol class="steps">
   <li><span class="step-n">1</span><span>Escolha uma reunião recente para a qual você tenha anotações em papel — bloco, caderno, post-it. Se não tiver nada em mãos, pode usar <a href="https://drive.google.com/drive/folders/1JqrWBC4gRA2vVhShqCNYhl5OBj7gN3tg" target="_blank">essas fotos de exemplo</a>.</span></li>
   <li><span class="step-n">2</span><span>Tire foto das notas com o celular.</span></li>
-  <li><span class="step-n">3</span><span>Abra a ferramenta (Copilot se for assunto confidencial), cole o prompt abaixo e anexe a(s) foto(s).</span></li>
+  <li><span class="step-n">3</span><span>Abra a ferramenta (Copilot se for assunto confidencial), cole o prompt abaixo e anexe a(s) foto(s). <em>iPhone + ChatGPT: o ChatGPT não aceita <code>.heic</code>; converta a foto para <code>.jpg</code> antes ou tire print.</em></span></li>
   <li><span class="step-n">4</span><span>Revise o resultado. Se alguma seção ficou incompleta ou algo ficou faltando, diga o que está faltando e peça para a IA melhorar a ata — ela ajusta na hora.</span></li>
 </ol>
 
@@ -180,39 +180,46 @@ Regras:
 
 <hr>
 
-<h2>2.2 Exercício — Personalizando uma skill</h2>
+<h2>2.2 Exercício — Melhorando um prompt de revisão de contrato</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Transformar a Skill A (genérica) em uma skill sua para preparação de primeira reunião com cliente novo.
+  Pegar um prompt razoável de revisão de contrato e, pedindo à própria IA as perguntas certas, transformá-lo em um prompt calibrado para o seu caso. No final, você testa o prompt aprimorado no contrato de locação da Capitu.
 </div>
 
+<p>Um bom prompt jurídico tem, no mínimo, três elementos: <strong>papel</strong> (quem você é / quem representa), <strong>foco</strong> (o que olhar com atenção) e <strong>formato do output</strong> (como você quer receber). Sem esses três, a revisão tende a ser genérica.</p>
+
+<p>Neste exercício, você parte de um prompt que já serve, mas é neutro demais — e pede para a IA <strong>te entrevistar</strong> para calibrar os três elementos acima ao seu caso específico.</p>
+
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Copie o texto da <strong>Skill A — Preparação de reunião</strong> (mais abaixo no documento).</span></li>
-  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta, junto com a Skill A.</span></li>
-  <li><span class="step-n">3</span><span>Responda as perguntas que a IA fizer sobre a sua rotina.</span></li>
-  <li><span class="step-n">4</span><span>A IA vai devolver uma nova skill personalizada. Teste com um caso fictício e ajuste se necessário.</span></li>
+  <li><span class="step-n">1</span><span>Cole o prompt abaixo na ferramenta da sua preferência.</span></li>
+  <li><span class="step-n">2</span><span>A IA vai te fazer 3-4 perguntas. Responda.</span></li>
+  <li><span class="step-n">3</span><span>Ao final, a IA devolve um prompt calibrado, pronto para colar em uma nova conversa com o contrato anexado.</span></li>
+  <li><span class="step-n">4</span><span>Teste o prompt aprimorado no <a href="https://docs.google.com/document/d/1rfyxIBttgTGdbMEJMjbyR__uakEuW8tp4JAVg-k-xz4/edit?usp=sharing" target="_blank">contrato de locação da Capitu</a> (Drive). Compare com o que o prompt base daria.</span></li>
 </ol>
 
-<p><strong>Prompt — copie e cole (com a Skill A logo depois)</strong></p>
+<p><strong>Prompt — copie e cole</strong></p>
 
 <div class="callout prompt">
-Abaixo está uma skill genérica de preparação de reunião. Quero transformá-la em uma skill específica para preparação de primeira reunião com cliente novo — adaptada à minha rotina.
+Abaixo está um prompt base de revisão de contrato. Ele funciona, mas é neutro demais — serve para qualquer contrato, o que na prática significa que não serve bem para nenhum.
 
-Antes de reescrever a skill, me faça de 4 a 6 perguntas, uma por vez, para entender:
-- que tipo de cliente costumo atender
-- o que sempre quero descobrir na primeira reunião
-- que perguntas nunca esqueço de fazer
-- que documentos costumo pedir
-- que riscos (conflito, compliance, KYC) preciso checar antes da reunião
-- que formato de briefing me ajuda mais (curto e direto ou completo)
+Prompt base:
+"Você é um advogado experiente. Revise o contrato abaixo, identifique cláusulas problemáticas e sugira pontos de atenção. Se algo não estiver claro, sinalize — não invente cláusulas que não existem."
+
+Quero calibrar esse prompt para o meu caso. Antes de reescrevê-lo, me faça 3 perguntas, uma por vez, sobre:
+
+1. Papel — qual lado estou representando (locador/locatário, comprador/vendedor, empregador/empregado, etc.) e o que é inegociável para esse cliente.
+2. Foco — quais áreas merecem atenção especial (garantias, multa, reajuste, cláusulas de saída, responsabilidade, indenização, etc.), com base no tipo de contrato.
+3. Formato — como quero o output (bullets com bandeiras vermelhas, redlines sugeridos cláusula-por-cláusula, parecer curto para cliente, etc.).
 
 Espere minha resposta antes de passar para a próxima pergunta.
 
-Depois que eu responder tudo, reescreva a skill — mantendo a estrutura de instrução, mas agora específica para primeira reunião com cliente novo, incorporando as minhas respostas. Devolva a skill pronta em um bloco de código, para eu copiar e salvar.
+Depois que eu responder tudo, devolva um prompt de revisão de contrato aprimorado — incorporando as minhas respostas — pronto para eu colar em uma nova conversa junto com o contrato a ser revisado. Entregue em um bloco de código.</div>
 
-Skill genérica:
-[cole a Skill A aqui]</div>
+<div class="callout tip">
+  <div class="callout-label">💡 Quando terminar</div>
+  O prompt que você construiu é útil no dia a dia. Para revisão de contrato mais robusta — cláusula-por-cláusula, semáforo de risco, redlines, estratégia de negociação — a <strong>Skill D</strong> (mais abaixo na biblioteca) é a versão completa.
+</div>
 
 
 
@@ -220,10 +227,10 @@ Skill genérica:
 
 <h2>Biblioteca de skills — pontos de partida para personalizar</h2>
 
-<p>As skills abaixo são <strong>starting points</strong>, não versões finais. Pegue a que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize usando o método do exercício 2.2 — é isso que transforma uma skill genérica em uma skill sua.</p>
+<p>As skills abaixo são <strong>starting points</strong>, não versões finais. Pegue a que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize — assim como fizemos no exercício 2.2 com o prompt de revisão de contrato. É isso que transforma uma skill genérica em uma skill sua.</p>
 
 <h3>Skill A — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
-<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é o ponto de partida do exercício 2.2. Em sua versão-base serve como scaffold; seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência.</p>
+<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é um scaffold. Seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência (primeira reunião com cliente novo, reunião com contraparte, audiência, etc.).</p>
 
 <div class="callout prompt">
 Você é um assistente jurídico da HRSA.
