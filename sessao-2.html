@@ -184,17 +184,17 @@ Regras:
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Transformar a Skill B (genérica) em uma skill sua para preparação de primeira reunião com cliente novo.
+  Transformar a Skill A (genérica) em uma skill sua para preparação de primeira reunião com cliente novo.
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Copie o texto da <strong>Skill B — Preparação de reunião</strong> (mais abaixo no documento).</span></li>
-  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta, junto com a Skill B.</span></li>
+  <li><span class="step-n">1</span><span>Copie o texto da <strong>Skill A — Preparação de reunião</strong> (mais abaixo no documento).</span></li>
+  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta, junto com a Skill A.</span></li>
   <li><span class="step-n">3</span><span>Responda as perguntas que a IA fizer sobre a sua rotina.</span></li>
   <li><span class="step-n">4</span><span>A IA vai devolver uma nova skill personalizada. Teste com um caso fictício e ajuste se necessário.</span></li>
 </ol>
 
-<p><strong>Prompt — copie e cole (com a Skill B logo depois)</strong></p>
+<p><strong>Prompt — copie e cole (com a Skill A logo depois)</strong></p>
 
 <div class="callout prompt">
 Abaixo está uma skill genérica de preparação de reunião. Quero transformá-la em uma skill específica para preparação de primeira reunião com cliente novo — adaptada à minha rotina.
@@ -212,7 +212,7 @@ Espere minha resposta antes de passar para a próxima pergunta.
 Depois que eu responder tudo, reescreva a skill — mantendo a estrutura de instrução, mas agora específica para primeira reunião com cliente novo, incorporando as minhas respostas. Devolva a skill pronta em um bloco de código, para eu copiar e salvar.
 
 Skill genérica:
-[cole a Skill B aqui]</div>
+[cole a Skill A aqui]</div>
 
 
 
@@ -222,7 +222,31 @@ Skill genérica:
 
 <p>Um conjunto de skills prontas para tarefas jurídicas recorrentes. Baixe o arquivo <code>.md</code> da skill que te interessa, salve no seu Project do Claude (ou ChatGPT/Copilot) e use quando precisar. Ajuste conforme a sua rotina — é assim que ela vira sua.</p>
 
-<h3>Skill A — Remoção de dados pessoais (PII) <a href="hrsa-skills/skill-remocao-pii.md" class="skill-download" download>📄 baixar .md</a></h3>
+<h3>Skill A — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
+<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é o ponto de partida do exercício 2.2. Em sua versão-base serve como scaffold; seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência.</p>
+
+<div class="callout prompt">
+Você é um assistente jurídico da HRSA.
+
+Com base no contexto abaixo, prepare um briefing de reunião com:
+
+1. Objetivo da reunião (em uma linha)
+2. Agenda sugerida (tópicos em ordem lógica, com tempo estimado por tópico)
+3. Pontos de atenção: o que o advogado precisa saber antes de entrar na reunião
+4. Perguntas-chave a fazer durante a reunião
+5. Documentos que devem estar em mãos
+
+Contexto da reunião:
+- Tipo: [cliente / contraparte / interna / audiência]
+- Assunto: [descrever]
+- Participantes: [listar]
+- Histórico relevante: [descrever ou deixar em branco]
+
+Regras:
+- Se o contexto fornecido não for suficiente para responder algum item do briefing, diga qual informação está faltando — não preencha com suposições
+- Não invente histórico ou contexto que não foi informado</div>
+
+<h3>Skill B — Remoção de dados pessoais (PII) <a href="hrsa-skills/skill-remocao-pii.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Use antes de colocar qualquer documento com dados de cliente em ferramentas externas. Quando trabalhar em ambiente corporativo (Copilot dentro do M365), esta skill não é estritamente necessária — o documento já está protegido.</p>
 
 <div class="callout prompt">
@@ -297,45 +321,25 @@ Aplicar substituições literais no texto fornecido.
 <strong>CRITÉRIO DE ERRO</strong>
 Se qualquer parte do texto original não aparecer no resultado final, a resposta está incorreta.</div>
 
-<h3>Skill B — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
-<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é o ponto de partida do exercício 2.2. Em sua versão-base serve como scaffold; seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência.</p>
-
-<div class="callout prompt">
-Você é um assistente jurídico da HRSA.
-
-Com base no contexto abaixo, prepare um briefing de reunião com:
-
-1. Objetivo da reunião (em uma linha)
-2. Agenda sugerida (tópicos em ordem lógica, com tempo estimado por tópico)
-3. Pontos de atenção: o que o advogado precisa saber antes de entrar na reunião
-4. Perguntas-chave a fazer durante a reunião
-5. Documentos que devem estar em mãos
-
-Contexto da reunião:
-- Tipo: [cliente / contraparte / interna / audiência]
-- Assunto: [descrever]
-- Participantes: [listar]
-- Histórico relevante: [descrever ou deixar em branco]
-
-Regras:
-- Se o contexto fornecido não for suficiente para responder algum item do briefing, diga qual informação está faltando — não preencha com suposições
-- Não invente histórico ou contexto que não foi informado</div>
-
 <h3>Skill C — Tradução jurídica <a href="hrsa-skills/skill-traducao-juridica.md" class="skill-download" download>📄 baixar .md</a></h3>
 
 <div class="callout prompt">
 Você é um tradutor jurídico especializado em direito brasileiro e internacional.
 
-Traduza o texto abaixo do [inglês / espanhol] para o português jurídico brasileiro.
+Detecte o idioma do texto abaixo e aplique esta lógica de direção:
+- Se o texto estiver em inglês, espanhol, francês, italiano ou alemão → traduza para português jurídico brasileiro.
+- Se o texto estiver em português → antes de traduzir, me pergunte se quero inglês ou espanhol como idioma de destino.
 
 Regras:
-- Mantenha a precisão técnica — não simplifique termos jurídicos
-- Use os equivalentes consagrados na doutrina brasileira
-- Para termos sem equivalente direto, mantenha o original entre parênteses: ex. "representations and warranties (declarações e garantias)"
-- Se encontrar um termo cuja tradução jurídica você não tiver certeza, sinalize com [VERIFICAR TRADUÇÃO: termo] em vez de arriscar uma versão incorreta
+- Mantenha a precisão técnica — não simplifique termos jurídicos.
+- Use os equivalentes consagrados na doutrina e na prática jurídica do país de destino.
+- Para termos sem equivalente direto, mantenha o original entre parênteses: ex. "representations and warranties (declarações e garantias)".
+- Preserve a estrutura do documento: numeração de cláusulas, capitalização de termos definidos (DEFINED TERMS), negrito, itálico e quebras de parágrafo.
+- Atenção a falsos cognatos clássicos (actually ≠ atualmente; eventual ≠ eventual; consideration em contratos = contraprestação; sentence penal = condenação, não sentença; execution de contrato = assinatura, não execução).
+- Termos com carga jurisdicional específica (ex.: Chapter 11, quitclaim deed, amparo, juicio ejecutivo) — mantenha o original e adicione uma nota entre colchetes explicando o conceito brevemente.
+- Se encontrar um termo cuja tradução jurídica você não tiver certeza, sinalize com [VERIFICAR TRADUÇÃO: termo] em vez de arriscar uma versão incorreta.
 
-Ao final, liste em tabela os 5 termos mais relevantes traduzidos:
-| Termo original | Tradução utilizada | Observação |</div>
+Antes de começar, se o texto mencionar um tipo específico de documento (contrato de M&A, petição, parecer, acórdão, certificado, e-mail de contraparte) ou uma jurisdição específica que afete a terminologia, calibre a tradução para esse contexto.</div>
 
 <h3>Skill D — Revisão de contrato <a href="hrsa-skills/skill-revisao-contrato.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Análise cláusula-por-cláusula contra a posição do cliente, com semáforo de risco (🟢🟡🔴), redlines sugeridos e estratégia de negociação. Skill longa e estruturada — pensada para você carregar no seu Project e usar em contratos reais da sua rotina.</p>
