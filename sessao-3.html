@@ -95,8 +95,8 @@
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
 
 <ul class="session-outline">
-  <li>Conceito: por que a IA precisa de olhos</li>
-  <li>Demo 1: Claude no Chrome — jurisprudência e pesquisa sobre cliente</li>
+  <li>Conceito: expandindo o alcance da IA</li>
+  <li>Demo 1: Claude no Chrome — unsubscribe em massa e varredura no LinkedIn</li>
   <li>3.1 Exercício — Do texto ao deck</li>
   <li>Demo 2: Claude for Word — redline dentro do Word <em>(se tivermos tempo)</em></li>
   <li>Agora com vocês</li>
@@ -105,16 +105,16 @@
 
 <hr>
 
-<h2>Conceito — Por que a IA precisa de olhos</h2>
+<h2>Conceito — Expandindo o alcance da IA</h2>
 
 <p>Uma IA tem duas limitações fundamentais que a maioria das pessoas não percebe:</p>
 
 <p><strong>1. Ela foi treinada até uma data.</strong> Claude, ChatGPT, Gemini e Copilot hoje têm busca na web para cobrir esse buraco — mas a busca não acessa páginas com login nem enxerga o contexto do que você está fazendo. <em>Experimente: pergunte à sua ferramenta favorita qual é a data de corte do seu treinamento.</em></p>
 
-<p><strong>2. Ela só conhece o que você digita no chat.</strong> Não consegue ler o seu e-mail, abrir um documento no seu Drive, ou operar uma ferramenta no seu navegador. Duas formas de ampliar o alcance dela:</p>
+<p><strong>2. Ela só conhece o que você digita no chat.</strong> Não consegue ler o seu e-mail, abrir um documento no seu Drive, ou operar uma ferramenta no seu navegador. Duas formas de expandir o alcance dela:</p>
 
 <ul>
-  <li><strong>Claude no Chrome:</strong> dá à IA olhos no seu navegador. Ela lê e opera páginas atrás de login, sistemas internos, processos eletrônicos — qualquer coisa que você vê na tela.</li>
+  <li><strong>Claude no Chrome:</strong> a IA passa a ler e operar o seu navegador — páginas atrás de login, sistemas internos, processos eletrônicos, qualquer coisa que você vê na tela.</li>
   <li><strong>Conectores:</strong> ligam a IA às ferramentas que você já usa — Gmail, Google Drive, Outlook, Slack, e muitas outras. Em vez de você copiar e colar, a IA busca direto na fonte. O padrão técnico por trás disso chama-se <em>MCP</em> (Model Context Protocol) — pense nele como uma tomada universal entre a IA e seus sistemas.</li>
 </ul>
 
@@ -126,37 +126,30 @@
 
 <p>O Claude no Chrome é um <strong>agente de navegação</strong>: ele opera o seu navegador como se fosse você. Faz buscas logado nos sistemas que você já usa, preenche formulários, clica em botões, encontra coisas em páginas internas ou processos eletrônicos, navega entre abas. Tudo que você faz manualmente no navegador, ele pode fazer por você.</p>
 
-<h3>Exemplo 1 — Pesquisa de jurisprudência no Jusbrasil</h3>
+<h3>Exemplo 1 — Unsubscribe em massa de e-mails promocionais</h3>
 
-<p>O facilitador vai abrir o Jusbrasil logado, buscar um tema concreto (ex.: responsabilidade do administrador por ato ultra vires, rescisão indireta em home office, ou qualquer tema sugerido pelo grupo), e pedir ao Claude que leia os resultados da página e organize o panorama jurisprudencial.</p>
+<p>Caso clássico de produtividade: a caixa de entrada está entulhada de newsletters, promoções e e-mails automáticos. O facilitador vai abrir o Gmail logado e deixar o Claude identificar e dar unsubscribe em promocionais, poupando os transacionais (recibos, notificações de conta, segurança).</p>
 
-<p><strong>Prompt — pesquisa de jurisprudência</strong></p>
+<p>Este é um dos prompts prontos que já vêm no Claude for Chrome — você encontra direto na barra lateral da extensão. Se não aparecer, pode colar o texto abaixo:</p>
 
-<div class="callout prompt">
-Você está vendo a página de resultados de uma busca no Jusbrasil sobre [tema]. Com base apenas no que está visível na página:
-
-1. Quais são os precedentes mais relevantes que aparecem? Cite tribunal, relator e ano.
-2. Há uma tendência clara na jurisprudência ou os tribunais estão divididos?
-3. Qual a tese que parece prevalecer?
-4. Aponte 1 ou 2 decisões que valeriam a pena eu abrir para ler na íntegra e por quê.
-
-Se algum ponto não está claro a partir do que está na página — por exemplo, se você não consegue ver o inteiro teor — diga explicitamente. Não infira o que não está visível.</div>
-
-<h3>Exemplo 2 — Pesquisa sobre um cliente novo <span style="font-weight:400; font-size:0.75em; color:#666;">(se tivermos tempo)</span></h3>
-
-<p>Segundo exemplo: um escritório está avaliando um novo cliente — digamos, o Banco Master. Antes da primeira reunião, o advogado quer um panorama do que está sendo noticiado sobre a empresa. O facilitador vai abrir o Estadão logado e pedir ao Claude que varra as notícias recentes.</p>
-
-<p><strong>Prompt — briefing sobre cliente a partir de notícias</strong></p>
+<p><strong>Prompt — unsubscribe em massa</strong></p>
 
 <div class="callout prompt">
-Você está no Estadão logado. Busque e leia as notícias mais recentes e relevantes sobre o Banco Master. Com base no que encontrar:
+Go through my recent emails and help me unsubscribe from promotional/marketing emails. Focus on: retail promotions, marketing newsletters, sales emails, and automated promotional content. DO NOT unsubscribe from: transactional emails (receipts, shipping notifications), account security emails, or emails that appear to be personal/conversational. Start with emails from the last 2 weeks. Before unsubscribing from anything, give me a full list of the different emails you plan to unsubscribe from so I can confirm you're identifying the right types of emails. When you do this, make sure to ask me if there's any of those emails you should not unsubscribe from. For each promotional email you find: (1) Look for and click the native "unsubscribe" button from google (top of the email, next to sender email address); (2) Keep a running list of what you've unsubscribed from.</div>
 
-1. Principais fatos dos últimos 6-12 meses (timeline curta).
-2. Temas jurídicos que aparecem nas notícias (regulatório, societário, litígios, crédito, investigações).
-3. Pontos de atenção que eu deveria levantar em uma primeira reunião com executivos da empresa.
-4. Notícias específicas que vale eu ler na íntegra antes da reunião — com o link.
+<h3>Exemplo 2 — Mapear sua rede em um cliente-alvo <span style="font-weight:400; font-size:0.75em; color:#666;">(se tivermos tempo)</span></h3>
 
-Se a informação não estiver nas notícias que você conseguiu ler, diga — não preencha com conhecimento geral.</div>
+<p>Cenário de business development: antes de uma rodada de prospecção em um banco, você quer saber quem da sua rede já trabalha lá — para ver se vale pedir uma apresentação.</p>
+
+<p><strong>Prompt — conexões no Itaú</strong></p>
+
+<div class="callout prompt">
+Busque no LinkedIn pessoas da minha rede (1º grau) usando "Todos os filtros":
+
+- Empresa atual (Current companies): Itaú Unibanco
+- Localização: Brasil
+
+Me liste os resultados da primeira página: nome e cargo atual. Não role, não pagine, não abra perfis.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Se quiser instalar depois</div>
