@@ -27,10 +27,10 @@
   .session-meta { font-size: 10pt; color: #666; }
   h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
   h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
-  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; position: relative; }
   .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
   .callout.time { border-left-color: #888; background: #f7f7f7; }
-  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
   .callout.warning { border-left-color: #b45309; background: #fffbeb; }
   .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
   .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
@@ -39,6 +39,13 @@
   .prompt .callout-label { color: #1a365d; }
   .warning .callout-label { color: #b45309; }
   .tip .callout-label { color: #5b21b6; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
+  .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
+  .copy-btn svg { display: block; }
+  .copy-btn.copied { background: #1a365d; border-color: #1a365d; color: #fff; }
+  .copy-btn .copied-label { font-size: 9pt; font-weight: 600; margin-left: 4px; display: none; }
+  .copy-btn.copied .copied-label { display: inline; }
+  @media print { .copy-btn { display: none; } }
   .steps { margin: 10px 0; padding-left: 0; list-style: none; }
   .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
   .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
@@ -87,7 +94,7 @@
 <div class="session-divider page-break">
   <div class="session-num">Sessão 2 de 3</div>
   <div class="session-title">Produtividade na prática</div>
-  <div class="session-meta">Skills · Plugins · Projects · PPT · Minutas · Tradução · Preparação de reunião</div>
+  <div class="session-meta">Skills · Plugins · Projects · Minutas · Personalizando skills · Tradução · Preparação de reunião</div>
 </div>
 
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
@@ -95,7 +102,7 @@
 <ul class="session-outline">
   <li>A. Skill, plugin e project — o que é cada um</li>
   <li>2.1 Exercício — Notas de reunião → ata estruturada</li>
-  <li>2.2 Exercício — Texto → estrutura de apresentação (PPT)</li>
+  <li>2.2 Exercício — Personalizando uma skill</li>
   <li>Skills prontas — biblioteca para levar para o dia a dia</li>
   <li>Wrap-up e preview da Sessão 3</li>
 </ul>
@@ -146,8 +153,6 @@
 <p><strong>Skill — Notas de reunião → ata estruturada</strong> <a href="hrsa-skills/skill-ata-reuniao.md" class="skill-download" download>📄 baixar .md</a></p>
 
 <div class="callout prompt">
-<strong>SKILL: NOTAS DE REUNIÃO → ATA ESTRUTURADA</strong>
-
 Você é um assistente jurídico da HRSA. Transforme as notas abaixo em uma ata organizada.
 
 Formato:
@@ -175,47 +180,41 @@ Regras:
 
 <hr>
 
-<h2>2.2 Exercício — Texto → estrutura de apresentação</h2>
+<h2>2.2 Exercício — Personalizando uma skill</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Gerar um arquivo .pptx completo explicando um conceito jurídico para um cliente, com design que você não precise refazer.
-</div>
-
-<div class="callout tip">
-  <div class="callout-label">💡 Sobre o resultado</div>
-  Gerar .pptx bem-feito é um recurso ainda em evolução, e os modelos variam bastante. Claude tem, de longe, os melhores resultados — se puder, use Claude para este exercício. Nos outros modelos (ChatGPT, Copilot, Gemini), o resultado inicial costuma ser mais fraco: slides densos, layouts repetitivos, hierarquia visual fraca. Nesse caso, itere — peça para refazer com mais espaço em branco, títulos maiores, referências concretas ("estilo McKinsey", "estilo consultoria estratégica"). Quanto mais específico o feedback, melhor o segundo resultado.
+  Transformar a Skill B (genérica) em uma skill sua para preparação de primeira reunião com cliente novo.
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Escolha um texto jurídico — uma lei, uma decisão, um artigo, um memorando. Pode ser curto. Por exemplo, copie os arts. 31 a 35 da <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank">LC 214/25</a> (Split Payment da Reforma Tributária).</span></li>
-  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta preferida.</span></li>
-  <li><span class="step-n">3</span><span>Cole o texto logo depois do prompt e envie. Se usar a LC 214/25, copie só os arts. 31-35 — não cole a lei inteira.</span></li>
-  <li><span class="step-n">4</span><span>Baixe o arquivo .pptx gerado. Abra, revise, peça ajustes se necessário.</span></li>
+  <li><span class="step-n">1</span><span>Copie o texto da <strong>Skill B — Preparação de reunião</strong> (mais abaixo no documento).</span></li>
+  <li><span class="step-n">2</span><span>Cole o prompt abaixo na sua ferramenta, junto com a Skill B.</span></li>
+  <li><span class="step-n">3</span><span>Responda as perguntas que a IA fizer sobre a sua rotina.</span></li>
+  <li><span class="step-n">4</span><span>A IA vai devolver uma nova skill personalizada. Teste com um caso fictício e ajuste se necessário.</span></li>
 </ol>
 
-<p><strong>Prompt — copie e cole</strong></p>
+<p><strong>Prompt — copie e cole (com a Skill B logo depois)</strong></p>
 
 <div class="callout prompt">
-Gere uma apresentação em arquivo .pptx explicando o conteúdo do texto abaixo para um cliente empresarial — pessoa inteligente, mas sem formação jurídica. Objetivo: que ele entenda o conceito e por que é relevante para o negócio dele.
+Abaixo está uma skill genérica de preparação de reunião. Quero transformá-la em uma skill específica para preparação de primeira reunião com cliente novo — adaptada à minha rotina.
 
-Estrutura: entre 5 e 8 slides. Para cada slide: título curto + 3 a 4 bullets concisos.
+Antes de reescrever a skill, me faça de 4 a 6 perguntas, uma por vez, para entender:
+- que tipo de cliente costumo atender
+- o que sempre quero descobrir na primeira reunião
+- que perguntas nunca esqueço de fazer
+- que documentos costumo pedir
+- que riscos (conflito, compliance, KYC) preciso checar antes da reunião
+- que formato de briefing me ajuda mais (curto e direto ou completo)
 
-Identidade visual HRSA (aplicar em todos os slides):
-- Cor principal: #414042 (charcoal escuro) — usada em títulos e como cor de destaque
-- Cor secundária: #dbdcdd (cinza claro) — usada em fundos de seção, divisores, ou barras de destaque
-- Fundo dos slides: #ffffff (branco)
-- Cor do texto: #414042
-- Fonte: Segoe UI em todos os textos — peso regular para corpo, peso bold para títulos
-- Paleta monocromática: não adicione azuis, dourados ou outras cores pop. O contraste vem só do charcoal, cinza claro e branco.
+Espere minha resposta antes de passar para a próxima pergunta.
 
-Design:
-- Slide de capa com título da apresentação em fonte grande, sobre fundo branco com uma barra de cor charcoal no topo ou na lateral
-- Hierarquia visual clara: títulos muito maiores que bullets
-- Uso generoso de espaço em branco — slides densos cansam
-- Se fizer sentido para algum slide, inclua uma tabela ou um diagrama simples usando a paleta acima
+Depois que eu responder tudo, reescreva a skill — mantendo a estrutura de instrução, mas agora específica para primeira reunião com cliente novo, incorporando as minhas respostas. Devolva a skill pronta em um bloco de código, para eu copiar e salvar.
 
-Idioma: português jurídico brasileiro.</div>
+Skill genérica:
+[cole a Skill B aqui]</div>
+
+
 
 <hr>
 
@@ -227,8 +226,6 @@ Idioma: português jurídico brasileiro.</div>
 <p>Use antes de colocar qualquer documento com dados de cliente em ferramentas externas. Quando trabalhar em ambiente corporativo (Copilot dentro do M365), esta skill não é estritamente necessária — o documento já está protegido.</p>
 
 <div class="callout prompt">
-<strong>SKILL: REMOÇÃO DE DADOS PESSOAIS (PII)</strong>
-
 Você é um assistente jurídico da HRSA.
 
 <strong>OBJETIVO PRINCIPAL</strong>
@@ -301,11 +298,9 @@ Aplicar substituições literais no texto fornecido.
 Se qualquer parte do texto original não aparecer no resultado final, a resposta está incorreta.</div>
 
 <h3>Skill B — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
-<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção.</p>
+<p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é o ponto de partida do exercício 2.2. Em sua versão-base serve como scaffold; seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência.</p>
 
 <div class="callout prompt">
-<strong>SKILL: PREPARAÇÃO DE REUNIÃO</strong>
-
 Você é um assistente jurídico da HRSA.
 
 Com base no contexto abaixo, prepare um briefing de reunião com:
@@ -329,8 +324,6 @@ Regras:
 <h3>Skill C — Tradução jurídica <a href="hrsa-skills/skill-traducao-juridica.md" class="skill-download" download>📄 baixar .md</a></h3>
 
 <div class="callout prompt">
-<strong>SKILL: TRADUÇÃO JURÍDICA</strong>
-
 Você é um tradutor jurídico especializado em direito brasileiro e internacional.
 
 Traduza o texto abaixo do [inglês / espanhol] para o português jurídico brasileiro.
@@ -350,6 +343,49 @@ Ao final, liste em tabela os 5 termos mais relevantes traduzidos:
 
 <hr>
 
+
+<script>
+(function() {
+  const SVG_ICON = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="9" rx="1.2" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M3 11V3.2C3 2.54 3.54 2 4.2 2H10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>';
+
+  document.querySelectorAll('.callout.prompt').forEach(function(block) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Copiar');
+    btn.title = 'Copiar';
+    btn.innerHTML = SVG_ICON + '<span class="copied-label">copiado</span>';
+
+    btn.addEventListener('click', function() {
+      // Clone the block so we can strip the button, then get clean text
+      const clone = block.cloneNode(true);
+      const cloneBtn = clone.querySelector('.copy-btn');
+      if (cloneBtn) cloneBtn.remove();
+      // Also strip the callout-label (e.g. "Prompt — copie e cole") if present
+      const cloneLabel = clone.querySelector('.callout-label');
+      if (cloneLabel) cloneLabel.remove();
+      const text = clone.innerText.trim();
+
+      navigator.clipboard.writeText(text).then(function() {
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      }).catch(function() {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      });
+    });
+
+    block.appendChild(btn);
+  });
+})();
+</script>
 
 </body>
 </html>

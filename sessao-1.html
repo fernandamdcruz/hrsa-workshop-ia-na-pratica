@@ -27,10 +27,10 @@
   .session-meta { font-size: 10pt; color: #666; }
   h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
   h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
-  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; position: relative; }
   .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
   .callout.time { border-left-color: #888; background: #f7f7f7; }
-  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
   .callout.warning { border-left-color: #b45309; background: #fffbeb; }
   .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
   .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
@@ -39,6 +39,13 @@
   .prompt .callout-label { color: #1a365d; }
   .warning .callout-label { color: #b45309; }
   .tip .callout-label { color: #5b21b6; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
+  .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
+  .copy-btn svg { display: block; }
+  .copy-btn.copied { background: #1a365d; border-color: #1a365d; color: #fff; }
+  .copy-btn .copied-label { font-size: 9pt; font-weight: 600; margin-left: 4px; display: none; }
+  .copy-btn.copied .copied-label { display: inline; }
+  @media print { .copy-btn { display: none; } }
   .steps { margin: 10px 0; padding-left: 0; list-style: none; }
   .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
   .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
@@ -294,22 +301,21 @@ Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente 
 
 <p><strong>Perguntas — escolha uma (ou mais):</strong></p>
 
+<p style="margin-top: 16px;"><strong>1. Panorama</strong></p>
 <div class="callout prompt">
-1. Panorama:
-   Quais são os doze deuses olímpicos principais? Para cada um, cite o domínio
-   (guerra, amor, etc.) e indique de qual documento veio a resposta.
+Quais são os doze deuses olímpicos principais? Para cada um, cite o domínio (guerra, amor, etc.) e indique de qual documento veio a resposta.</div>
 
-2. Texto primário:
-   No primeiro canto da Ilíada, qual é a origem da briga entre Agamêmnon e
-   Aquiles? Cite o trecho literal do poema.
+<p style="margin-top: 16px;"><strong>2. Texto primário</strong></p>
+<div class="callout prompt">
+No primeiro canto da Ilíada, qual é a origem da briga entre Agamêmnon e Aquiles? Cite o trecho literal do poema.</div>
 
-3. Teste de limites:
-   Os documentos mencionam alguma divindade da mitologia nórdica (Thor, Odin,
-   Loki)?
+<p style="margin-top: 16px;"><strong>3. Teste de limites</strong></p>
+<div class="callout prompt">
+Os documentos mencionam alguma divindade da mitologia nórdica (Thor, Odin, Loki)?</div>
 
-4. Fontes divergentes:
-   Os doze trabalhos de Hércules aparecem em mais de um documento? Se sim, há
-   diferenças entre as versões? Cite os trechos que sustentam cada versão.</div>
+<p style="margin-top: 16px;"><strong>4. Fontes divergentes</strong></p>
+<div class="callout prompt">
+Os doze trabalhos de Hércules aparecem em mais de um documento? Se sim, há diferenças entre as versões? Cite os trechos que sustentam cada versão.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 O que observar</div>
@@ -350,6 +356,46 @@ Se em qualquer momento eu digitar "RECOMEÇAR", apresente os 3 perfis novamente 
   <strong>Sempre revise.</strong> A IA é um estagiário muito rápido — útil, incansável, mas sem OAB. O output dela é um ponto de partida, não um produto final. Você ainda assina o trabalho.
 </div>
 
+
+<script>
+(function() {
+  const SVG_ICON = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="9" rx="1.2" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M3 11V3.2C3 2.54 3.54 2 4.2 2H10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>';
+
+  document.querySelectorAll('.callout.prompt').forEach(function(block) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Copiar');
+    btn.title = 'Copiar';
+    btn.innerHTML = SVG_ICON + '<span class="copied-label">copiado</span>';
+
+    btn.addEventListener('click', function() {
+      const clone = block.cloneNode(true);
+      const cloneBtn = clone.querySelector('.copy-btn');
+      if (cloneBtn) cloneBtn.remove();
+      const cloneLabel = clone.querySelector('.callout-label');
+      if (cloneLabel) cloneLabel.remove();
+      const text = clone.innerText.trim();
+
+      navigator.clipboard.writeText(text).then(function() {
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      }).catch(function() {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      });
+    });
+
+    block.appendChild(btn);
+  });
+})();
+</script>
 
 </body>
 </html>
