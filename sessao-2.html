@@ -33,12 +33,14 @@
   .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
   .callout.warning { border-left-color: #b45309; background: #fffbeb; }
   .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout.pratica { border-left-color: #B8860B; background: #fdf8e7; }
   .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
   .goal .callout-label { color: #2d6a4f; }
   .time .callout-label { color: #555; }
   .prompt .callout-label { color: #1a365d; }
   .warning .callout-label { color: #b45309; }
   .tip .callout-label { color: #5b21b6; }
+  .pratica .callout-label { color: #8B6914; }
   .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
   .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
   .copy-btn svg { display: block; }
@@ -109,7 +111,7 @@
 <div class="session-divider page-break">
   <div class="session-num">Sessão 2 de 3</div>
   <div class="session-title">Produtividade na prática</div>
-  <div class="session-meta">Skills · Plugins · Projects · Ata de reunião · Revisão de contrato de locação</div>
+  <div class="session-meta">Prompt · Skill · Plugin · Project · Ata de reunião · Do prompt à skill</div>
 </div>
 
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
@@ -117,9 +119,9 @@
 <div class="outcomes">
   <h3>O que você vai aprender hoje</h3>
   <ul>
-    <li>A diferença entre prompt, skill, plugin e project — e quando cada um vale a pena.</li>
+    <li>A diferença entre prompt, skill, plugin e project — e o que cada um faz.</li>
     <li>Como transformar notas manuscritas de reunião em uma ata estruturada em minutos.</li>
-    <li>Como calibrar um prompt de revisão de contrato com ajuda da própria IA — usando os três elementos que fazem um prompt jurídico funcionar.</li>
+    <li>Como calibrar um prompt de revisão de contrato com ajuda da própria IA — e depois transformá-lo em uma skill reutilizável.</li>
     <li>Quando vale salvar um prompt para reutilizar e começar a construir sua biblioteca pessoal.</li>
   </ul>
 </div>
@@ -127,41 +129,43 @@
 <h3 style="font-size: 11pt; letter-spacing: 0.05em; text-transform: uppercase; color: #777; margin: 24px 0 8px;">Agenda</h3>
 
 <ul class="session-outline">
-  <li>A. Prompt, skill e project — o que é cada um</li>
+  <li>A. Prompt, skill, plugin e project — o que é cada um</li>
   <li>2.1 Exercício — Notas de reunião → ata estruturada</li>
-  <li>2.2 Exercício — Melhorando um prompt de revisão de contrato</li>
+  <li>2.2 Exercício — Do prompt à skill: revisão de contrato</li>
   <li>Biblioteca — pontos de partida</li>
   <li>Wrap-up e preview da Sessão 3</li>
 </ul>
 
 <hr>
 
-<h2>A. Prompt, skill e project: o que é cada um</h2>
+<h2>A. Prompt, skill, plugin e project: o que é cada um</h2>
 
-<p>Na Sessão 1 vimos o que é um prompt. Agora dois conceitos novos que fazem o uso de IA virar rotina, em vez de algo que se reinventa toda vez.</p>
+<p>Na Sessão 1 vimos o que é um prompt. Agora alguns conceitos novos que fazem o uso de IA virar rotina, em vez de algo que se reinventa toda vez.</p>
 
 <h3>Prompt</h3>
 <p>É a instrução que você escreve no momento, para uma tarefa específica. Vive em uma conversa, faz uma coisa, acabou. Mesmo um prompt longo e bem-feito ainda é um prompt.</p>
 
 <h3>Skill</h3>
-<p>Uma skill é diferente: é um prompt que virou programa. Tem formato de saída definido, regras para casos ambíguos, o que fazer e o que não fazer, e às vezes documentos de referência. Você desenha uma skill quando a tarefa repete e o output precisa sair confiável e consistente.</p>
-<p>A diferença entre prompt e skill aparece na arquitetura: um prompt diz "faça X". Uma skill diz "para esta categoria de tarefa, o output sai assim, com estas regras, e neste caso específico você faz aquilo." Skills geralmente vivem em arquivos <code>.md</code> (markdown — texto simples) que a IA lê e segue.</p>
+<p>Uma skill é um prompt com formato de saída definido, regras para casos ambíguos, o que fazer e o que não fazer, e às vezes documentos de referência. Você desenha uma skill quando a tarefa repete e o output precisa sair confiável e consistente. Skills geralmente vivem em arquivos <code>.md</code> (markdown — texto simples) que a IA lê e segue. É quase um prompt que virou um programa.</p>
+
+<h3>Plugin</h3>
+<p>Um plugin é um conjunto de skills agrupadas para uma área ou fluxo de trabalho. A Anthropic mantém um <a href="https://github.com/anthropics/knowledge-work-plugins/blob/main/legal/README.md" target="_blank">plugin jurídico open-source</a> que vale dar uma olhada.</p>
 
 <h3>Project</h3>
-<p>Pense no Project como uma pasta do Google Drive — mas com inteligência. Você guarda lá os arquivos de um cliente, de uma operação, de uma área de prática; coloca um briefing curto explicando o contexto; e a IA entende esse contexto em todas as conversas que você tiver dentro daquele Project. Skills podem ser invocadas dentro de um Project ou fora dele — Project é sobre <em>onde</em> você trabalha, não sobre o que a IA sabe fazer.</p>
+<p>Pense no Project como contratar um assistente dedicado para uma área. Você explica como ele deve trabalhar (instruções), dá os documentos que ele precisa ter à mão (arquivos), e ele mantém o fio das conversas naquele assunto (memória). Você pode ter um Project para societário, outro para um cliente específico, outro para uma operação. Diferente do NotebookLM, que responde só a partir dos documentos carregados, um Project usa os arquivos como contexto mas continua sendo uma IA completa — pode escrever, raciocinar e gerar conteúdo novo, sem se limitar ao que está na pasta. Em uma frase: NotebookLM ajuda você a entender o material; Project ajuda você a trabalhar com ele.</p>
 
 <h3>Custom GPTs, Gems, Claude Skills, Copilot Agentes</h3>
-<p>Quando uma skill se torna importante o suficiente para ser permanente, você pode salvá-la como um assistente nomeado dentro da ferramenta:</p>
+<p>Cada plataforma tem o seu produto para salvar um assistente configurado direto dentro da ferramenta — com instruções, arquivos, e às vezes conexões a outros sistemas. Em vez de colar um prompt (ou uma skill) toda vez, ele fica disponível para uso direto:</p>
 <ul>
   <li><strong>ChatGPT — Custom GPTs:</strong> assistentes personalizados na barra lateral. Compartilháveis, publicáveis no GPT Store.</li>
   <li><strong>Gemini — Gems:</strong> mesma lógica, salvos na sua conta.</li>
-  <li><strong>Claude — Skills nativas:</strong> o Claude carrega automaticamente quando o tema é relevante, sem você precisar invocar.</li>
-  <li><strong>Copilot — Agentes:</strong> conectam às fontes M365 (SharePoint, Outlook, Teams).</li>
+  <li><strong>Claude — Skills:</strong> skills carregadas direto no Claude, que ele invoca automaticamente quando o tema da conversa é relevante.</li>
+  <li><strong>Copilot — Agentes:</strong> assistentes que conectam às fontes M365 (SharePoint, Outlook, Teams).</li>
 </ul>
 
 <div class="callout tip">
   <div class="callout-label">💡 Resumindo</div>
-  Prompt = instrução agora, para uma tarefa. Skill = pacote estruturado para uma categoria de tarefas, com regras e formato. Project = espaço de trabalho com briefing próprio. Custom GPT / Gem / Claude Skill / Copilot Agente = a versão nomeada e permanente de uma skill, vivendo direto na plataforma.
+  Prompt = instrução agora, para uma tarefa. Skill = prompt com regras, formato e exceções — quase um programa. Plugin = conjunto de skills agrupadas. Project = espaço com instruções, arquivos e memória dedicado a um assunto. Custom GPT / Gem / Claude Skill / Copilot Agente = o produto de cada plataforma para salvar um assistente configurado direto dentro da ferramenta.
 </div>
 
 <hr>
@@ -185,7 +189,7 @@
   Uma foto é o mesmo risco que colar o texto. Se as anotações tocam em assuntos confidenciais, use Copilot (M365) — não ChatGPT, Claude ou Gemini pessoal.
 </div>
 
-<p><strong>Skill — Notas de reunião → ata estruturada</strong> <a href="hrsa-skills/skill-ata-reuniao.md" class="skill-download" download>📄 baixar .md</a></p>
+<p id="skill-ata"><strong>Skill — Notas de reunião → ata estruturada</strong> <a href="hrsa-skills/skill-ata-reuniao.md" class="skill-download" download>📄 baixar .md</a></p>
 
 <div class="callout prompt">
 Você é um assistente jurídico da HRSA. Transforme as notas abaixo em uma ata organizada.
@@ -213,27 +217,33 @@ Regras:
 - Se algo está ambíguo nas notas, use [trecho pouco claro] ou [palavra?].
 - Nada de placeholders como "não mencionado" — se falta info, omita a seção e pergunte depois.</div>
 
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Mais do que digitalizar, o prompt estrutura, complementa com informação e torna a ata mais robusta. Depois, você pode adicionar a ata ao Project do cliente e, a partir daí, gerar e-mails de follow-up, próximos passos, ou rascunhos de documentos com todo o contexto da reunião já carregado.
+</div>
+
 <hr>
 
-<h2>2.2 Exercício — Melhorando um prompt de revisão de contrato</h2>
+<h2>2.2 Exercício — Do prompt à skill: revisão de contrato</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Pegar um prompt razoável de revisão de contrato e, pedindo à própria IA as perguntas certas, transformá-lo em um prompt calibrado para o seu caso. No final, você testa o prompt aprimorado no contrato de locação da Capitu.
+  Em duas etapas: primeiro, deixar a IA te entrevistar para calibrar um prompt de revisão de contrato para o seu caso. Depois, pedir para ela transformar esse prompt calibrado em uma skill reutilizável — algo que serve para casos parecidos no futuro, não só para o contrato de hoje.
 </div>
 
 <p>Um bom prompt jurídico tem, no mínimo, três elementos: <strong>papel</strong> (quem você é / quem representa), <strong>foco</strong> (o que olhar com atenção) e <strong>formato do output</strong> (como você quer receber). Sem esses três, a revisão tende a ser genérica.</p>
 
-<p>Neste exercício, você parte de um prompt que já serve, mas é neutro demais — e pede para a IA <strong>te entrevistar</strong> para calibrar os três elementos acima ao seu caso específico.</p>
+<p>Neste exercício, você parte de um prompt que já serve, mas é neutro demais. Pede para a IA <strong>te entrevistar</strong> e calibrar os três elementos acima ao seu caso. E depois pede para ela <strong>generalizar</strong> esse prompt calibrado, transformando em uma skill que cobre uma categoria de casos.</p>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Cole o prompt abaixo na ferramenta da sua preferência.</span></li>
-  <li><span class="step-n">2</span><span>A IA vai te fazer 3-4 perguntas. Responda.</span></li>
+  <li><span class="step-n">1</span><span>Cole o prompt da etapa 1 na ferramenta da sua preferência.</span></li>
+  <li><span class="step-n">2</span><span>A IA vai te fazer 3 perguntas. Responda uma por vez.</span></li>
   <li><span class="step-n">3</span><span>Ao final, a IA devolve um prompt calibrado, pronto para colar em uma nova conversa com o contrato anexado.</span></li>
-  <li><span class="step-n">4</span><span>Teste o prompt aprimorado no <a href="https://docs.google.com/document/d/1rfyxIBttgTGdbMEJMjbyR__uakEuW8tp4JAVg-k-xz4/edit?usp=sharing" target="_blank">contrato de locação da Capitu</a> (Drive). Compare com o que o prompt base daria.</span></li>
+  <li><span class="step-n">4</span><span>Teste o prompt calibrado no <a href="https://docs.google.com/document/d/1rfyxIBttgTGdbMEJMjbyR__uakEuW8tp4JAVg-k-xz4/edit?usp=sharing" target="_blank">contrato de locação da Capitu</a> (Drive). Compare com o que o prompt base daria.</span></li>
+  <li><span class="step-n">5</span><span>Na mesma conversa, cole o prompt da etapa 2 abaixo para transformar o prompt calibrado em uma skill reutilizável.</span></li>
 </ol>
 
-<p><strong>Prompt — copie e cole</strong></p>
+<p><strong>Etapa 1 — calibrar o prompt para o seu caso</strong></p>
 
 <div class="callout prompt">
 Abaixo está um prompt base de revisão de contrato. Ele funciona, mas é neutro demais — serve para qualquer contrato, o que na prática significa que não serve bem para nenhum.
@@ -251,9 +261,24 @@ Espere minha resposta antes de passar para a próxima pergunta.
 
 Depois que eu responder tudo, devolva um prompt de revisão de contrato aprimorado — incorporando as minhas respostas — pronto para eu colar em uma nova conversa junto com o contrato a ser revisado. Entregue em um bloco de código.</div>
 
+<p><strong>Etapa 2 — transformar o prompt calibrado em uma skill</strong></p>
+
+<div class="callout prompt">
+Agora pegue o prompt calibrado que você acabou de criar e transforme-o em uma skill reutilizável. A skill precisa ser mais geral do que o prompt — ela deve servir para casos parecidos no futuro, não apenas para o contrato específico que descrevi.
+
+Para fazer isso:
+
+1. Abstraia as respostas que dei sobre papel, foco e formato em parâmetros que o usuário preencherá no momento de usar a skill.
+2. Adicione branches para casos comuns que não cobrimos nesta conversa (ex.: se for o lado oposto do que descrevi, se for outro tipo de contrato, etc.).
+3. Inclua regras para casos ambíguos: o que fazer quando uma cláusula é confusa, quando a posição do cliente não está clara, quando falta informação.
+4. Defina um formato de saída estruturado — não apenas "bullets" ou "parecer", mas um formato preciso que sai consistente toda vez.
+5. Inclua YAML frontmatter no topo do arquivo, com `name` e `description` — para que a skill possa ser carregada como Custom GPT, Gem, Claude Skill ou Copilot Agente no futuro.
+
+Entregue a skill final em um bloco de código, pronta para eu salvar como arquivo .md.</div>
+
 <div class="callout tip">
   <div class="callout-label">💡 Quando terminar</div>
-  O prompt que você construiu é útil no dia a dia. Para revisão de contrato mais robusta — cláusula-por-cláusula, semáforo de risco, redlines, estratégia de negociação — a <strong>Skill D</strong> (mais abaixo na biblioteca) é a versão completa.
+  Você sai do exercício com duas coisas: <strong>um prompt calibrado</strong> (útil para o caso de hoje) e <strong>uma skill reutilizável</strong> (útil para casos parecidos no futuro). A skill que você acabou de gerar é uma versão simplificada — para revisão de contrato mais robusta, com cláusula-por-cláusula, semáforo de risco, redlines e estratégia de negociação, o arquivo <strong>E</strong> (mais abaixo na biblioteca) é a versão completa.
 </div>
 
 
@@ -262,9 +287,21 @@ Depois que eu responder tudo, devolva um prompt de revisão de contrato aprimora
 
 <h2>Biblioteca — pontos de partida</h2>
 
-<p>Os arquivos abaixo são <strong>pontos de partida</strong>, não versões finais. Pegue o que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize. Como mostramos acima, alguns são skills mais estruturadas (ata, PII, revisão de contrato) e outros são prompts mais leves (preparação, tradução) — todos servem como ponto de partida.</p>
+<p>Os arquivos abaixo são uma mistura de prompts e skills, todos como <strong>pontos de partida</strong>, não versões finais. Pegue o que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize.</p>
 
-<h3>Skill A — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
+<div class="setup-box">
+  <h3>⚙ Setup</h3>
+  <ol class="steps">
+    <li><span class="step-n">1</span><span>Crie uma pasta no seu desktop para guardar esses arquivos.</span></li>
+    <li><span class="step-n">2</span><span>Clique em <strong>baixar .md</strong> em cada um dos 5 arquivos abaixo e salve todos na mesma pasta.</span></li>
+    <li><span class="step-n">3</span><span>Quando quiser usar um arquivo, abra-o, copie o conteúdo, e cole na sua ferramenta de IA. Você também pode anexá-lo direto em um Project para que fique sempre disponível.</span></li>
+  </ol>
+</div>
+
+<h3>A — Notas de reunião → ata estruturada <a href="hrsa-skills/skill-ata-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
+<p>Apresentada no Exercício 2.1. Transforma notas brutas (texto ou foto) em ata estruturada, agrupa tópicos relacionados, transforma fragmentos em frases legíveis, e pergunta no final o que ficou faltando.</p>
+
+<h3>B — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é um scaffold. Seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência (primeira reunião com cliente novo, reunião com contraparte, audiência, etc.).</p>
 
 <div class="callout prompt">
@@ -288,7 +325,7 @@ Regras:
 - Se o contexto fornecido não for suficiente para responder algum item do briefing, diga qual informação está faltando — não preencha com suposições
 - Não invente histórico ou contexto que não foi informado</div>
 
-<h3>Skill B — Remoção de dados pessoais (PII) <a href="hrsa-skills/skill-remocao-pii.md" class="skill-download" download>📄 baixar .md</a></h3>
+<h3>C — Remoção de dados pessoais (PII) <a href="hrsa-skills/skill-remocao-pii.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Use antes de colocar qualquer documento com dados de cliente em ferramentas externas. Quando trabalhar em ambiente corporativo (Copilot dentro do M365), esta skill não é estritamente necessária — o documento já está protegido.</p>
 
 <div class="callout prompt">
@@ -363,7 +400,7 @@ Aplicar substituições literais no texto fornecido.
 <strong>CRITÉRIO DE ERRO</strong>
 Se qualquer parte do texto original não aparecer no resultado final, a resposta está incorreta.</div>
 
-<h3>Skill C — Tradução jurídica <a href="hrsa-skills/skill-traducao-juridica.md" class="skill-download" download>📄 baixar .md</a></h3>
+<h3>D — Tradução jurídica <a href="hrsa-skills/skill-traducao-juridica.md" class="skill-download" download>📄 baixar .md</a></h3>
 
 <div class="callout prompt">
 Você é um tradutor jurídico especializado em direito brasileiro e internacional.
@@ -383,7 +420,7 @@ Regras:
 
 Antes de começar, se o texto mencionar um tipo específico de documento (contrato de M&A, petição, parecer, acórdão, certificado, e-mail de contraparte) ou uma jurisdição específica que afete a terminologia, calibre a tradução para esse contexto.</div>
 
-<h3>Skill D — Revisão de contrato <a href="hrsa-skills/skill-revisao-contrato.md" class="skill-download" download>📄 baixar .md</a></h3>
+<h3>E — Revisão de contrato <a href="hrsa-skills/skill-revisao-contrato.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Análise cláusula-por-cláusula contra a posição do cliente, com semáforo de risco (🟢🟡🔴), redlines sugeridos e estratégia de negociação. Skill longa e estruturada — pensada para você carregar no seu Project e usar em contratos reais da sua rotina.</p>
 <p style="font-size:9.5pt; color:#666; font-style:italic;">Adaptada do skill <code>contract-review</code> da Anthropic (Claude).</p>
 
@@ -413,8 +450,8 @@ Antes de começar, se o texto mencionar um tipo específico de documento (contra
     <ul>
       <li>Reconhecer quando vale salvar um prompt para reutilizar</li>
       <li>Transformar notas de reunião em ata em minutos</li>
-      <li>Calibrar um prompt de revisão de contrato com ajuda da própria IA</li>
-      <li>Montar uma biblioteca pessoal de skills jurídicos</li>
+      <li>Calibrar um prompt e transformá-lo em skill reutilizável</li>
+      <li>Conhecer uma biblioteca de skills jurídicos como ponto de partida</li>
     </ul>
   </div>
 
