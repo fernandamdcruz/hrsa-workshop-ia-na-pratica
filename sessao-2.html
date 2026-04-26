@@ -120,50 +120,48 @@
     <li>A diferença entre prompt, skill, plugin e project — e quando cada um vale a pena.</li>
     <li>Como transformar notas manuscritas de reunião em uma ata estruturada em minutos.</li>
     <li>Como calibrar um prompt de revisão de contrato com ajuda da própria IA — usando os três elementos que fazem um prompt jurídico funcionar.</li>
-    <li>Quando vale salvar um prompt como skill e começar a construir sua biblioteca pessoal.</li>
+    <li>Quando vale salvar um prompt para reutilizar e começar a construir sua biblioteca pessoal.</li>
   </ul>
 </div>
 
 <h3 style="font-size: 11pt; letter-spacing: 0.05em; text-transform: uppercase; color: #777; margin: 24px 0 8px;">Agenda</h3>
 
 <ul class="session-outline">
-  <li>A. Skill, plugin e project — o que é cada um</li>
+  <li>A. Prompt, skill e project — o que é cada um</li>
   <li>2.1 Exercício — Notas de reunião → ata estruturada</li>
   <li>2.2 Exercício — Melhorando um prompt de revisão de contrato</li>
-  <li>Biblioteca de skills — pontos de partida para personalizar</li>
+  <li>Biblioteca — pontos de partida</li>
   <li>Wrap-up e preview da Sessão 3</li>
 </ul>
 
 <hr>
 
-<h2>A. Skill, plugin e project: o que é cada um</h2>
+<h2>A. Prompt, skill e project: o que é cada um</h2>
 
-<p>Na Sessão 1 vimos o que é um prompt e o que separa um bom de um ruim. Agora vamos um passo além: como transformar um prompt que funciona em algo reutilizável, organizado e sempre à mão.</p>
+<p>Na Sessão 1 vimos o que é um prompt. Agora dois conceitos novos que fazem o uso de IA virar rotina, em vez de algo que se reinventa toda vez.</p>
+
+<h3>Prompt</h3>
+<p>É a instrução que você escreve no momento, para uma tarefa específica. Vive em uma conversa, faz uma coisa, acabou. Mesmo um prompt longo e bem-feito ainda é um prompt.</p>
 
 <h3>Skill</h3>
-<p>Uma skill é um prompt salvo que você reutiliza. Em vez de reescrever as instruções toda vez, você salva uma vez — como um modelo no Word, mas para a IA. Uma skill cobre uma tarefa específica: transformar notas em ata, gerar um tipo de cláusula, preparar um briefing de reunião.</p>
-<p>Skills geralmente vivem em arquivos <code>.md</code> (markdown) — é só um formato de texto simples, como um <code>.txt</code>, que a IA lê e segue como instrução. Você baixa, carrega na sua ferramenta, e pronto.</p>
-
-<h3>Plugin</h3>
-<p>Um plugin é um conjunto de skills empacotadas juntas para uma função ou fluxo de trabalho completo. Em vez de instalar cada skill separadamente, o plugin traz tudo de uma vez. Por exemplo: um plugin jurídico poderia incluir skills de revisão de contrato, tradução, ata de reunião e pesquisa de jurisprudência — tudo junto, pronto para usar.</p>
+<p>Uma skill é diferente: é um prompt que virou programa. Tem formato de saída definido, regras para casos ambíguos, o que fazer e o que não fazer, e às vezes documentos de referência. Você desenha uma skill quando a tarefa repete e o output precisa sair confiável e consistente.</p>
+<p>A diferença entre prompt e skill aparece na arquitetura: um prompt diz "faça X". Uma skill diz "para esta categoria de tarefa, o output sai assim, com estas regras, e neste caso específico você faz aquilo." Skills geralmente vivem em arquivos <code>.md</code> (markdown — texto simples) que a IA lê e segue.</p>
 
 <h3>Project</h3>
-<p>Um Project existe no Claude, no ChatGPT e no Copilot — os três chamam de "Project". É um espaço onde você salva um briefing permanente para a IA: quem você é, onde você trabalha, como você escreve, o que ela nunca deve fazer. A IA começa cada conversa dentro daquele Project já sabendo tudo isso — sem você precisar repetir.</p>
-<p>Na prática, o arquivo de instruções de um Project funciona como um documento que diz à IA o que significa ser advogado da HRSA: seu tom, sua área, suas regras, os termos que você usa.</p>
+<p>Pense no Project como uma pasta do Google Drive — mas com inteligência. Você guarda lá os arquivos de um cliente, de uma operação, de uma área de prática; coloca um briefing curto explicando o contexto; e a IA entende esse contexto em todas as conversas que você tiver dentro daquele Project. Skills podem ser invocadas dentro de um Project ou fora dele — Project é sobre <em>onde</em> você trabalha, não sobre o que a IA sabe fazer.</p>
 
-<h3>Custom GPTs, Gems, Skills</h3>
-<p>É a versão produtizada de uma skill — um assistente nomeado, salvo permanentemente na ferramenta, com instruções, documentos anexados e até ícone. Cada plataforma tem o seu nome:</p>
+<h3>Custom GPTs, Gems, Claude Skills, Copilot Agentes</h3>
+<p>Quando uma skill se torna importante o suficiente para ser permanente, você pode salvá-la como um assistente nomeado dentro da ferramenta:</p>
 <ul>
-  <li><strong>ChatGPT — Custom GPTs:</strong> assistentes personalizados que vivem na barra lateral. Dá para compartilhar e publicar no GPT Store.</li>
+  <li><strong>ChatGPT — Custom GPTs:</strong> assistentes personalizados na barra lateral. Compartilháveis, publicáveis no GPT Store.</li>
   <li><strong>Gemini — Gems:</strong> mesma lógica, salvos na sua conta.</li>
-  <li><strong>Claude — Skills:</strong> pacotes que o Claude carrega automaticamente quando o tema é relevante, sem você precisar invocar.</li>
+  <li><strong>Claude — Skills nativas:</strong> o Claude carrega automaticamente quando o tema é relevante, sem você precisar invocar.</li>
   <li><strong>Copilot — Agentes:</strong> conectam às fontes M365 (SharePoint, Outlook, Teams).</li>
 </ul>
-<p>Onde guardar uma skill que você desenhou depende do uso: colar no chat (uma vez), instruções de um Project (escopo daquele Project), ou virar Custom GPT / Gem / Claude Skill (vive no nível da plataforma, acessível de qualquer lugar).</p>
 
 <div class="callout tip">
   <div class="callout-label">💡 Resumindo</div>
-  Prompt = instrução que você escreve agora. Skill = prompt salvo para reutilizar. Plugin = coleção de skills empacotadas. Project = espaço de trabalho com briefing próprio. Custom GPT / Gem / Claude Skill = assistente nomeado que vive no nível da plataforma.
+  Prompt = instrução agora, para uma tarefa. Skill = pacote estruturado para uma categoria de tarefas, com regras e formato. Project = espaço de trabalho com briefing próprio. Custom GPT / Gem / Claude Skill / Copilot Agente = a versão nomeada e permanente de uma skill, vivendo direto na plataforma.
 </div>
 
 <hr>
@@ -262,9 +260,9 @@ Depois que eu responder tudo, devolva um prompt de revisão de contrato aprimora
 
 <hr>
 
-<h2>Biblioteca de skills — pontos de partida para personalizar</h2>
+<h2>Biblioteca — pontos de partida</h2>
 
-<p>As skills abaixo são <strong>starting points</strong>, não versões finais. Pegue a que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize — assim como fizemos no exercício 2.2 com o prompt de revisão de contrato. É isso que transforma uma skill genérica em uma skill sua.</p>
+<p>Os arquivos abaixo são <strong>pontos de partida</strong>, não versões finais. Pegue o que se conecta com uma tarefa sua, teste na ferramenta que você prefere, e personalize. Como mostramos acima, alguns são skills mais estruturadas (ata, PII, revisão de contrato) e outros são prompts mais leves (preparação, tradução) — todos servem como ponto de partida.</p>
 
 <h3>Skill A — Preparação de reunião <a href="hrsa-skills/skill-preparacao-reuniao.md" class="skill-download" download>📄 baixar .md</a></h3>
 <p>Para qualquer reunião com cliente, contraparte ou interna — gera agenda e pontos de atenção. Skill propositalmente genérica: é um scaffold. Seu valor real aparece quando você personaliza para um tipo específico de reunião que você faz com frequência (primeira reunião com cliente novo, reunião com contraparte, audiência, etc.).</p>
@@ -413,7 +411,7 @@ Antes de começar, se o texto mencionar um tipo específico de documento (contra
     <div class="session-label">Sessão 2</div>
     <div class="session-title-small">Produtividade na prática</div>
     <ul>
-      <li>Reconhecer quando vale salvar um prompt como skill</li>
+      <li>Reconhecer quando vale salvar um prompt para reutilizar</li>
       <li>Transformar notas de reunião em ata em minutos</li>
       <li>Calibrar um prompt de revisão de contrato com ajuda da própria IA</li>
       <li>Montar uma biblioteca pessoal de skills jurídicos</li>
