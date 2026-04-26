@@ -33,12 +33,14 @@
   .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
   .callout.warning { border-left-color: #b45309; background: #fffbeb; }
   .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout.pratica { border-left-color: #B8860B; background: #fdf8e7; }
   .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
   .goal .callout-label { color: #2d6a4f; }
   .time .callout-label { color: #555; }
   .prompt .callout-label { color: #1a365d; }
   .warning .callout-label { color: #b45309; }
   .tip .callout-label { color: #5b21b6; }
+  .pratica .callout-label { color: #8B6914; }
   .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
   .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
   .copy-btn svg { display: block; }
@@ -125,6 +127,8 @@
     <li>Como reduzir alucinações na prática, com 3 regras que cabem em qualquer prompt.</li>
   </ul>
 </div>
+
+<h3 style="font-size: 11pt; letter-spacing: 0.05em; text-transform: uppercase; color: #777; margin: 24px 0 8px;">Agenda</h3>
 
 <ul class="session-outline">
   <li>Check-in: quem já usa e como</li>
@@ -275,6 +279,11 @@ Ao final dos 2 parágrafos, pule uma linha e escreva, em linguagem normal (fora 
 
 Se eu digitar RECOMEÇAR em qualquer momento, volte para o PRIMEIRO MOMENTO e recomece do zero.</div>
 
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Dá para criar guias de estilo para os advogados da HRSA capturando tom, vocabulário e escolhas de redação. Para isso, é preciso dar à IA exemplos do que você já escreveu, para que ela detecte o seu estilo. O ganho é duplo: economia de tempo (a IA entrega rascunhos que já soam como você) e consistência de voz dentro do escritório.
+</div>
+
 <hr>
 
 <h2>C. Segurança de dados e sigilo profissional</h2>
@@ -348,7 +357,7 @@ Se eu digitar RECOMEÇAR em qualquer momento, volte para o PRIMEIRO MOMENTO e re
 <div class="setup-box">
   <h3>⚙ Setup — faça agora</h3>
   <ol class="steps">
-    <li><span class="step-n">1</span><span>Abra o link do NotebookLM abaixo. O notebook já está criado com os documentos de um condomínio residencial carregados — você não precisa fazer upload de nada.<br><a href="https://notebooklm.google.com/notebook/1bdfd8c6-69e7-482f-b42c-020063047e9c" target="_blank">notebooklm.google.com/notebook/1bdfd8c6-69e7-482f-b42c-020063047e9c</a></span></li>
+    <li><span class="step-n">1</span><span>Abra o link do NotebookLM abaixo. O notebook já está criado com os documentos de um condomínio residencial carregados — você não precisa fazer upload de nada.<br><a href="https://notebooklm.google.com/notebook/aeef17dc-beda-4b8a-a52c-ece717ad76d1" target="_blank">notebooklm.google.com/notebook/aeef17dc-beda-4b8a-a52c-ece717ad76d1</a></span></li>
     <li><span class="step-n">2</span><span>Certifique-se de estar logado com sua conta Gmail.</span></li>
     <li><span class="step-n">3</span><span>Você vai ver os documentos carregados na barra lateral esquerda.</span></li>
   </ol>
@@ -359,13 +368,13 @@ Se eu digitar RECOMEÇAR em qualquer momento, volte para o PRIMEIRO MOMENTO e re
 
 <p><strong>Perguntas — escolha uma (ou mais):</strong></p>
 
-<p style="margin-top: 16px;"><strong>1. Panorama</strong></p>
-<div class="callout prompt">
-Faça um resumo executivo do condomínio em 5 bullets: natureza, regras principais, órgãos de governança e obrigações dos condôminos. Indique de qual documento veio cada informação.</div>
-
-<p style="margin-top: 16px;"><strong>2. Regra específica</strong></p>
+<p style="margin-top: 16px;"><strong>1. Regra específica</strong></p>
 <div class="callout prompt">
 Qual é a regra do condomínio sobre animais de estimação? Cite o trecho literal do documento e indique em qual artigo ou cláusula aparece.</div>
+
+<p style="margin-top: 16px;"><strong>2. Pergunta direta</strong></p>
+<div class="callout prompt">
+O condomínio tem piscina?</div>
 
 <p style="margin-top: 16px;"><strong>3. Teste de limites</strong></p>
 <div class="callout prompt">
@@ -377,7 +386,7 @@ Sobre o uso das áreas comuns (piscina, salão de festas, churrasqueira): há re
 
 <div class="callout tip">
   <div class="callout-label">💡 O que observar</div>
-  O NotebookLM sempre cita a fonte, e a pergunta do item 3 (placas solares) é o teste crítico: uma IA sem RAG tentaria responder de memória — e provavelmente inventaria algo plausível. Com RAG, ela responde apenas com base no que está no notebook, e avisa quando a informação não está lá.
+  Repare como o NotebookLM separa o que está literal no documento do que ele está inferindo — e sempre aponta a fonte. Isso é o que diferencia uma IA que "responde com tudo" de uma IA que sabe onde para.
 </div>
 
 <h3>Recursos do Studio <span style="font-weight:400; font-size:0.75em; color:#666;">(demo do facilitador)</span></h3>
@@ -401,6 +410,11 @@ Sobre o uso das áreas comuns (piscina, salão de festas, churrasqueira): há re
   Para ter acesso ao Studio, você precisa ser o dono do notebook. Crie um notebook próprio em <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a>, carregue seus documentos (uma lei, uma decisão, um artigo da sua área) e os recursos do painel Studio vão aparecer para você.
 </div>
 
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Como vocês usariam o NotebookLM no trabalho? Que tipo de documento ou caso pediria uma IA que responde só com base no que vocês colocaram lá dentro?
+</div>
+
 <hr>
 
 <h2>D. Como a IA funciona: alucinações e como evitar</h2>
@@ -413,9 +427,9 @@ Sobre o uso das áreas comuns (piscina, salão de festas, churrasqueira): há re
   <tr><td><strong>Diga "se não souber, fale"</strong></td><td>Sem essa instrução, a IA tende a preencher lacunas com algo plausível mas errado</td><td>Inclua sempre: "Se não encontrar a informação, diga explicitamente — não tente inferir." É obrigatório em toda skill.</td></tr>
 </table>
 
-<div class="callout warning">
-  <div class="callout-label">Regra de ouro</div>
-  <strong>Sempre revise.</strong> A IA é um estagiário muito rápido — útil, incansável, mas sem OAB. O output dela é um ponto de partida, não um produto final. Você ainda assina o trabalho.
+<div class="callout pratica">
+  <div class="callout-label">🧭 Regra de ouro</div>
+  <strong>Sempre revise.</strong> O output da IA é um ponto de partida, não um produto final. Vocês assinam o trabalho — e é por isso que vale investir em bons prompts: o tempo que vocês gastam escrevendo o prompt é tempo que economizam depois, na revisão.
 </div>
 
 <hr>
