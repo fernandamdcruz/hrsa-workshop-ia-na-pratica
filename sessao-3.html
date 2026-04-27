@@ -123,9 +123,9 @@
 
 <ul class="session-outline">
   <li>Conceito: expandindo o alcance da IA</li>
-  <li>Demo 1: Claude no Chrome — unsubscribe em massa e varredura no LinkedIn</li>
+  <li>Demo 1: Claude no Chrome — unsubscribe em massa</li>
   <li>3.1 Exercício — Do texto ao deck</li>
-  <li>Demo 2: Claude for Word — redline dentro do Word <em>(se tivermos tempo)</em></li>
+  <li>Demo 2: Claude for Word — redline dentro do Word</li>
   <li>Agora com vocês</li>
   <li>Encerramento</li>
 </ul>
@@ -153,7 +153,7 @@
 
 <p>O Claude no Chrome é um <strong>agente de navegação</strong>: ele opera o seu navegador como se fosse você. Faz buscas logado nos sistemas que você já usa, preenche formulários, clica em botões, encontra coisas em páginas internas ou processos eletrônicos, navega entre abas. Tudo que você faz manualmente no navegador, ele pode fazer por você.</p>
 
-<h3>Exemplo 1 — Unsubscribe em massa de e-mails promocionais</h3>
+<h3>Exemplo: unsubscribe em massa de e-mails promocionais</h3>
 
 <p>Caso clássico de produtividade: a caixa de entrada está entulhada de newsletters, promoções e e-mails automáticos. O facilitador vai abrir o Gmail logado e deixar o Claude identificar e dar unsubscribe em promocionais, poupando os transacionais (recibos, notificações de conta, segurança).</p>
 
@@ -163,20 +163,6 @@
 
 <div class="callout prompt">
 Go through my recent emails and help me unsubscribe from promotional/marketing emails. Focus on: retail promotions, marketing newsletters, sales emails, and automated promotional content. DO NOT unsubscribe from: transactional emails (receipts, shipping notifications), account security emails, or emails that appear to be personal/conversational. Start with emails from the last 2 weeks. Before unsubscribing from anything, give me a full list of the different emails you plan to unsubscribe from so I can confirm you're identifying the right types of emails. When you do this, make sure to ask me if there's any of those emails you should not unsubscribe from. For each promotional email you find: (1) Look for and click the native "unsubscribe" button from google (top of the email, next to sender email address); (2) Keep a running list of what you've unsubscribed from.</div>
-
-<h3>Exemplo 2 — Mapear sua rede em um cliente-alvo <span style="font-weight:400; font-size:0.75em; color:#666;">(se tivermos tempo)</span></h3>
-
-<p>Cenário de business development: antes de uma rodada de prospecção em um banco, você quer saber quem da sua rede já trabalha lá — para ver se vale pedir uma apresentação.</p>
-
-<p><strong>Prompt — conexões no Itaú</strong></p>
-
-<div class="callout prompt">
-Busque no LinkedIn pessoas da minha rede (1º grau) usando "Todos os filtros":
-
-- Empresa atual (Current companies): Itaú Unibanco
-- Localização: Brasil
-
-Me liste os resultados da primeira página: nome e cargo atual. Não role, não pagine, não abra perfis.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Se quiser instalar depois</div>
@@ -199,9 +185,9 @@ Me liste os resultados da primeira página: nome e cargo atual. Não role, não 
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Escolha um texto jurídico — uma lei, uma decisão, um artigo, um memorando. Pode ser curto. Por exemplo, copie os arts. 31 a 35 da <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank">LC 214/25</a> (Split Payment da Reforma Tributária).</span></li>
+  <li><span class="step-n">1</span><span>Use os arts. 31 a 35 da LC 214/25 (Split Payment da Reforma Tributária) — <a href="https://docs.google.com/document/d/1d1xk3gXTjQHetMmSNE9AcCmPdJl1Otao/edit?usp=drive_link&ouid=116130341688700339926&rtpof=true&sd=true" target="_blank">baixe o .docx pronto</a> (texto consolidado, já recortado). Se preferir, a <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank">lei completa no Planalto</a> está aqui para referência.</span></li>
   <li><span class="step-n">2</span><span>Cole o prompt abaixo na ferramenta da sua preferência — Claude, ChatGPT, Copilot, Gemini.</span></li>
-  <li><span class="step-n">3</span><span>Cole o texto logo depois do prompt e envie. Se usar a LC 214/25, copie só os arts. 31-35 — não cole a lei inteira.</span></li>
+  <li><span class="step-n">3</span><span>Cole o texto do .docx logo depois do prompt (ou anexe o arquivo, se a ferramenta aceitar) e envie.</span></li>
   <li><span class="step-n">4</span><span>Baixe o arquivo .pptx gerado. Abra, revise, peça ajustes se necessário.</span></li>
 </ol>
 
@@ -244,7 +230,7 @@ Idioma: português jurídico brasileiro.</div>
 
 <hr>
 
-<h2>Demo 2 — Claude for Word: redline dentro do Word <span style="font-weight:400; font-size:0.75em; color:#666;">(se tivermos tempo)</span></h2>
+<h2>Demo 2 — Claude for Word: redline dentro do Word</h2>
 
 <p>O Claude for Word lê o documento aberto no Word e aplica redlines direto no arquivo, usando o controle de alterações nativo. Em vez de a IA te dizer em chat o que mudaria, ela faz a marcação no documento — e você aceita ou rejeita cada alteração no próprio Word.</p>
 
@@ -253,6 +239,11 @@ Idioma: português jurídico brasileiro.</div>
 <div class="callout tip">
   <div class="callout-label">💡 Se quiser instalar depois</div>
   Add-in do Microsoft Word. Instalação pela loja de add-ins do Office (Inserir → Obter suplementos → buscar "Claude"). Requer plano pago no Claude e Word desktop (Windows ou Mac).
+</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Também existe para Excel e Outlook</div>
+  A mesma lógica do Claude for Word — IA rodando dentro do próprio aplicativo — existe também no <strong>Excel</strong> (análise e geração de planilhas) e no <strong>Outlook</strong> (triagem e rascunho de respostas). Mesma loja de add-ins do Office, mesmo requisito de plano pago no Claude.
 </div>
 
 <hr>
@@ -270,10 +261,6 @@ Idioma: português jurídico brasileiro.</div>
 <h3>3 · Comece a usar ferramentas agentic</h3>
 
 <p>Claude no Chrome, como demonstramos hoje, e o <strong>Cowork</strong>, disponível no Claude Desktop. A Anthropic recentemente fez uma parceria com a Microsoft para lançar o Cowork dentro do M365 para clientes corporativos. O Cowork executa tarefas no seu computador: arrumar uma pasta, renomear arquivos, montar um resumo a partir de vários documentos, agendar tarefas recorrentes.</p>
-
-<h3>4 · Claude for Excel, Word e Outlook</h3>
-
-<p>Add-ins que rodam dentro dos próprios aplicativos do Office. Excel para análise e geração de planilhas, Word para redline (vimos hoje), Outlook para triagem e rascunho de respostas. Instalação via loja de add-ins do Office.</p>
 
 <div class="callout tip">
   <div class="callout-label">💬 Estamos aqui</div>
