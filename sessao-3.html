@@ -33,12 +33,14 @@
   .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
   .callout.warning { border-left-color: #b45309; background: #fffbeb; }
   .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout.pratica { border-left-color: #B8860B; background: #fdf8e7; }
   .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
   .goal .callout-label { color: #2d6a4f; }
   .time .callout-label { color: #555; }
   .prompt .callout-label { color: #1a365d; }
   .warning .callout-label { color: #b45309; }
   .tip .callout-label { color: #5b21b6; }
+  .pratica .callout-label { color: #8B6914; }
   .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
   .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
   .copy-btn svg { display: block; }
@@ -58,6 +60,8 @@
   td { padding: 8px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
   tr:nth-child(even) td { background: #fafafa; }
   hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+  a:link, a:visited { color: #1a365d; }
+  a:hover { color: #0f1f3a; }
   .session-outline { font-size: 10pt; color: #555; margin: 8px 0 20px; padding-left: 0; list-style: none; }
   .session-outline li { padding: 4px 0; border-bottom: 1px solid #eee; }
   .session-outline li::before { content: "→ "; color: #aaa; }
@@ -104,7 +108,7 @@
 <div class="session-divider page-break">
   <div class="session-num">Sessão 3 de 3</div>
   <div class="session-title">Indo além</div>
-  <div class="session-meta">Claude no Chrome · Apresentação para cliente · Próximos passos</div>
+  <div class="session-meta">Claude no Chrome · Do texto ao deck · Redline no Word · Excel · Cowork · Próximos passos</div>
 </div>
 
 <div class="tool-note">Use a ferramenta que você já usa e prefere — exceto onde o exercício indica o contrário.</div>
@@ -115,6 +119,7 @@
     <li>Como a IA pode operar o seu navegador por conta própria — buscando, clicando, extraindo informação em sistemas logados.</li>
     <li>Como escolher a ferramenta certa para gerar um deck de cliente — e por que o resultado varia tanto entre os LLMs.</li>
     <li>Como revisar um contrato com redline diretamente dentro do Word, usando controle de alterações.</li>
+    <li>Como a IA opera dentro do Excel e como um agente como o Cowork pode orquestrar várias ferramentas para fazer uma tarefa do início ao fim.</li>
     <li>Para onde ir depois do workshop — Claude Desktop, plugin jurídico, Cowork.</li>
   </ul>
 </div>
@@ -126,7 +131,10 @@
   <li>Demo 1: Claude no Chrome — unsubscribe em massa</li>
   <li>3.1 Exercício — Do texto ao deck</li>
   <li>Demo 2: Claude for Word — redline dentro do Word</li>
-  <li>Agora com vocês</li>
+  <li>Demo 3: Claude for Excel <em>(se tivermos tempo)</em></li>
+  <li>Demo 4: Revisão de contrato no Cowork</li>
+  <li>Discussão: como vocês vão aplicar isso na rotina</li>
+  <li>Nossas dicas para aplicar na rotina e continuar aprendendo</li>
   <li>Encerramento</li>
 </ul>
 
@@ -236,19 +244,77 @@ Idioma: português jurídico brasileiro.</div>
 
 <p>Demo ao vivo: revisão do <a href="https://docs.google.com/document/d/1rfyxIBttgTGdbMEJMjbyR__uakEuW8tp4JAVg-k-xz4/edit?usp=sharing" target="_blank">contrato de locação da Capitu</a> (mesmo do exercício 2.2) usando a <a href="hrsa-skills/skill-revisao-contrato.md" target="_blank">Skill D</a>, representando a locatária.</p>
 
-<div class="callout tip">
-  <div class="callout-label">💡 Se quiser instalar depois</div>
-  Add-in do Microsoft Word. Instalação pela loja de add-ins do Office (Inserir → Obter suplementos → buscar "Claude"). Requer plano pago no Claude e Word desktop (Windows ou Mac).
-</div>
+<h3>Compare os resultados</h3>
+
+<p>Rodamos o mesmo prompt no Claude for Word e no Copilot for Word — Skill de revisão de contrato (Skill E), lado locatária, sem foco específico, com pedido de redline direto no documento. Abra os dois e compare:</p>
+
+<ul>
+  <li><strong>Claude for Word</strong> — <a href="https://docs.google.com/document/d/1-HZ34IIxCehL_78z_Z3CzNYeB02Jaj13/edit?usp=drive_link&ouid=116130341688700339926&rtpof=true&sd=true" target="_blank">baixar .docx revisado</a></li>
+  <li><strong>Copilot for Word</strong> — <a href="https://docs.google.com/document/d/1d9XqqwUPslpjnfE62HdPalCq6QqcEhrj/edit?usp=drive_link&ouid=116130341688700339926&rtpof=true&sd=true" target="_blank">baixar .docx revisado</a></li>
+</ul>
 
 <div class="callout tip">
-  <div class="callout-label">💡 Também existe para Excel e Outlook</div>
-  A mesma lógica do Claude for Word — IA rodando dentro do próprio aplicativo — existe também no <strong>Excel</strong> (análise e geração de planilhas) e no <strong>Outlook</strong> (triagem e rascunho de respostas). Mesma loja de add-ins do Office, mesmo requisito de plano pago no Claude.
+  <div class="callout-label">💡 Se quiser instalar depois</div>
+  Add-in do Microsoft Word. Instalação pela loja de add-ins do Office (Inserir → Obter suplementos → buscar "Claude"). Requer plano pago no Claude e Word desktop (Windows ou Mac).<br>
+  <em>Também existe para Outlook (triagem e rascunho de respostas), mesma loja, mesmo requisito.</em>
 </div>
 
 <hr>
 
-<h2>Agora com vocês</h2>
+<h2>Demo 3 — Claude for Excel <span style="font-weight:400; font-size:0.75em; color:#666;">(se tivermos tempo)</span></h2>
+
+<p>Mesma lógica do Claude for Word, mas dentro do Excel: a IA enxerga a planilha aberta, entende a estrutura dela (cabeçalhos, intervalos, fórmulas) e age direto nas células — preenchendo, calculando, formatando, gerando gráficos. Você pede em linguagem natural e ela escreve a fórmula, não o contrário.</p>
+
+<p><strong>Prompt — extrato bancário do cliente</strong></p>
+
+<div class="callout prompt">
+Meu cliente acabou de me enviar 12 meses de extratos da conta conjunta dele com o cônjuge. Me dê um resumo de uma página que eu possa usar na próxima reunião — categorize os gastos, mostre para onde o dinheiro está realmente indo, e sinalize qualquer coisa que eu deva perguntar a ele.</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Se não der tempo na sessão</div>
+  Tem um vídeo no YouTube com uma demo do Claude for Excel que dá uma boa noção da ferramenta: <a href="https://www.youtube.com/watch?v=BX2PxxM15Zc&t=862s" target="_blank">youtube.com/watch?v=BX2PxxM15Zc</a>.
+</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Se quiser instalar depois</div>
+  Add-in do Microsoft Excel. Instalação pela loja de add-ins do Office (Inserir → Obter suplementos → buscar "Claude"). Requer plano pago no Claude.
+</div>
+
+<hr>
+
+<h2>Demo 4 — Revisão de contrato no Cowork</h2>
+
+<p>Cowork é o agente de computador da Anthropic — disponível no Claude Desktop. Em vez de operar só o navegador (como o Claude no Chrome), ele opera o seu computador inteiro: abre arquivos, navega entre aplicativos, executa tarefas que envolvem múltiplas ferramentas em sequência.</p>
+
+<p>Demo ao vivo: <strong>vamos revisar o mesmo contrato de locação da Capitu, usando a mesma Skill E, do mesmo lado (locatária)</strong> que vocês acabaram de ver na Demo 2 — agora pelo Cowork. A ideia é mostrar dois jeitos diferentes de chegar ao mesmo lugar: o Word com add-in (IA dentro de um app) versus o Cowork (agente orquestrando vários apps). Mesmo input, abordagens distintas.</p>
+
+<div class="callout warning">
+  <div class="callout-label">⚙ Por que isso é diferente</div>
+  Nas Demos 2 e 3, a IA opera <em>dentro</em> de um aplicativo. No Cowork, ela orquestra múltiplos aplicativos — abre o Word, lê o contrato, consulta arquivos de referência, gera o parecer no editor, salva no lugar certo. É a diferença entre uma ferramenta e um colaborador.
+</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Se quiser instalar depois</div>
+  Cowork roda dentro do Claude Desktop — disponível em todos os planos pagos (Pro, Max, Team, Enterprise). Download: <a href="https://claude.ai/download" target="_blank">claude.ai/download</a>.
+</div>
+
+<hr>
+
+<h2>Discussão — Como vocês vão aplicar isso na rotina?</h2>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Antes de fechar, queremos ouvir vocês. Em uma rodada rápida, cada participante responde:
+  <ul style="margin-top: 8px; margin-bottom: 0;">
+    <li><strong>Qual foi a coisa do workshop que mais te chamou atenção?</strong> Pode ser uma skill, uma ferramenta, uma ideia, um exercício específico.</li>
+    <li><strong>O que você vai testar primeiro?</strong> Uma tarefa concreta da sua rotina — não algo genérico.</li>
+    <li><strong>O que ainda parece distante ou difícil de aplicar?</strong> O que ficou no "talvez" — para a gente ajudar a destravar.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Nossas dicas para aplicar na rotina e continuar aprendendo</h2>
 
 <h3>1 · Comece a usar skills e personalize-as</h3>
 
