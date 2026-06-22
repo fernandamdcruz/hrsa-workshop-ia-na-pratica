@@ -143,6 +143,7 @@
     <li>Conectar o Claude às ferramentas que você já usa no M365 (Outlook, OneDrive, calendário) — e o que isso muda na prática.</li>
     <li>Usar a técnica <strong>"interview me"</strong> para o Claude te entrevistar e capturar o que está na sua cabeça, mas não no papel.</li>
     <li>Criar um <strong>guia de estilo</strong> que faz o Claude escrever como você — em e-mails e documentos.</li>
+    <li>Pegar uma <strong>skill jurídica que o Claude já traz</strong> (legal-response) e adaptá-la para a HRSA — sem começar do zero.</li>
     <li>Colocar o <strong>Cowork</strong> para triar e-mail, priorizar o seu dia e rodar tarefas sozinho, no horário que você definir.</li>
     <li>Escolher o modelo certo para cada tarefa — e o que isso significa para o seu bolso.</li>
     <li>Usar o "interview me" para preparar uma submissão de ranking (Legal 500 / Chambers) numa fração do tempo.</li>
@@ -155,10 +156,11 @@
   <li>A. Recap: do prompt ao agente — onde o Cowork entra</li>
   <li>B. Conectores (MCP): ligando o Claude ao seu M365</li>
   <li>C. A técnica "interview me"</li>
-  <li>3D.1 Exercício — Seu guia de estilo (o Claude escreve como você)</li>
+  <li>Exercício 1 — Seu guia de estilo (o Claude escreve como você)</li>
+  <li>Exercício 2 — Personalizar uma skill que o Claude já traz (legal-response)</li>
   <li>Intervalo — Qual modelo usar (e o que isso custa)</li>
   <li>D. Cowork no dia a dia — e-mail, priorização e tarefas agendadas</li>
-  <li>3D.2 Exercício — Submissão de ranking (Legal 500 / Chambers)</li>
+  <li>Exercício 3 — Submissão de ranking (Legal 500 / Chambers)</li>
   <li>Discussão e próximos passos</li>
 </ul>
 
@@ -220,7 +222,7 @@ Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere min
 
 <hr>
 
-<h2>3D.1 Exercício — Seu guia de estilo</h2>
+<h2>Exercício 1 — Seu guia de estilo</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
@@ -268,6 +270,57 @@ Amostras:
 <div class="callout pratica">
   <div class="callout-label">🧭 Na prática</div>
   Imagine um guia de estilo <strong>do escritório</strong> — a voz da HRSA — e não só pessoal: consistência entre todos os advogados. E dá para ter variações: um para e-mail de cliente, outro para petição, outro para parecer.
+</div>
+
+<hr>
+
+<h2>Exercício 2 — Personalizar uma skill que o Claude já traz (legal-response)</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Ver que você não precisa criar tudo do zero. O Claude vem com um <strong>plugin jurídico</strong> (open-source, o mesmo da Sessão 2). Vamos abrir uma das skills dele — a <code>legal-response</code> — e adaptá-la juntos para a realidade da HRSA, na voz que você acabou de capturar no Exercício 1.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Exercício em grupo — o facilitador conduz</div>
+</div>
+
+<p>A <code>legal-response</code> gera respostas a consultas jurídicas recorrentes a partir de <strong>templates</strong> — mas com um detalhe que faz toda a diferença: <strong>gatilhos de escalação</strong>. Ela sabe quando <em>não</em> usar um template e mandar a resposta para um humano. É uma resposta "pronta" que sabe a hora de não ser automática — exatamente o que torna automação confiável num escritório.</p>
+
+<p>De fábrica, ela vem pensada para um jurídico interno (data subject requests, litigation holds, subpoenas). Nosso trabalho é apontá-la para o que <strong>um escritório</strong> realmente recebe.</p>
+
+<h3>O que a skill já traz</h3>
+<ul>
+  <li><strong>Categorias de resposta</strong> — famílias de consulta, cada uma com sub-tipos (ex.: acusar recebimento, pedir verificação, cumprir, negar com justificativa).</li>
+  <li><strong>Gatilhos de escalação</strong> — listas de "NÃO use template aqui" (ex.: envolve litígio, vem de autoridade, cria compromisso vinculante, é cliente novo).</li>
+  <li><strong>Formato de template</strong> — assunto, corpo com variáveis (<code>{{nome}}</code>, <code>{{prazo}}</code>) e ações de acompanhamento.</li>
+</ul>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Abra a skill <code>legal-response</code> — o facilitador mostra a estrutura. <a href="https://github.com/anthropics/knowledge-work-plugins/blob/main/legal/skills/legal-response/SKILL.md" target="_blank">Ver no GitHub</a> (plugin jurídico da Anthropic).</span></li>
+  <li><span class="step-n">2</span><span>Em grupo, listem as consultas que a HRSA mais recebe — status de processo, pedido de documento, prazo, resposta a contraparte, proposta de honorários, solicitação LGPD de titular.</span></li>
+  <li><span class="step-n">3</span><span>Rodem o prompt abaixo para adaptar a skill: novas categorias, um template reescrito na voz da HRSA, e os gatilhos de escalação do escritório.</span></li>
+  <li><span class="step-n">4</span><span>Revisem juntos e salvem o <code>.md</code>. Está nascendo uma skill da HRSA.</span></li>
+</ol>
+
+<div class="callout prompt">
+Vou te dar uma skill que o Claude já traz, chamada "legal-response": ela gera respostas a consultas jurídicas recorrentes a partir de templates, com gatilhos de escalação (situações em que NÃO se deve usar um template, e a resposta precisa ir para um advogado sênior).
+
+Quero adaptá-la para a HRSA, um escritório de advocacia brasileiro. Faça três coisas:
+
+1. CATEGORIAS — Troque as categorias de consulta pelas que um escritório como o nosso realmente recebe. Antes de fixar a lista, me pergunte quais são as nossas consultas mais comuns.
+
+2. UM TEMPLATE — Reescreva um template completo (a categoria que eu escolher) na voz da HRSA. Use o meu guia de estilo [cole aqui o guia do Exercício 1, ou diga "use a skill de guia de estilo que já carreguei"]. Inclua assunto, corpo com variáveis ({{nome}}, {{prazo}}, {{referência}}) e ações de acompanhamento.
+
+3. GATILHOS DE ESCALAÇÃO — Defina em que situações esse template NÃO deve ser usado e a resposta precisa ir para o sócio responsável (ex.: cliente novo, matéria sensível, qualquer coisa que toque estratégia de litígio ou crie compromisso vinculante).
+
+Entregue em formato .md com frontmatter (name, description), pronto para salvar como Claude Skill. Não invente prazos legais — se um prazo depender da lei aplicável, marque [VERIFICAR].
+
+[colar aqui o conteúdo da skill legal-response, ou anexar o arquivo]</div>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  O pulo do gato são os <strong>gatilhos de escalação</strong>: uma resposta automática que sabe a hora de parar e chamar um humano. É isso que separa automação perigosa de automação confiável — e é o que vocês vão querer em qualquer skill que responda em nome do escritório.
 </div>
 
 <hr>
@@ -355,7 +408,7 @@ Transforme isso numa tarefa recorrente: todo dia útil às 8h, faça essa triage
 
 <hr>
 
-<h2>3D.2 Exercício — Submissão de ranking (Legal 500 / Chambers)</h2>
+<h2>Exercício 3 — Submissão de ranking (Legal 500 / Chambers)</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
@@ -481,6 +534,7 @@ Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. N
       <li>Conectar ao M365</li>
       <li>"Interview me"</li>
       <li>Guia de estilo</li>
+      <li>Skills jurídicas do Claude</li>
       <li>Cowork no dia a dia</li>
       <li>Ranking jurídico</li>
     </ul>
