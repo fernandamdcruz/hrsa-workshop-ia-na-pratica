@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA na Prática · Deep Dive: Cowork — HRSA Advogados</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 40px auto;
+    color: #1a1a1a;
+  }
+  .cover {
+    text-align: center;
+    padding: 60px 0 80px;
+    border-bottom: 2px solid #222;
+    margin-bottom: 48px;
+  }
+  .cover-label { font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-bottom: 24px; }
+  .cover-title { font-size: 28pt; font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: #111; }
+  .cover-sub { font-size: 14pt; color: #444; margin-bottom: 32px; }
+  .cover-meta { font-size: 10pt; color: #888; }
+  .session-divider { margin: 56px 0 32px; padding-bottom: 10px; border-bottom: 2px solid #111; }
+  .session-num { font-size: 9pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .session-title { font-size: 20pt; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .session-meta { font-size: 10pt; color: #666; }
+  h2 { font-size: 13pt; font-weight: 700; margin: 36px 0 8px; color: #111; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 24px 0 6px; color: #222; }
+  .callout { border-left: 4px solid #555; background: #f5f5f5; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; position: relative; }
+  .callout.goal { border-left-color: #2d6a4f; background: #f0faf4; }
+  .callout.time { border-left-color: #888; background: #f7f7f7; }
+  .callout.prompt { border-left-color: #1a365d; background: #eef3fb; font-family: 'Courier New', monospace; font-size: 9.5pt; white-space: pre-wrap; line-height: 1.7; padding-right: 44px; }
+  .callout.warning { border-left-color: #b45309; background: #fffbeb; }
+  .callout.tip { border-left-color: #5b21b6; background: #f5f3ff; }
+  .callout.pratica { border-left-color: #B8860B; background: #fdf8e7; }
+  .callout-label { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .goal .callout-label { color: #2d6a4f; }
+  .time .callout-label { color: #555; }
+  .prompt .callout-label { color: #1a365d; }
+  .warning .callout-label { color: #b45309; }
+  .tip .callout-label { color: #5b21b6; }
+  .pratica .callout-label { color: #8B6914; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: transparent; border: 1px solid #c5cfe0; border-radius: 4px; padding: 4px 6px; cursor: pointer; color: #1a365d; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; font-family: Arial, sans-serif; }
+  .copy-btn:hover { background: #dbe4f3; border-color: #1a365d; }
+  .copy-btn svg { display: block; }
+  .copy-btn.copied { background: #1a365d; border-color: #1a365d; color: #fff; }
+  .copy-btn .copied-label { font-size: 9pt; font-weight: 600; margin-left: 4px; display: none; }
+  .copy-btn.copied .copied-label { display: inline; }
+  @media print { .copy-btn { display: none; } }
+  .steps { margin: 10px 0; padding-left: 0; list-style: none; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 10.5pt; }
+  .step-n { min-width: 22px; height: 22px; border-radius: 50%; background: #222; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .levels { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .badge { font-size: 9pt; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .badge.basic { background: #d1fae5; color: #065f46; }
+  .badge.plus { background: #ede9fe; color: #4c1d95; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+  th { background: #111; color: #fff; padding: 8px 12px; text-align: left; font-size: 9.5pt; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+  a:link, a:visited { color: #1a365d; }
+  a:hover { color: #0f1f3a; }
+  .session-outline { font-size: 10pt; color: #555; margin: 8px 0 20px; padding-left: 0; list-style: none; }
+  .session-outline li { padding: 4px 0; border-bottom: 1px solid #eee; }
+  .session-outline li::before { content: "→ "; color: #aaa; }
+  p { margin: 8px 0; font-size: 10.5pt; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 4px; font-size: 10.5pt; }
+  .page-break { page-break-after: always; }
+  .setup-box { border: 1.5px solid #111; border-radius: 8px; padding: 16px 20px; margin: 16px 0; background: #fafafa; }
+  .setup-box h3 { margin-top: 0; }
+  .tool-note { font-size: 9.5pt; color: #555; font-style: italic; margin: 6px 0 14px; }
+  .skill-download { font-size: 9.5pt; font-weight: 400; margin-left: 10px; color: #555; text-decoration: none; border-bottom: 1px dotted #999; }
+  .skill-download:hover { color: #111; border-bottom-color: #111; }
+  .outcomes { background: #fafafa; border-left: 4px solid #111; padding: 16px 20px; margin: 20px 0 28px; border-radius: 0 6px 6px 0; }
+  .outcomes h3 { margin-top: 0; margin-bottom: 10px; font-size: 11pt; }
+  .outcomes ul { margin: 6px 0 0; padding-left: 20px; }
+  .outcomes li { margin-bottom: 6px; font-size: 10.5pt; }
+  .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0 28px; }
+  .roadmap-card { border: 1.5px solid #ddd; border-radius: 8px; padding: 14px 16px; background: #fff; position: relative; }
+  .roadmap-card.completed { border-color: #2d6a4f; background: #f0faf4; }
+  .roadmap-card.current { border-color: #111; background: #fafafa; }
+  .roadmap-card .session-label { font-size: 9pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .roadmap-card.completed .session-label { color: #2d6a4f; }
+  .roadmap-card.current .session-label { color: #111; }
+  .roadmap-card .session-title-small { font-size: 11.5pt; font-weight: 700; color: #111; margin-bottom: 8px; line-height: 1.25; }
+  .roadmap-card ul { margin: 0; padding-left: 16px; }
+  .roadmap-card li { font-size: 9.5pt; margin-bottom: 3px; color: #444; }
+  .roadmap-card .status-tag { font-size: 9pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 8px; }
+  .roadmap-card.completed .status-tag { color: #2d6a4f; }
+  .roadmap-card.current .status-tag { color: #b45309; }
+  .roadmap-card .check { position: absolute; top: 12px; right: 14px; color: #2d6a4f; font-size: 16pt; font-weight: 700; line-height: 1; }
+  /* model cost scale */
+  .cost-scale { margin: 18px 0 8px; }
+  .cost-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+  .cost-name { width: 60px; flex-shrink: 0; font-weight: 700; font-size: 10.5pt; color: #111; }
+  .cost-track { flex: 1; background: #eee; border-radius: 5px; height: 20px; overflow: hidden; }
+  .cost-fill { height: 100%; background: #414042; border-radius: 5px; }
+  .cost-row.start .cost-fill { background: #B8860B; }
+  .cost-mult { width: 130px; flex-shrink: 0; font-weight: 700; font-size: 10.5pt; color: #111; }
+  .cost-mult .lbl { font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #B8860B; }
+  .cost-row.disabled { opacity: 0.45; }
+  .cost-row.disabled .cost-mult { font-weight: 400; color: #555; }
+  .cost-row.disabled .cost-mult .lbl { color: #888; }
+  .cost-row.disabled .cost-fill { background: repeating-linear-gradient(45deg, #b8b8b8, #b8b8b8 5px, #dadada 5px, #dadada 10px); }
+  .cost-note { font-size: 9pt; color: #666; font-style: italic; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<!-- COMPACT COVER -->
+<div class="cover">
+  <div class="cover-label">DC Cruz · HRSA Advogados · Confidencial</div>
+  <div class="cover-title">IA na Prática</div>
+  <div class="cover-sub">Deep Dive — Do assistente ao colega de trabalho</div>
+  <div class="cover-meta">
+    Workshop avançado · 2 horas · 2026<br>
+    Documento de exercícios — abra no seu computador durante a sessão e use para copiar os prompts
+  </div>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚙ Sobre as ferramentas nesta sessão</div>
+  Diferente das três primeiras, hoje é específico do <strong>Claude Desktop</strong> — porque o Cowork e os conectores vivem nele, e todos vocês já têm. Tenham o Claude Desktop aberto e logado no plano pago.
+</div>
+
+<!-- ===================== DEEP DIVE ===================== -->
+<div class="session-divider page-break">
+  <div class="session-num">Deep Dive · Sessão avançada</div>
+  <div class="session-title">Cowork &amp; Claude Desktop</div>
+  <div class="session-meta">Conectores (MCP) · "Interview me" · Guia de estilo · E-mail e priorização · Tarefas agendadas · Ranking jurídico</div>
+</div>
+
+<div class="tool-note">Hoje é mão na massa: vocês fazem, a gente circula ajudando. Use uma pasta de trabalho com arquivos de exemplo — nada de dado sigiloso de cliente em conta pessoal.</div>
+
+<div class="outcomes">
+  <h3>O que você vai aprender hoje</h3>
+  <ul>
+    <li>Conectar o Claude às ferramentas que você já usa no M365 (Outlook, OneDrive, calendário) — e o que isso muda na prática.</li>
+    <li>Usar a técnica <strong>"interview me"</strong> para o Claude te entrevistar e capturar o que está na sua cabeça, mas não no papel.</li>
+    <li>Criar um <strong>guia de estilo</strong> que faz o Claude escrever como você — em e-mails e documentos.</li>
+    <li>Colocar o <strong>Cowork</strong> para triar e-mail, priorizar o seu dia e rodar tarefas sozinho, no horário que você definir.</li>
+    <li>Escolher o modelo certo para cada tarefa — e o que isso significa para o seu bolso.</li>
+    <li>Usar o "interview me" para preparar uma submissão de ranking (Legal 500 / Chambers) numa fração do tempo.</li>
+  </ul>
+</div>
+
+<h3 style="font-size: 11pt; letter-spacing: 0.05em; text-transform: uppercase; color: #777; margin: 24px 0 8px;">Agenda</h3>
+
+<ul class="session-outline">
+  <li>A. Recap: do prompt ao agente — onde o Cowork entra</li>
+  <li>B. Conectores (MCP): ligando o Claude ao seu M365</li>
+  <li>C. A técnica "interview me"</li>
+  <li>3D.1 Exercício — Seu guia de estilo (o Claude escreve como você)</li>
+  <li>Intervalo — Qual modelo usar (e o que isso custa)</li>
+  <li>D. Cowork no dia a dia — e-mail, priorização e tarefas agendadas</li>
+  <li>3D.2 Exercício — Submissão de ranking (Legal 500 / Chambers)</li>
+  <li>Discussão e próximos passos</li>
+</ul>
+
+<hr>
+
+<h2>A. Recap — do prompt ao agente</h2>
+
+<p>Nas três primeiras sessões vocês construíram a base, degrau por degrau:</p>
+
+<ul>
+  <li><strong>Prompt</strong> (Sessão 1) — a instrução para uma tarefa.</li>
+  <li><strong>Skill, Plugin e Project</strong> (Sessão 2) — o prompt que vira programa, biblioteca e espaço de trabalho com memória.</li>
+  <li><strong>Agentes</strong> (Sessão 3) — a IA que opera o navegador (Claude no Chrome) e o computador (Cowork). Naquela vez, vocês <em>assistiram</em>.</li>
+</ul>
+
+<p>Hoje a gente vive no último degrau — e vocês <strong>fazem</strong>. O <strong>Cowork</strong> é o agente que opera o seu computador inteiro: abre arquivos, navega entre aplicativos, e — com <strong>conectores</strong> — age no seu e-mail e nos seus arquivos reais. A diferença entre uma ferramenta e um colega de trabalho.</p>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Regras de segurança de hoje</div>
+  O Cowork age no seu computador de verdade, e os conectores dão a ele acesso de leitura ao seu e-mail e arquivos. Lembrem do caso <em>Heppner</em> (Sessão 1): o que protege o sigilo é o <strong>ambiente</strong> e a <strong>governança</strong>, não a ferramenta. Por isso: comecem com permissões de <strong>leitura</strong>; usem arquivos de exemplo nos exercícios; e, para trabalho sigiloso de cliente, fiquem no ambiente corporativo da HRSA (mais sobre isso no bloco B).
+</div>
+
+<hr>
+
+<h2>B. Conectores (MCP): ligando o Claude ao seu M365</h2>
+
+<p>Um conector é uma <strong>"mão"</strong> do Claude: liga ele às ferramentas que você já usa, para que ele busque direto na fonte em vez de você copiar e colar. O padrão técnico por trás chama-se <strong>MCP</strong> (Model Context Protocol) — pense numa <em>tomada universal</em> entre a IA e seus sistemas.</p>
+
+<p>Como o ambiente de trabalho da HRSA é o <strong>Microsoft 365</strong>, é nele que mora o valor real: Outlook (e-mail e calendário) e OneDrive / SharePoint (arquivos).</p>
+
+<div class="setup-box">
+  <h3>⚙ Setup — conecte agora</h3>
+  <ol class="steps">
+    <li><span class="step-n">1</span><span>No Claude Desktop, abra <strong>Configurações → Conectores</strong> (Connectors).</span></li>
+    <li><span class="step-n">2</span><span>Conecte as ferramentas do seu M365 — <strong>Outlook</strong> (e-mail + calendário) e <strong>OneDrive / SharePoint</strong> (arquivos). Autentique com a sua conta HRSA.</span></li>
+    <li><span class="step-n">3</span><span>Conceda apenas <strong>leitura</strong> por enquanto. Você pode revisar ou revogar a qualquer momento nas configurações.</span></li>
+    <li><span class="step-n">4</span><span>Valide com uma pergunta simples: <em>"O que tenho na agenda amanhã?"</em> ou <em>"Encontre o último documento que editei no OneDrive e me resuma."</em></span></li>
+  </ol>
+  <p style="font-size:9.5pt; color:#555; margin-bottom:0;"><em>Sem M365 conectável agora? Para acompanhar os exercícios, dá para conectar uma conta pessoal do Google (Gmail / Drive / calendário) — sem nenhum dado de cliente.</em></p>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Conta corporativa: a regra do jogo</div>
+  Conectar o M365 corporativo dá ao Claude acesso ao seu e-mail e arquivos de trabalho. Faça isso <strong>dentro do ambiente aprovado pela HRSA</strong>. Para trabalho sigiloso de cliente, o caminho corporativo é o <strong>Cowork dentro do M365</strong> (a parceria Anthropic + Microsoft que vimos na Sessão 3), não um plano pessoal. Comece com leitura; conceda ação (escrever, enviar) só quando confiar na tarefa.
+</div>
+
+<hr>
+
+<h2>C. A técnica "interview me"</h2>
+
+<p>Em vez de escrever um prompt gigante tentando adivinhar tudo que a IA precisa saber, você <strong>inverte</strong>: peça para ela te entrevistar. Ela faz as perguntas certas, uma de cada vez, e só depois produz o resultado. Vocês já viram uma versão disso na Sessão 2 (calibrar o prompt de revisão). Hoje a gente usa como técnica geral — e aplica <strong>duas vezes</strong>: agora no seu guia de estilo, e mais tarde na submissão de ranking.</p>
+
+<p>Por que funciona: a IA puxa de você o contexto que está na sua cabeça mas não no papel. O resultado sai <strong>personalizado</strong>, não genérico.</p>
+
+<p><strong>O esqueleto — guarde este padrão</strong></p>
+
+<div class="callout prompt">
+Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere minha resposta, e só depois passe para a próxima. Faça de 5 a 8 perguntas para entender [o que importa para X]. Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. Quando terminar, produza [X] incorporando o que aprendeu.</div>
+
+<hr>
+
+<h2>3D.1 Exercício — Seu guia de estilo</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Fazer o Claude escrever como você. Você sai com um <strong>guia de estilo reutilizável</strong> (.md) que pode virar uma Claude Skill sempre disponível — e usar em e-mails e documentos.
+</div>
+
+<div class="callout time">
+  <div class="callout-label">Ferramenta: Claude Desktop</div>
+</div>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Junte <strong>2 a 3 amostras suas</strong> — e-mails ou trechos de documentos que você escreveu e que soam como você. Sem dados sigilosos; anonimize se precisar.</span></li>
+  <li><span class="step-n">2</span><span>Cole o prompt abaixo no Claude e anexe (ou cole) as amostras.</span></li>
+  <li><span class="step-n">3</span><span>O Claude vai te entrevistar — tom, formalidade, saudações e fechos, frases curtas vs. longas, jargão que você usa ou evita. Responda uma por vez.</span></li>
+  <li><span class="step-n">4</span><span>Ele devolve um guia de estilo em <code>.md</code> com frontmatter. Salve o arquivo.</span></li>
+  <li><span class="step-n">5</span><span>Teste: peça um e-mail novo aplicando o guia. Compare com como ele escreveria <em>sem</em>.</span></li>
+</ol>
+
+<div class="callout prompt">
+Quero criar um guia de estilo que faça você escrever como eu — em e-mails e documentos jurídicos.
+
+Vou te dar de 2 a 3 amostras do que eu escrevo. Antes de gerar o guia, me entreviste: faça uma pergunta de cada vez, espere minha resposta, e cubra:
+- tom e nível de formalidade (com cliente, com contraparte, interno)
+- saudações e fechos que eu uso
+- tamanho de frase e de parágrafo; quão direto eu vou ao ponto
+- vocabulário e expressões que eu prefiro — e o que eu evito (jargão, latim, advérbios)
+- formatação (bullets, negrito, numeração)
+- o que NÃO pode faltar, e o que me incomoda quando leio um texto
+
+Depois das perguntas, analise minhas amostras junto com as respostas e produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar e carregar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois".
+
+Amostras:
+[colar 2 a 3 aqui]</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Onde guardar esse guia — Skill, Project ou colar</div>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Claude Skill:</strong> você sobe o <code>.md</code> no Claude (Configurações → Skills) e ele fica <strong>sempre disponível</strong> — o Claude usa sozinho quando percebe que você está escrevendo. É o "sempre ligado".</li>
+    <li><strong>Project:</strong> anexe o guia a um Project específico (ex.: um cliente). Vale ali dentro daquele Project.</li>
+    <li><strong>Colar na hora:</strong> funciona, mas você repete toda vez.</li>
+  </ul>
+  Nas outras ferramentas, o equivalente do "sempre disponível" é o <strong>Custom GPT</strong> (ChatGPT) ou a <strong>Gem</strong> (Gemini).
+</div>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Imagine um guia de estilo <strong>do escritório</strong> — a voz da HRSA — e não só pessoal: consistência entre todos os advogados. E dá para ter variações: um para e-mail de cliente, outro para petição, outro para parecer.
+</div>
+
+<hr>
+
+<h2>Intervalo — Qual modelo usar (e o que isso custa)</h2>
+
+<p>Lembram dos <strong>tokens</strong> da Sessão 1? É aqui que eles viram dinheiro — ou viram o seu limite de uso. A mesma tarefa gasta mais ou menos os mesmos tokens em qualquer modelo; o que muda é <strong>o preço por token</strong> e quanto o modelo "pensa". Em ordem de custo relativo:</p>
+
+<div class="cost-scale">
+  <div class="cost-row disabled">
+    <div class="cost-name">Fable</div>
+    <div class="cost-track"><div class="cost-fill" style="width:100%"></div></div>
+    <div class="cost-mult">~125× <span class="lbl">desativado</span></div>
+  </div>
+  <div class="cost-row">
+    <div class="cost-name">Opus</div>
+    <div class="cost-track"><div class="cost-fill" style="width:66%"></div></div>
+    <div class="cost-mult">25×</div>
+  </div>
+  <div class="cost-row start">
+    <div class="cost-name">Sonnet</div>
+    <div class="cost-track"><div class="cost-fill" style="width:32%"></div></div>
+    <div class="cost-mult">5× <span class="lbl">← comece aqui</span></div>
+  </div>
+  <div class="cost-row">
+    <div class="cost-name">Haiku</div>
+    <div class="cost-track"><div class="cost-fill" style="width:12%"></div></div>
+    <div class="cost-mult">1×</div>
+  </div>
+</div>
+
+<p class="cost-note">O comprimento das barras é ilustrativo — o múltiplo é o que importa. Custo relativo aproximado, não preço exato: depende do seu plano (assinatura ou API) e muda com o tempo. No plano por assinatura, modelos mais leves esticam o seu limite de uso antes de bater o teto. Para números atuais, veja a página de preços do provedor.</p>
+
+<table>
+  <tr><th>Modelo</th><th>Para que serve</th></tr>
+  <tr><td><strong>Haiku</strong></td><td>Tarefas simples e em volume: classificar, extrair, resumir algo curto. Tropeça em nuance jurídica.</td></tr>
+  <tr><td><strong>Sonnet</strong></td><td>O cavalo de trabalho do dia a dia: redigir, revisar, analisar documentos. Melhor equilíbrio entre qualidade e custo.</td></tr>
+  <tr><td><strong>Opus</strong></td><td>Raciocínio complexo e análise difícil, quando a qualidade importa mais que o custo.</td></tr>
+  <tr><td><strong>Fable</strong></td><td>O mais novo da família — topo de linha. <em>(Desativado / indisponível aqui.)</em></td></tr>
+</table>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Regra de bolso</div>
+  Comece no <strong>Sonnet</strong>. Suba para o <strong>Opus</strong> quando a tarefa for difícil de verdade; desça para o <strong>Haiku</strong> quando for simples e repetitiva. Canhão não mata mosquito — e estilingue não para leão.
+</div>
+
+<hr>
+
+<h2>D. Cowork no dia a dia — e-mail, priorização e tarefas agendadas</h2>
+
+<p>Agora que os conectores estão ligados, o Cowork não só conversa — ele <strong>age</strong> nas suas ferramentas. Três coisas que mudam a sua manhã: triar a caixa, priorizar o dia, e fazer isso <strong>sozinho</strong>, num horário fixo.</p>
+
+<p>Esta parte começa como demo do facilitador — quem já conectou o Outlook (ou Gmail) acompanha fazendo junto.</p>
+
+<h3>Triagem + priorização</h3>
+
+<div class="callout prompt">
+Olhe meus e-mails não lidos das últimas 24 horas. Agrupe por tipo (cliente, contraparte, interno, prazos/intimações, administrativo, promocional). Para cada e-mail que parece pedir uma ação minha, diga em uma linha o que é e qual a urgência. No final, me dê uma lista priorizada do que eu deveria responder primeiro hoje — e me avise se tem algo com cara de prazo. Não responda nada ainda; só me mostre o panorama.</div>
+
+<h3>Agora a parte boa: deixe rodando sozinho</h3>
+
+<p>O Cowork tem <strong>tarefas agendadas</strong> — ele roda no horário que você definir e te entrega o resultado pronto, sem você pedir nada.</p>
+
+<div class="callout prompt">
+Transforme isso numa tarefa recorrente: todo dia útil às 8h, faça essa triagem e priorização dos meus e-mails das últimas 24h e deixe a lista priorizada pronta para quando eu abrir o computador.</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Outras tarefas agendadas úteis</div>
+  <ul style="margin:6px 0 0;">
+    <li>Resumo semanal dos documentos novos numa pasta do OneDrive.</li>
+    <li>Lembrete de prazos a partir do calendário, toda segunda de manhã.</li>
+    <li>Digest de um cliente específico — só o que mexeu naquela semana.</li>
+  </ul>
+</div>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ Comece lendo, não agindo</div>
+  Dê ao Cowork, no começo, tarefas que só <strong>leem e te mostram</strong> — não que respondem ou enviam sozinhas. Conceda ação automática só quando você já confia no que ele entrega.
+</div>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Na prática</div>
+  Qual tarefa chata e repetitiva da sua semana poderia rodar sozinha, toda manhã, antes de você chegar?
+</div>
+
+<hr>
+
+<h2>3D.2 Exercício — Submissão de ranking (Legal 500 / Chambers)</h2>
+
+<div class="callout goal">
+  <div class="callout-label">🎯 Objetivo</div>
+  Usar o "interview me" para rascunhar uma submissão de ranking — <strong>Legal 500</strong> e <strong>Chambers and Partners</strong> — numa fração do tempo. O Claude te entrevista sobre um caso de destaque e monta a submissão no formato certo.
+</div>
+
+<p>As submissões para o Legal 500 e o Chambers seguem uma lógica parecida: um <em>work highlight</em> / <em>matter</em> com o papel do escritório, a complexidade, o valor envolvido, o resultado e por que importou. O chato é extrair isso da sua cabeça e escrever bem. É exatamente onde o "interview me" brilha.</p>
+
+<ol class="steps">
+  <li><span class="step-n">1</span><span>Escolha um <strong>caso de destaque</strong> dos últimos 12 meses — algo que você teria orgulho de submeter. Use só o que for publicável, ou anonimize.</span></li>
+  <li><span class="step-n">2</span><span>Cole o prompt abaixo.</span></li>
+  <li><span class="step-n">3</span><span>Responda à entrevista, uma pergunta por vez.</span></li>
+  <li><span class="step-n">4</span><span>O Claude devolve a submissão estruturada, com versão curta e longa.</span></li>
+  <li><span class="step-n">5</span><span>Revise — você assina. Confira o que ele marcou com [VERIFICAR].</span></li>
+</ol>
+
+<div class="callout prompt">
+Você vai me ajudar a preparar uma submissão de ranking jurídico para o Legal 500 e o Chambers and Partners, a partir de um caso de destaque do nosso escritório.
+
+Antes de escrever qualquer coisa, me entreviste. Faça uma pergunta de cada vez, espere minha resposta, e cubra:
+- área de atuação e o cliente (e o que pode ou não ser publicado)
+- qual foi o papel do escritório e quem liderou
+- a complexidade: o que tornou o caso difícil ou inovador
+- valor envolvido e relevância (econômica, estratégica, de precedente)
+- o resultado e o impacto para o cliente
+- depoimento ou referência de cliente, se houver
+
+Quando terminar as perguntas, produza:
+1. Um "work highlight" / "matter description" no formato do Legal 500 e do Chambers — texto corrido, objetivo, destacando papel, complexidade, valor e resultado.
+2. Uma versão curta (2 a 3 linhas) e uma versão longa.
+3. Uma lista do que ainda falta confirmar, marcada com [VERIFICAR] (ex.: referência de cliente, números a checar).
+
+Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. Não invente números nem fatos — se não tiver a informação, pergunte ou marque [VERIFICAR].</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Não faz submissão de ranking? Use o tempo do lab para outra coisa</div>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Timesheets:</strong> "A partir da minha agenda e dos documentos que editei ontem, rascunhe as descrições de lançamento de horas por cliente / matéria — eu reviso."</li>
+    <li><strong>Organizar</strong> uma pasta de processo no OneDrive — renomear, agrupar, indexar.</li>
+    <li><strong>Rascunhar</strong> um documento a partir de um template seu + o guia de estilo que você criou hoje.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Discussão — Como vocês vão aplicar isso?</h2>
+
+<div class="callout pratica">
+  <div class="callout-label">🧭 Rodada rápida</div>
+  <ul style="margin-top: 8px; margin-bottom: 0;">
+    <li><strong>O que você vai conectar ou automatizar primeiro?</strong> Uma tarefa concreta da sua semana.</li>
+    <li><strong>O que ainda parece distante?</strong> O que ficou no "talvez" — para a gente ajudar a destravar.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Nossas dicas para continuar</h2>
+
+<h3>1 · Mantenha os conectores e construa do simples ao automático</h3>
+<p>Comece com tarefas que só leem e mostram. Conforme você confia, deixe o Cowork agir e rodar sozinho.</p>
+
+<h3>2 · Crie skills sempre disponíveis</h3>
+<p>Comece pelo guia de estilo de hoje. Depois, transforme em skill todo prompt que você repete.</p>
+
+<h3>3 · Use o "interview me" sempre que a tarefa exigir o que está na sua cabeça</h3>
+<p>Submissões, pareceres, briefings, propostas — deixe o Claude puxar o contexto de você antes de escrever.</p>
+
+<h3>4 · Para trabalho sigiloso, fique no ambiente corporativo</h3>
+<p>O caminho da HRSA para dado de cliente é o Cowork dentro do M365. Plano pessoal, só para o que não é sigiloso.</p>
+
+<div class="callout tip">
+  <div class="callout-label">💬 Estamos aqui</div>
+  Qualquer dúvida, ideia nova ou skill que queira refinar: nos manda mensagem no WhatsApp. Não precisa esperar o próximo encontro.
+</div>
+
+<hr>
+
+<h2>A trilha até aqui</h2>
+
+<div class="roadmap" style="grid-template-columns: repeat(4, 1fr); gap: 10px;">
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 1</div>
+    <div class="session-title-small">Confiança e fundamentos</div>
+    <ul>
+      <li>O que uma IA é (e não é)</li>
+      <li>Prompts que funcionam</li>
+      <li>Segurança e sigilo</li>
+      <li>Documentos seus (RAG)</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 2</div>
+    <div class="session-title-small">Produtividade na prática</div>
+    <ul>
+      <li>Prompt, skill, project</li>
+      <li>Notas → ata</li>
+      <li>Do prompt à skill</li>
+      <li>Biblioteca de skills</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card completed">
+    <div class="check">✓</div>
+    <div class="session-label">Sessão 3</div>
+    <div class="session-title-small">Indo além</div>
+    <ul>
+      <li>IA no navegador</li>
+      <li>Do texto ao deck</li>
+      <li>Redline no Word</li>
+      <li>Excel e Cowork</li>
+    </ul>
+  </div>
+
+  <div class="roadmap-card current">
+    <div class="session-label">Deep Dive</div>
+    <div class="session-title-small">Cowork &amp; Claude Desktop</div>
+    <ul>
+      <li>Conectar ao M365</li>
+      <li>"Interview me"</li>
+      <li>Guia de estilo</li>
+      <li>Cowork no dia a dia</li>
+      <li>Ranking jurídico</li>
+    </ul>
+    <div class="status-tag">Hoje</div>
+  </div>
+
+</div>
+
+<hr>
+
+<div style="text-align: center; padding: 40px 0 20px; border-top: 2px solid #111; margin-top: 40px;">
+  <p style="font-size: 14pt; font-weight: 700; color: #111; margin-bottom: 12px;">Do assistente ao colega de trabalho.</p>
+  <p style="font-size: 11pt; color: #555; margin-bottom: 20px;">Vocês começaram aprendendo a falar com a IA.<br>Hoje ela trabalha ao lado de vocês — conectada, personalizada, e fazendo parte do trabalho sozinha.</p>
+  <p style="font-size: 11pt; color: #333; margin-bottom: 6px;"><strong>Fernanda e Edu — DC Cruz</strong></p>
+</div>
+
+
+<script>
+(function() {
+  const SVG_ICON = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="9" rx="1.2" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M3 11V3.2C3 2.54 3.54 2 4.2 2H10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>';
+
+  document.querySelectorAll('.callout.prompt').forEach(function(block) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Copiar');
+    btn.title = 'Copiar';
+    btn.innerHTML = SVG_ICON + '<span class="copied-label">copiado</span>';
+
+    btn.addEventListener('click', function() {
+      const clone = block.cloneNode(true);
+      const cloneBtn = clone.querySelector('.copy-btn');
+      if (cloneBtn) cloneBtn.remove();
+      const cloneLabel = clone.querySelector('.callout-label');
+      if (cloneLabel) cloneLabel.remove();
+      const text = clone.innerText.trim();
+
+      navigator.clipboard.writeText(text).then(function() {
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      }).catch(function() {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      });
+    });
+
+    block.appendChild(btn);
+  });
+})();
+</script>
+
+</body>
+</html>
