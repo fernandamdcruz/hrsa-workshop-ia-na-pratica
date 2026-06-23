@@ -140,11 +140,11 @@
 <div class="outcomes">
   <h3>O que você vai aprender hoje</h3>
   <ul>
-    <li>Entender como conectar o Claude às ferramentas do M365 (Outlook, OneDrive, calendário) — e fazer só o setup mínimo que cada exercício precisa.</li>
+    <li>Entender o que são conectores — e por que, em plano pessoal, o Outlook corporativo fica para depois (hoje trabalhamos com arquivos locais e conteúdo colado).</li>
     <li>Usar a técnica <strong>"interview me"</strong> para o Claude te entrevistar e capturar o que está na sua cabeça, mas não no papel.</li>
     <li>Criar um <strong>guia de estilo</strong> que faz o Claude escrever como você — em e-mails e documentos.</li>
     <li>Pegar uma <strong>skill jurídica que o Claude já traz</strong> (legal-response) e adaptá-la para a HRSA — sem começar do zero.</li>
-    <li>Colocar o <strong>Cowork</strong> para triar e-mail, priorizar o seu dia e rodar tarefas sozinho, no horário que você definir.</li>
+    <li>Colocar o <strong>Cowork</strong> para trabalhar com seus arquivos, montar panoramas e rodar tarefas sozinho — e ver a triagem de e-mail que chega com plano corporativo.</li>
     <li>Escolher o modelo certo para cada tarefa — e o que isso significa para o seu bolso.</li>
     <li>Usar o "interview me" para preparar uma submissão de ranking (Legal 500 / Chambers) numa fração do tempo.</li>
   </ul>
@@ -154,12 +154,12 @@
 
 <ul class="session-outline">
   <li>A. O que mudou — e por que o foco de hoje é o Cowork</li>
-  <li>B. Conectores e integrações: o mínimo necessário, com segurança</li>
+  <li>B. Conectores: por que hoje não conectamos o Outlook (plano pessoal)</li>
   <li>C. A técnica "interview me"</li>
   <li>Exercício 1 — Seu guia de estilo para e-mails (o Claude escreve como você)</li>
   <li>Exercício 2 — Personalizar uma skill que o Claude já traz (legal-response)</li>
   <li>Intervalo — Qual modelo usar (e o que isso custa)</li>
-  <li>D. Cowork no dia a dia — e-mail, priorização e tarefas agendadas</li>
+  <li>D. Cowork no dia a dia — arquivos, e-mail e tarefas agendadas</li>
   <li>Exercício 3 — Submissão de ranking (Legal 500 / Chambers)</li>
   <li>Discussão e o que você leva desta sessão</li>
 </ul>
@@ -195,21 +195,21 @@
 
 <hr>
 
-<h2>B. Conectores (MCP): ligando o Claude ao seu M365</h2>
+<h2>B. Conectores: o que são (e por que hoje não conectamos o Outlook)</h2>
 
 <p>Um conector é uma <strong>"mão"</strong> do Claude: liga ele às ferramentas que você já usa, para que ele busque direto na fonte em vez de você copiar e colar. O padrão técnico por trás chama-se <strong>MCP</strong> (Model Context Protocol) — pense numa <em>tomada universal</em> entre a IA e seus sistemas.</p>
 
-<p>Como o ambiente de trabalho da HRSA é o <strong>Microsoft 365</strong>, é nele que mora o valor real: Outlook (e-mail e calendário) e OneDrive / SharePoint (arquivos). Mas calma: <strong>não vamos conectar tudo agora</strong> — isso viraria uma sessão de TI. Cada exercício abaixo traz o setup mínimo que precisa, e vários não precisam de conexão nenhuma.</p>
+<p>O ambiente de trabalho da HRSA é o <strong>Microsoft 365</strong> — e é lá que mora o valor real: Outlook (e-mail e calendário) e OneDrive / SharePoint (arquivos). <strong>Mas tem um porém importante:</strong> conectar o Outlook corporativo ao Claude exige um <strong>plano corporativo</strong> (Team / Enterprise, ou o Cowork dentro do M365). Como vocês estão em <strong>planos pessoais</strong>, hoje <strong>não dá para conectar o Outlook</strong> — e tudo bem. Todos os exercícios de hoje funcionam <strong>sem conexão nenhuma</strong>: você cola o que precisa, ou o Cowork trabalha com arquivos locais e o navegador. Os conectores entram em cena quando a HRSA migrar para um plano corporativo — e logo abaixo mostramos como isso vai funcionar.</p>
 
 <div class="setup-box">
-  <h3>⚙ Como conectar (referência — faremos por exercício, quando precisar)</h3>
+  <h3>⚙ Como vai funcionar com plano corporativo (referência para o futuro)</h3>
   <ol class="steps">
     <li><span class="step-n">1</span><span>No Claude Desktop, abra <strong>Configurações → Conectores</strong> (Connectors).</span></li>
     <li><span class="step-n">2</span><span>Conecte as ferramentas do seu M365 — <strong>Outlook</strong> (e-mail + calendário) e <strong>OneDrive / SharePoint</strong> (arquivos). Autentique com a sua conta HRSA.</span></li>
     <li><span class="step-n">3</span><span>Conceda apenas <strong>leitura</strong> por enquanto. Você pode revisar ou revogar a qualquer momento nas configurações.</span></li>
     <li><span class="step-n">4</span><span>Valide com uma pergunta simples: <em>"O que tenho na agenda amanhã?"</em> ou <em>"Encontre o último documento que editei no OneDrive e me resuma."</em></span></li>
   </ol>
-  <p style="font-size:9.5pt; color:#555; margin-bottom:0;"><em>Sem M365 conectável agora? Para acompanhar os exercícios, dá para conectar uma conta pessoal do Google (Gmail / Drive / calendário) — sem nenhum dado de cliente.</em></p>
+  <p style="font-size:9.5pt; color:#555; margin-bottom:0;"><em>Hoje, em plano pessoal, o que dá para conectar é uma conta pessoal do Google (Gmail / Drive) — opcional, e só para conteúdo que não seja de cliente. O Outlook corporativo fica para quando houver plano corporativo.</em></p>
 </div>
 
 <div class="callout warning">
@@ -218,8 +218,8 @@
 </div>
 
 <div class="callout warning">
-  <div class="callout-label">⚠ Conta corporativa: a regra do jogo</div>
-  Conectar o M365 corporativo dá ao Claude acesso ao seu e-mail e arquivos de trabalho. Faça isso <strong>dentro do ambiente aprovado pela HRSA</strong>. Para trabalho sigiloso de cliente, o caminho corporativo é o <strong>Cowork dentro do M365</strong> (a parceria Anthropic + Microsoft que vimos na Sessão 3), não um plano pessoal. Comece com leitura; conceda ação (escrever, enviar) só quando confiar na tarefa.
+  <div class="callout-label">⚠ Por que isso é o caminho certo (e não um plano pessoal)</div>
+  Na verdade, é melhor assim: dado de cliente <strong>não deve</strong> passar por uma conta pessoal (lembrem do caso <em>Heppner</em>, Sessão 1). O caminho corporativo é o <strong>Cowork dentro do M365</strong> (parceria Anthropic + Microsoft) — ambiente aprovado, com governança. Quando a HRSA migrar para lá, vale a regra de sempre: comece com leitura; conceda ação (escrever, enviar) só quando confiar na tarefa.
 </div>
 
 <hr>
@@ -385,34 +385,41 @@ Entregue em formato .md com frontmatter (name, description), pronto para salvar 
 
 <hr>
 
-<h2>D. Cowork no dia a dia — e-mail, priorização e tarefas agendadas</h2>
+<h2>D. Cowork no dia a dia — arquivos, e-mail e tarefas agendadas</h2>
 
-<p>Agora que os conectores estão ligados, o Cowork não só conversa — ele <strong>age</strong> nas suas ferramentas. Três coisas que mudam a sua manhã: triar a caixa, priorizar o dia, e fazer isso <strong>sozinho</strong>, num horário fixo.</p>
-
-<p>Esta parte começa como demo do facilitador — quem já conectou o Outlook acompanha fazendo junto.</p>
+<p>O Cowork não só conversa — ele <strong>age</strong>. Com uma conta conectada, ele tria a sua caixa de e-mail e prioriza o seu dia. Como hoje vocês estão em plano pessoal e não conectam o Outlook, esta parte tem duas camadas: o facilitador <strong>demonstra</strong> a parte de e-mail (uma prévia do futuro corporativo), e vocês <strong>fazem</strong> a versão que roda no seu plano agora — o Cowork trabalhando com <strong>arquivos locais</strong>.</p>
 
 <div class="callout time">
-  <div class="callout-label">Setup deste bloco: conectar o Outlook em leitura (Configurações → Conectores). Quem não conectar, acompanha o facilitador.</div>
+  <div class="callout-label">Demo do facilitador: triagem de e-mail (precisa de conta conectada) · Mão na massa de vocês: Cowork com arquivos locais (funciona no plano pessoal)</div>
 </div>
 
-<h3>Triagem + priorização</h3>
+<h3>Demo — triagem e priorização de e-mail <span style="font-weight:400; font-size:0.8em; color:#666;">(com conta conectada — futuro corporativo)</span></h3>
+
+<p>O facilitador mostra, numa conta conectada, o que vocês vão poder fazer quando a HRSA tiver um plano corporativo:</p>
 
 <div class="callout prompt">
 Olhe meus e-mails não lidos das últimas 24 horas. Agrupe por tipo (cliente, contraparte, interno, prazos/intimações, administrativo, promocional). Para cada e-mail que parece pedir uma ação minha, diga em uma linha o que é e qual a urgência. No final, me dê uma lista priorizada do que eu deveria responder primeiro hoje — e me avise se tem algo com cara de prazo. Não responda nada ainda; só me mostre o panorama.</div>
+
+<h3>Mão na massa — Cowork com uma pasta de arquivos <span style="font-weight:400; font-size:0.8em; color:#666;">(funciona no seu plano)</span></h3>
+
+<p>Sem conectar nada: aponte o Cowork para uma pasta no seu computador (use a pasta de exemplo do facilitador) e deixe ele trabalhar.</p>
+
+<div class="callout prompt">
+Nesta pasta tem vários documentos. Leia todos e me entregue: (1) um índice com uma linha de resumo por arquivo; (2) um resumo geral de uma página do que esse conjunto trata; (3) uma lista do que parece faltar ou precisar de atenção. Não altere nem renomeie nada ainda — só me mostre o panorama e espere minha aprovação.</div>
 
 <h3>Agora a parte boa: deixe rodando sozinho</h3>
 
 <p>O Cowork tem <strong>tarefas agendadas</strong> — ele roda no horário que você definir e te entrega o resultado pronto, sem você pedir nada.</p>
 
 <div class="callout prompt">
-Transforme isso numa tarefa recorrente: todo dia útil às 8h, faça essa triagem e priorização dos meus e-mails das últimas 24h e deixe a lista priorizada pronta para quando eu abrir o computador.</div>
+Transforme isso numa tarefa recorrente: todo dia útil de manhã, verifique os documentos novos nesta pasta e me deixe um resumo priorizado pronto para quando eu abrir o computador.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Outras tarefas agendadas úteis</div>
   <ul style="margin:6px 0 0;">
-    <li>Resumo semanal dos documentos novos numa pasta do OneDrive.</li>
-    <li>Lembrete de prazos a partir do calendário, toda segunda de manhã.</li>
-    <li>Digest de um cliente específico — só o que mexeu naquela semana.</li>
+    <li>Resumo semanal dos documentos novos numa pasta local.</li>
+    <li>Com plano corporativo: triagem de e-mail toda manhã, ou lembrete de prazos a partir do calendário.</li>
+    <li>Digest de um assunto específico — só o que mudou naquela semana.</li>
   </ul>
 </div>
 
