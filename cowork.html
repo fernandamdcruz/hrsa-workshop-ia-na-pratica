@@ -139,7 +139,7 @@
   <ul>
     <li>Ver o <strong>Cowork</strong> em ação: organizar e renomear uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Usar a técnica <strong>"interview me"</strong> para o Claude extrair o que está na sua cabeça.</li>
-    <li>Criar um <strong>guia de estilo</strong> que faz o Claude escrever e-mails na sua voz.</li>
+    <li>Criar um <strong>guia de estilo</strong> a partir dos seus documentos, para o Claude redigir novos na sua voz.</li>
     <li>Adaptar uma <strong>skill jurídica que o Claude já traz</strong> (legal-response) para a HRSA.</li>
     <li><strong>Economizar tokens</strong>: monitorar o seu uso e escolher o modelo certo para cada tarefa.</li>
     <li>Usar o "interview me" para preparar uma submissão de ranking (Legal 500 / Chambers).</li>
@@ -153,7 +153,7 @@
   <li>Antes de começar — instalar o Claude para Chrome</li>
   <li>Exercício 1 — Cowork organiza uma pasta de arquivos</li>
   <li>A técnica "interview me"</li>
-  <li>Exercício 2 — Seu guia de estilo para e-mails</li>
+  <li>Exercício 2 — Guia de estilo a partir dos seus documentos</li>
   <li>Exercício 3 — Personalizar uma skill que o Claude já traz (legal-response)</li>
   <li>Como economizar tokens</li>
   <li>Cowork sozinho — e-mail e tarefas agendadas</li>
@@ -240,7 +240,7 @@ Use as atas desta pasta como fonte. Não invente: se algo não estiver claro num
 
 <h2>A técnica "interview me"</h2>
 
-<p>Em vez de escrever um prompt longo tentando antecipar tudo que a IA precisa saber, você <strong>inverte</strong>: pede para ela te entrevistar. Ela faz as perguntas certas, uma de cada vez, e só então produz o resultado. Vocês viram uma versão na Sessão 2; hoje usamos como técnica geral — e aplicamos duas vezes: no guia de estilo agora, e na submissão de ranking mais adiante.</p>
+<p>Em vez de escrever um prompt longo tentando antecipar tudo que a IA precisa saber, você <strong>inverte</strong>: pede para ela te entrevistar. Ela faz as perguntas certas, uma de cada vez, e só então produz o resultado. Vocês viram uma versão na Sessão 2; hoje ela é uma ferramenta geral — apoio no guia de estilo quando você tem poucas amostras (Exercício 2), e a base da submissão de ranking (Exercício 4).</p>
 
 <p>Funciona porque a IA puxa de você o contexto que está na sua cabeça, mas não no papel. O resultado sai personalizado, não genérico.</p>
 
@@ -251,47 +251,54 @@ Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere min
 
 <hr>
 
-<h2>Exercício 2 — Seu guia de estilo para e-mails</h2>
+<h2>Exercício 2 — Guia de estilo a partir dos seus documentos</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Fazer o Claude escrever como você. Você sai com um guia de estilo reutilizável (.md) que pode virar uma Claude Skill sempre disponível — e usar em e-mails e documentos.
+  A partir de uma pasta de documentos seus — todos de um mesmo tipo que você escreve com frequência — o Claude extrai o seu estilo e monta um guia reutilizável. Depois, você usa esse guia para rascunhar novos documentos do mesmo tipo, na sua voz.
 </div>
 
 <div class="callout time">
-  <div class="callout-label">Ferramenta: Claude Desktop · Setup: nenhum — você cola seus próprios e-mails</div>
+  <div class="callout-label">Ferramenta: Claude Desktop · Setup: trazer uma pasta com os seus documentos (ou usar a de exemplo)</div>
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Junte <strong>2 a 3 amostras suas</strong> — de preferência <strong>e-mails que você já enviou</strong> e que soam como você (ou trechos de documentos). Anonimize se precisar.</span></li>
-  <li><span class="step-n">2</span><span>Cole o prompt abaixo no Claude e anexe (ou cole) as amostras.</span></li>
-  <li><span class="step-n">3</span><span>O Claude te entrevista — tom, formalidade, saudações e fechos, frases curtas ou longas, jargão que você usa ou evita. Responda uma por vez.</span></li>
-  <li><span class="step-n">4</span><span>Ele devolve um guia de estilo em <code>.md</code> com frontmatter. Salve o arquivo.</span></li>
-  <li><span class="step-n">5</span><span>Teste: peça um e-mail novo aplicando o guia, e compare com a versão <em>sem</em>. Daqui em diante, com a skill carregada, basta pedir "escreve no meu estilo" e revisar antes de enviar.</span></li>
+  <li><span class="step-n">1</span><span>Reúna <strong>10 a 15 documentos seus do mesmo tipo</strong> — e-mails, memorandos, atualizações de caso, o que você escreve com frequência. Anonimize o que for de cliente. Não trouxe nada? Baixe a <a href="#" target="_blank">pasta de exemplo (Drive) — link a definir</a>.</span></li>
+  <li><span class="step-n">2</span><span>No Claude, aponte o Cowork para a pasta (ou anexe os arquivos).</span></li>
+  <li><span class="step-n">3</span><span>Rode o <strong>primeiro</strong> prompt. O Claude lê tudo e devolve um guia de estilo em <code>.md</code>. Salve como Claude Skill.</span></li>
+  <li><span class="step-n">4</span><span>Rode o <strong>segundo</strong> prompt para rascunhar um documento novo desse tipo, na sua voz.</span></li>
 </ol>
 
+<p><strong>Parte 1 — extrair o guia de estilo</strong></p>
+
 <div class="callout prompt">
-Quero criar um guia de estilo que faça você escrever como eu — em e-mails e documentos jurídicos.
+Nesta pasta há vários documentos que eu escrevi, todos do mesmo tipo. Leia todos e identifique o meu estilo de escrita:
+- tom e nível de formalidade
+- como eu abro e como eu fecho
+- estrutura típica do documento
+- tamanho de frase e de parágrafo
+- vocabulário e expressões recorrentes — e o que eu evito
+- como eu explico pontos técnicos ou jurídicos
 
-Vou te dar de 2 a 3 amostras do que eu escrevo. Antes de gerar o guia, me entreviste: faça uma pergunta de cada vez, espere minha resposta, e cubra:
-- tom e nível de formalidade (com cliente, com contraparte, interno)
-- saudações e fechos que eu uso
-- tamanho de frase e de parágrafo; quão direto eu vou ao ponto
-- vocabulário e expressões que eu prefiro — e o que eu evito (jargão, latim, advérbios)
-- como eu explico temas jurídicos para um cliente leigo
-- formatação (bullets, negrito, numeração)
-- o que NÃO pode faltar, e o que evitar para o texto não soar genérico ou artificial (cara de IA)
+Produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois" tirados dos próprios documentos. Baseie-se no que está nos documentos — não invente traços que você não observou.</div>
 
-Depois das perguntas, analise minhas amostras junto com as respostas e produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar e carregar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois".
+<p><strong>Parte 2 — usar o guia para rascunhar</strong></p>
 
-Amostras:
-[colar 2 a 3 aqui]</div>
+<div class="callout prompt">
+Agora use o guia de estilo que você acabou de criar para rascunhar um novo documento desse mesmo tipo, na minha voz, a partir das informações abaixo. Siga o guia. Se faltar alguma informação importante, me pergunte antes de preencher por conta própria.
+
+[descreva aqui o documento: assunto, destinatário, pontos a cobrir]</div>
+
+<div class="callout tip">
+  <div class="callout-label">💡 Poucos documentos? Combine com o "interview me"</div>
+  Se você só conseguiu reunir 2 ou 3 amostras, complete o guia com uma entrevista: acrescente ao primeiro prompt — "Antes de gerar o guia, me entreviste com 5 a 8 perguntas sobre como eu escrevo". Os documentos mostram o padrão; a entrevista preenche o resto.
+</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Onde guardar — Skill, Project ou colar</div>
   <ul style="margin:6px 0 0;">
-    <li><strong>Claude Skill:</strong> suba o <code>.md</code> no Claude (Configurações → Skills) e ele fica sempre disponível — o Claude usa sozinho quando percebe que você está escrevendo.</li>
-    <li><strong>Project:</strong> anexe o guia a um Project específico (ex.: um cliente). Vale dentro daquele Project.</li>
+    <li><strong>Claude Skill:</strong> suba o <code>.md</code> no Claude (Configurações → Skills) e ele fica sempre disponível.</li>
+    <li><strong>Project:</strong> anexe o guia a um Project específico (ex.: um cliente ou um tipo de documento).</li>
     <li><strong>Colar na hora:</strong> funciona, mas você repete toda vez.</li>
   </ul>
   Nas outras ferramentas, o equivalente é o <strong>Custom GPT</strong> (ChatGPT) ou a <strong>Gem</strong> (Gemini).
@@ -299,7 +306,7 @@ Amostras:
 
 <div class="callout pratica">
   <div class="callout-label">🧭 Na prática</div>
-  O mesmo vale para um guia de estilo <strong>do escritório</strong> — a voz da HRSA — não só pessoal: consistência entre todos os advogados. E dá para ter variações: um para e-mail de cliente, outro para petição, outro para parecer.
+  O guia vira um ativo: toda vez que você for escrever um documento daquele tipo, o Claude já começa na sua voz. E dá para ter um por tipo — um para e-mail de cliente, outro para parecer, outro para memorando. O mesmo vale para um guia <strong>do escritório</strong>, capturando a voz da HRSA.
 </div>
 
 <hr>
@@ -552,7 +559,7 @@ Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. N
   <ul>
     <li>Sei o que é o <strong>Cowork</strong> e quando usá-lo.</li>
     <li>Vi o Cowork organizar uma pasta de arquivos e gerar um resumo em Word.</li>
-    <li>Tenho um <strong>guia de estilo</strong> para escrever e-mails na minha voz.</li>
+    <li>Tenho um <strong>guia de estilo</strong>, extraído dos meus documentos, para redigir novos na minha voz.</li>
     <li>Sei adaptar uma <strong>skill jurídica</strong> do Claude (legal-response) para a HRSA.</li>
     <li>Sei monitorar o uso e <strong>economizar tokens</strong> escolhendo o modelo certo.</li>
   </ul>
