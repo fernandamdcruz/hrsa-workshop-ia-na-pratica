@@ -137,7 +137,7 @@
 <div class="outcomes">
   <h3>O que você vai fazer hoje</h3>
   <ul>
-    <li>Ver o <strong>Cowork</strong> em ação: organizar uma pasta de arquivos e montar um panorama em minutos.</li>
+    <li>Ver o <strong>Cowork</strong> em ação: organizar e renomear uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Usar a técnica <strong>"interview me"</strong> para o Claude extrair o que está na sua cabeça.</li>
     <li>Criar um <strong>guia de estilo</strong> que faz o Claude escrever e-mails na sua voz.</li>
     <li>Adaptar uma <strong>skill jurídica que o Claude já traz</strong> (legal-response) para a HRSA.</li>
@@ -198,7 +198,7 @@
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Ver o Cowork trabalhar. Você aponta para uma pasta desorganizada — um "data dump" como o que um cliente costuma despejar na sua mão — e ele lê tudo, entende o conjunto e devolve um panorama estruturado. Roda local, sem conectar nada.
+  Ver o Cowork trabalhar sobre arquivos reais. Você baixa uma pasta com atas e documentos de reuniões de um conselho público (<em>park board</em>) e dá a ele duas tarefas: primeiro <strong>renomear e organizar</strong> os arquivos num padrão único; depois <strong>gerar um documento em Word</strong> resumindo todas as reuniões. Tudo local, sem subir nada para o chat.
 </div>
 
 <div class="callout time">
@@ -206,24 +206,36 @@
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Baixe a pasta de exemplo — um conjunto de documentos misturados que imita um despejo de material de cliente: <a href="#" target="_blank">pasta de exemplo (Drive) — link a definir</a>. Salve no seu computador.</span></li>
-  <li><span class="step-n">2</span><span>No Claude Desktop, abra o Cowork e aponte para essa pasta.</span></li>
-  <li><span class="step-n">3</span><span>Cole o prompt abaixo.</span></li>
-  <li><span class="step-n">4</span><span>Acompanhe o Cowork ler arquivo por arquivo. Ele mostra o que pretende fazer antes de mexer em qualquer coisa.</span></li>
+  <li><span class="step-n">1</span><span>Baixe a pasta de exemplo — atas e documentos de reuniões de um conselho público: <a href="#" target="_blank">pasta de exemplo (Drive) — link a definir</a>. Salve no seu computador.</span></li>
+  <li><span class="step-n">2</span><span>No Claude Desktop, abra o Cowork e <strong>aponte para a pasta baixada</strong> — você não precisa subir os arquivos um a um; é só dizer onde a pasta está.</span></li>
+  <li><span class="step-n">3</span><span>Rode o <strong>primeiro</strong> prompt (organizar). Revise a lista antes → depois e aprove.</span></li>
+  <li><span class="step-n">4</span><span>Depois, rode o <strong>segundo</strong> prompt (gerar o Word). Abra o arquivo gerado.</span></li>
 </ol>
 
-<div class="callout prompt">
-Nesta pasta há um conjunto de documentos de um cliente, sem organização. Leia todos e me entregue:
-1. Um índice com uma linha de resumo por arquivo.
-2. Um resumo de uma página do conjunto — partes, datas-chave, valores, o que está em jogo.
-3. Uma proposta de organização: que pastas criar e o que vai em cada uma.
-4. Uma lista do que parece faltar ou pedir atenção.
+<p><strong>Parte 1 — organizar e renomear</strong></p>
 
-Não mova, renomeie nem altere nada ainda. Me mostre o plano e espere a minha aprovação antes de executar.</div>
+<div class="callout prompt">
+Nesta pasta há atas, pautas e documentos de reuniões de um conselho (park board). Renomeie cada arquivo seguindo um único padrão, igual para todos:
+
+AAAA-MM-DD — tipo do documento — descrição curta
+
+Comece sempre pela data da reunião no formato ano-mês-dia (ex.: 2023-03-14), para que os arquivos fiquem em ordem cronológica. Use a mesma estrutura em todos (paralela), em minúsculas e com hífens.
+
+Antes de renomear qualquer coisa, me mostre a lista "nome atual → nome novo" e espere a minha aprovação. Não altere o conteúdo dos arquivos.</div>
+
+<p><strong>Parte 2 — gerar um resumo em Word</strong></p>
+
+<div class="callout prompt">
+Agora crie um documento em formato Microsoft Word (.docx), salvo nesta mesma pasta, com:
+
+1. Uma tabela com todas as reuniões — uma linha por reunião, com as colunas: data, tipo de reunião e principais temas.
+2. Abaixo da tabela, um parágrafo curto para cada reunião, resumindo o que foi discutido.
+
+Use as atas desta pasta como fonte. Não invente: se algo não estiver claro num documento, marque [VERIFICAR].</div>
 
 <div class="callout pratica">
   <div class="callout-label">🧭 Na prática</div>
-  Esse é o ganho concreto do Cowork: uma pasta caótica vira um panorama em minutos, e ele só age depois do seu aval. Pense no último despejo de documentos que você recebeu.
+  É o tipo de trabalho que toma tempo e ninguém gosta de fazer: padronizar nomes de arquivo e transformar uma pilha de atas num resumo apresentável. O Cowork faz as duas coisas em minutos — e só renomeia depois do seu aval.
 </div>
 
 <hr>
@@ -538,7 +550,7 @@ Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. N
   <h3>O que você leva desta sessão</h3>
   <ul>
     <li>Sei o que é o <strong>Cowork</strong> e quando usá-lo.</li>
-    <li>Vi o Cowork organizar uma pasta de arquivos do zero.</li>
+    <li>Vi o Cowork organizar uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Tenho um <strong>guia de estilo</strong> para escrever e-mails na minha voz.</li>
     <li>Sei adaptar uma <strong>skill jurídica</strong> do Claude (legal-response) para a HRSA.</li>
     <li>Sei monitorar o uso e <strong>economizar tokens</strong> escolhendo o modelo certo.</li>
