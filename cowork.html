@@ -129,7 +129,7 @@
 <div class="session-divider page-break">
   <div class="session-num">Aprofundamento · Sessão avançada</div>
   <div class="session-title">Cowork &amp; Claude Desktop</div>
-  <div class="session-meta">Cowork organiza arquivos · Guia de estilo · Skill jurídica · Ranking · Economia de tokens</div>
+  <div class="session-meta">Cowork organiza arquivos · Guia de estilo · Ranking jurídico · Economia de tokens</div>
 </div>
 
 <div class="tool-note">Sessão prática. Os exercícios rodam sobre arquivos de exemplo.</div>
@@ -139,7 +139,6 @@
   <ul>
     <li>Ver o <strong>Cowork</strong> em ação: organizar e renomear uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Criar um <strong>guia de estilo</strong> a partir dos seus documentos, para o Claude redigir novos na sua voz.</li>
-    <li>Adaptar uma <strong>skill jurídica que o Claude já traz</strong> (legal-response) para a HRSA.</li>
     <li>Usar a técnica <strong>"interview me"</strong> para preparar uma submissão de ranking (Legal 500 / Chambers).</li>
     <li><strong>Economizar tokens</strong>: monitorar o seu uso e escolher o modelo certo para cada tarefa.</li>
   </ul>
@@ -152,9 +151,8 @@
   <li>Setup — instalar o Claude para Chrome</li>
   <li>Exercício 1 — Cowork organiza uma pasta (renomear + resumo em Word)</li>
   <li>Exercício 2 — Guia de estilo (criar · testar · ajustar)</li>
-  <li>Exercício 3 — Personalizar a skill jurídica legal-response</li>
   <li>A técnica "interview me"</li>
-  <li>Exercício 4 — Submissão de ranking (Legal 500 / Chambers)</li>
+  <li>Exercício 3 — Submissão de ranking (Legal 500 / Chambers)</li>
   <li>Como economizar tokens</li>
   <li>Discussão e o que você leva</li>
 </ul>
@@ -313,71 +311,78 @@ Atualize o guia de estilo incorporando esses ajustes e me devolva a versão nova
 
 <hr>
 
-<h2>Exercício 3 — Personalizar uma skill que o Claude já traz (legal-response)</h2>
-
-<div class="callout goal">
-  <div class="callout-label">🎯 Objetivo</div>
-  Você não precisa criar tudo do zero. O Claude vem com um <strong>plugin jurídico</strong> (open-source, o mesmo da Sessão 2). Vamos abrir uma das skills dele — a <code>legal-response</code> — e adaptá-la juntos para a realidade da HRSA, na voz que você capturou no Exercício 2.
-</div>
-
-<div class="callout time">
-  <div class="callout-label">Exercício em grupo — o facilitador conduz</div>
-</div>
-
-<p>A <code>legal-response</code> gera respostas a consultas jurídicas recorrentes a partir de <strong>templates</strong> — com um diferencial: <strong>gatilhos de escalação</strong>. Ela sabe quando <em>não</em> usar um template e mandar a resposta para um humano. É uma resposta pronta que sabe a hora de não ser automática — o que torna automação confiável num escritório.</p>
-
-<p>De fábrica, ela vem pensada para um jurídico interno (data subject requests, litigation holds, subpoenas). Nosso trabalho é apontá-la para o que <strong>um escritório</strong> realmente recebe.</p>
-
-<h3>O que a skill já traz</h3>
-<ul>
-  <li><strong>Categorias de resposta</strong> — famílias de consulta, cada uma com sub-tipos (acusar recebimento, pedir verificação, cumprir, negar com justificativa).</li>
-  <li><strong>Gatilhos de escalação</strong> — listas de "não use template aqui" (envolve litígio, vem de autoridade, cria compromisso vinculante, é cliente novo).</li>
-  <li><strong>Formato de template</strong> — assunto, corpo com variáveis (<code>{{nome}}</code>, <code>{{prazo}}</code>) e ações de acompanhamento.</li>
-</ul>
-
-<ol class="steps">
-  <li><span class="step-n">1</span><span>Abra a skill <code>legal-response</code> — o facilitador mostra a estrutura. <a href="https://github.com/anthropics/knowledge-work-plugins/blob/main/legal/skills/legal-response/SKILL.md" target="_blank">Ver no GitHub</a> (plugin jurídico da Anthropic).</span></li>
-  <li><span class="step-n">2</span><span>Em grupo, listem as consultas que a HRSA mais recebe — status de processo, pedido de documento, prazo, resposta a contraparte, proposta de honorários, solicitação LGPD de titular.</span></li>
-  <li><span class="step-n">3</span><span>Rodem o prompt abaixo para adaptar a skill: novas categorias, um template reescrito na voz da HRSA, e os gatilhos de escalação do escritório.</span></li>
-  <li><span class="step-n">4</span><span>Revisem juntos e salvem o <code>.md</code>. Vocês saem com uma skill da HRSA.</span></li>
-</ol>
-
-<div class="callout prompt">
-Vou te dar uma skill que o Claude já traz, chamada "legal-response": ela gera respostas a consultas jurídicas recorrentes a partir de templates, com gatilhos de escalação (situações em que NÃO se deve usar um template, e a resposta precisa ir para um advogado sênior).
-
-Quero adaptá-la para a HRSA, um escritório de advocacia brasileiro. Faça três coisas:
-
-1. CATEGORIAS — Troque as categorias de consulta pelas que um escritório como o nosso realmente recebe. Antes de fixar a lista, me pergunte quais são as nossas consultas mais comuns.
-
-2. UM TEMPLATE — Reescreva um template completo (a categoria que eu escolher) na voz da HRSA. Use o meu guia de estilo [cole aqui o guia do Exercício 2, ou diga "use a skill de guia de estilo que já carreguei"]. Inclua assunto, corpo com variáveis ({{nome}}, {{prazo}}, {{referência}}) e ações de acompanhamento.
-
-3. GATILHOS DE ESCALAÇÃO — Defina em que situações esse template NÃO deve ser usado e a resposta precisa ir para o sócio responsável (ex.: cliente novo, matéria sensível, qualquer coisa que toque estratégia de litígio ou crie compromisso vinculante).
-
-Entregue em formato .md com frontmatter (name, description), pronto para salvar como Claude Skill. Não invente prazos legais — se um prazo depender da lei aplicável, marque [VERIFICAR].
-
-[colar aqui o conteúdo da skill legal-response, ou anexar o arquivo]</div>
-
-<div class="callout pratica">
-  <div class="callout-label">🧭 Na prática</div>
-  O que distingue essa skill são os <strong>gatilhos de escalação</strong>: uma resposta automática que sabe a hora de parar e chamar um humano. É o que separa automação perigosa de automação confiável — e o que vocês vão querer em qualquer skill que responda em nome do escritório.
-</div>
-
-<hr>
-
 <h2>A técnica "interview me"</h2>
 
 <p>Em vez de escrever um prompt longo tentando antecipar tudo que a IA precisa saber, você <strong>inverte</strong>: pede para ela te entrevistar. Ela faz as perguntas certas, uma de cada vez, e só então produz o resultado. Vocês viram uma versão na Sessão 2 — e é exatamente o motor do próximo exercício.</p>
 
 <p>Funciona porque a IA puxa de você o contexto que está na sua cabeça, mas não no papel. O resultado sai personalizado, não genérico.</p>
 
-<p><strong>O esqueleto — guarde este padrão</strong></p>
+<p><strong>A skill que vocês vão usar</strong> — copie e cole, ou salve como Claude Skill. Diga a ela o que você está fazendo (ex.: "uma submissão de ranking") e ela conduz a entrevista. <a href="hrsa-skills/thought-partner-interview-me.md" class="skill-download" download>📄 baixar .md</a></p>
 
 <div class="callout prompt">
-Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere minha resposta, e só depois passe para a próxima. Faça de 5 a 8 perguntas para entender [o que importa para X]. Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. Quando terminar, produza [X] incorporando o que aprendeu.</div>
+# Thought Partner: Interview Me
+
+## Persona
+
+You are a **skilled interviewer and thought partner** who draws on the best practices of Socratic dialogue, investigative journalism, user research, and executive coaching. Your role is to guide me through a structured yet conversational exploration of a topic—uncovering assumptions, challenging weak reasoning, and surfacing the insights I need.
+
+## Goal
+
+Conduct an adaptive interview that:
+
+1. **Gathers rich, structured information** I can later use to write a PRD, proposal, article, plan, or strategy.
+2. **Sharpens my thinking** by asking probing questions, identifying blind spots, and playing devil's advocate when useful.
+3. **Produces a context-ready synthesis**—a detailed summary artifact optimized for feeding into another LLM to generate my final output.
+
+## Context
+
+- **Mode:** This prompt is optimized for voice conversations but works equally well in chat.
+- **Starting point:** I will tell you what I'm working on, for example, "I'm drafting a PRD for a new feature" or "I need to write a client proposal."
+- **Adapt your pedagogy:** Pull from whichever discipline best fits the task—product management frameworks for a PRD, storytelling structure for an article, strategic planning models for a roadmap, and so on.
+- **Question volume:** For substantial tasks, expect to ask 20–50+ questions. Thoroughness beats speed. The goal is a synthesis detailed enough that implementation can proceed without further clarification.
+- **Context awareness:** If I provide reference documents, existing specs, or describe existing systems, identify things that might make the plan more difficult than it seems, or areas that may need refactoring to accommodate this work.
+
+## Interview Process
+
+### Opening
+
+1. Confirm what I'm working on and what success looks like.
+2. **Calibrate depth:** Ask a brief priming question: *"How familiar are you with this topic, and how much time do you have?"* Use this to tailor question complexity and pacing.
+3. Ask **3–4 focused starter questions** to establish scope and intent.
+
+### Middle
+
+- Ask **one question at a time**; follow up to unpack important threads before moving on.
+- **Ask non-obvious questions.** Surface hidden complexity, edge cases, and assumptions I haven't considered rather than confirming what I already know. If I could easily answer a question myself without thinking, dig deeper.
+- Use Socratic questioning:
+  - Clarify: "What do you mean by…?"
+  - Probe assumptions: "Why do you believe that's true?"
+  - Explore evidence: "What supports this?"
+  - Consider alternatives: "What's another way to look at this?"
+  - Surface implications: "If that's true, what follows?"
+- Play **adversarial ally** using these specific moves:
+  - **Counterfactuals:** "What if the opposite were true?" or "Imagine this assumption is wrong—what changes?"
+  - **Steelmanning:** Articulate the strongest version of an opposing view before I dismiss it.
+  - **Pre-mortem:** "If this fails spectacularly, what's the most likely cause?"
+  - **Too-good-to-be-true check:** If something sounds idealistic or might have poor performance/UX, push back in the form of a question, e.g. "Do you think it would be better if you did X instead?"
+- After each cluster of questions, briefly reflect back what you've heard to confirm understanding.
+
+### Transition Check-In
+
+- Once you've covered initial ground, assess whether the synthesis would have enough detail for implementation. If gaps remain, continue probing rather than offering to wrap up.
+- Only offer to conclude when you're confident another LLM could execute on the synthesis without needing to ask clarifying questions.
+- For substantial tasks, expect to ask **20–50+ questions** before synthesis. Thoroughness beats speed.
+
+### Closing
+
+- When we agree to wrap up, deliver a **comprehensive synthesis** using the output format below.
+- After you've written the synthesis, ask: *"Do you want to append the full conversation transcript (all questions and answers) to this page as a reference?"*
+- If no, stop after the synthesis.
+- If yes, append the complete Q&A transcript at the bottom of the page under a toggle heading: ▶## Conversation transcript (Q&A)</div>
 
 <hr>
 
-<h2>Exercício 4 — Submissão de ranking (Legal 500 / Chambers)</h2>
+<h2>Exercício 3 — Submissão de ranking (Legal 500 / Chambers)</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
@@ -556,7 +561,7 @@ Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. N
     <li>Sei o que é o <strong>Cowork</strong> e quando usá-lo.</li>
     <li>Vi o Cowork organizar uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Tenho um <strong>guia de estilo</strong>, extraído dos meus documentos, para redigir novos na minha voz.</li>
-    <li>Sei adaptar uma <strong>skill jurídica</strong> do Claude (legal-response) para a HRSA.</li>
+    <li>Sei usar o <strong>"interview me"</strong> para preparar uma submissão de ranking.</li>
     <li>Sei monitorar o uso e <strong>economizar tokens</strong> escolhendo o modelo certo.</li>
   </ul>
 </div>
@@ -618,7 +623,7 @@ Se alguma resposta minha estiver vaga, peça para eu detalhar antes de seguir. N
     <ul>
       <li>Cowork organiza arquivos</li>
       <li>Guia de estilo</li>
-      <li>Skill jurídica do Claude</li>
+      <li>"Interview me"</li>
       <li>Ranking jurídico</li>
       <li>Economia de tokens</li>
     </ul>
