@@ -255,7 +255,7 @@ Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere min
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  A partir de uma pasta de documentos seus — todos de um mesmo tipo que você escreve com frequência — o Claude extrai o seu estilo e monta um guia reutilizável. Depois, você usa esse guia para rascunhar novos documentos do mesmo tipo, na sua voz.
+  A partir de uma pasta de documentos de um mesmo tipo, o Claude extrai o estilo de escrita e monta um guia reutilizável. Você <strong>cria</strong> o guia, <strong>testa</strong> gerando um documento novo no estilo, e <strong>ajusta</strong> o guia com base no que gostou ou não. No fim, fica uma Claude Skill que redige novos documentos na voz certa.
 </div>
 
 <div class="callout time">
@@ -263,31 +263,41 @@ Antes de [produzir X], me entreviste. Faça uma pergunta de cada vez, espere min
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Reúna <strong>10 a 15 documentos seus do mesmo tipo</strong> — e-mails, memorandos, atualizações de caso, o que você escreve com frequência. Anonimize o que for de cliente. Não trouxe nada? Baixe a <a href="#" target="_blank">pasta de exemplo (Drive) — link a definir</a>.</span></li>
+  <li><span class="step-n">1</span><span>Reúna <strong>10 a 15 documentos seus do mesmo tipo</strong> — e-mails, memorandos, atualizações de caso, o que você escreve com frequência. Anonimize o que for de cliente. Não trouxe nada? Baixe a <a href="https://drive.google.com/drive/folders/10MrGGM9B-ZkeDvHtNXGSlIL7yP5JBQUC?usp=drive_link" target="_blank">pasta de exemplo (Drive)</a> — decisões da ministra Cármen Lúcia (STF).</span></li>
   <li><span class="step-n">2</span><span>No Claude, aponte o Cowork para a pasta (ou anexe os arquivos).</span></li>
-  <li><span class="step-n">3</span><span>Rode o <strong>primeiro</strong> prompt. O Claude lê tudo e devolve um guia de estilo em <code>.md</code>. Salve como Claude Skill.</span></li>
-  <li><span class="step-n">4</span><span>Rode o <strong>segundo</strong> prompt para rascunhar um documento novo desse tipo, na sua voz.</span></li>
+  <li><span class="step-n">3</span><span><strong>Parte 1 — criar:</strong> o Claude lê tudo e devolve um guia de estilo em <code>.md</code>. Salve como Claude Skill.</span></li>
+  <li><span class="step-n">4</span><span><strong>Parte 2 — testar:</strong> ele rascunha um documento novo no estilo do guia.</span></li>
+  <li><span class="step-n">5</span><span><strong>Parte 3 — ajustar:</strong> você diz o que gostou e o que não, e ele refina o guia.</span></li>
 </ol>
 
-<p><strong>Parte 1 — extrair o guia de estilo</strong></p>
+<p><strong>Parte 1 — criar o guia de estilo</strong></p>
 
 <div class="callout prompt">
-Nesta pasta há vários documentos que eu escrevi, todos do mesmo tipo. Leia todos e identifique o meu estilo de escrita:
+Nesta pasta há vários documentos do mesmo tipo, escritos pela mesma pessoa. Leia todos e identifique o estilo de escrita:
 - tom e nível de formalidade
-- como eu abro e como eu fecho
+- como abre e como fecha
 - estrutura típica do documento
 - tamanho de frase e de parágrafo
-- vocabulário e expressões recorrentes — e o que eu evito
-- como eu explico pontos técnicos ou jurídicos
+- vocabulário e expressões recorrentes — e o que evita
+- como explica pontos técnicos ou jurídicos
 
-Produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois" tirados dos próprios documentos. Baseie-se no que está nos documentos — não invente traços que você não observou.</div>
+Produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois" tirados dos próprios documentos. Baseie-se apenas no que está nos documentos — não invente traços que você não observou.</div>
 
-<p><strong>Parte 2 — usar o guia para rascunhar</strong></p>
+<p><strong>Parte 2 — testar: rascunhar um documento no estilo</strong></p>
 
 <div class="callout prompt">
-Agora use o guia de estilo que você acabou de criar para rascunhar um novo documento desse mesmo tipo, na minha voz, a partir das informações abaixo. Siga o guia. Se faltar alguma informação importante, me pergunte antes de preencher por conta própria.
+Agora use o guia de estilo que você acabou de criar para rascunhar um novo documento desse mesmo tipo, seguindo o guia, a partir das informações abaixo. Se faltar alguma informação importante, me pergunte antes de preencher por conta própria.
 
-[descreva aqui o documento: assunto, destinatário, pontos a cobrir]</div>
+[descreva aqui o documento: assunto, destinatário/contexto, pontos a cobrir]</div>
+
+<p><strong>Parte 3 — ajustar o guia</strong></p>
+
+<div class="callout prompt">
+Vamos refinar o guia. No rascunho que você acabou de gerar, algumas coisas ficaram boas e outras não soaram certas. Aqui está o que eu mudaria:
+
+[liste o que gostou e o que não gostou — ex.: "ficou formal demais", "faltou um fecho mais direto", "evite voz passiva", "use frases mais curtas"]
+
+Atualize o guia de estilo incorporando esses ajustes e me devolva a versão nova do .md.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Poucos documentos? Combine com o "interview me"</div>
