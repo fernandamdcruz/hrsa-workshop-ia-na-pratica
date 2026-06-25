@@ -139,7 +139,7 @@
   <ul>
     <li>Ver o <strong>Cowork</strong> em ação: organizar e renomear uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Criar um <strong>guia de estilo</strong> a partir dos seus documentos, para o Claude redigir novos na sua voz.</li>
-    <li>Usar a skill <strong>"interview me"</strong> para preencher um formulário de submissão de ranking (Legal 500 / Chambers).</li>
+    <li>Usar a skill <strong>"interview me"</strong> para escrever um destaque (work highlight) de submissão de ranking (Legal 500 / Chambers).</li>
     <li><strong>Economizar tokens</strong>: monitorar o seu uso e escolher o modelo certo para cada tarefa.</li>
   </ul>
 </div>
@@ -153,7 +153,7 @@
   <li>Exercício 2 — Guia de estilo (criar · testar · ajustar)</li>
   <li>Intervalo — Como economizar tokens <em>(≈ 1 hora · pausa)</em></li>
   <li>A técnica "interview me"</li>
-  <li>Exercício 3 — Submissão de ranking: preencher o formulário</li>
+  <li>Exercício 3 — Submissão de ranking: um destaque (work highlight)</li>
   <li>Discussão e o que você leva</li>
 </ul>
 
@@ -413,7 +413,7 @@ Atualize o guia de estilo incorporando esses ajustes e me devolva a versão nova
 
 <p>Funciona porque a IA puxa de você o contexto que está na sua cabeça, mas não no papel. O resultado sai personalizado, não genérico.</p>
 
-<p><strong>A skill que vocês vão usar</strong> — copie e cole, ou salve como Claude Skill. Diga a ela o que você está fazendo (ex.: "uma submissão de ranking") e ela conduz a entrevista. <a href="hrsa-skills/thought-partner-interview-me.md" class="skill-download" download>📄 baixar .md</a></p>
+<p><strong>A skill que vocês vão usar</strong> — copie e cole, ou salve como Claude Skill. Diga a ela o que você está fazendo (ex.: "uma submissão de ranking") e ela conduz a entrevista <strong>em português</strong>. <a href="hrsa-skills/thought-partner-interview-me.md" class="skill-download" download>📄 baixar .md</a></p>
 
 <div class="callout prompt">
 # Thought Partner: Interview Me
@@ -432,6 +432,7 @@ Conduct an adaptive interview that:
 
 ## Context
 
+- **Language:** Always conduct the interview, and write the synthesis, in Brazilian Portuguese (pt-BR) — even though these instructions are in English.
 - **Mode:** This prompt is optimized for voice conversations but works equally well in chat.
 - **Starting point:** I will tell you what I'm working on, for example, "I'm drafting a PRD for a new feature" or "I need to write a client proposal."
 - **Adapt your pedagogy:** Pull from whichever discipline best fits the task—product management frameworks for a PRD, storytelling structure for an article, strategic planning models for a roadmap, and so on.
@@ -478,44 +479,46 @@ Conduct an adaptive interview that:
 
 <hr>
 
-<h2>Exercício 3 — Submissão de ranking: preencher o formulário (Legal 500 / Chambers)</h2>
+<h2>Exercício 3 — Submissão de ranking: um destaque de atuação (work highlight)</h2>
 
 <div class="callout goal">
   <div class="callout-label">🎯 Objetivo</div>
-  Chegar num <strong>formulário de submissão preenchido</strong>. Você baixa o formulário real, carrega junto com a skill "interview me" do bloco anterior, e deixa a skill te entrevistar para reunir tudo que o formulário pede — campo por campo. No fim, ela preenche o formulário.
+  Produzir <strong>um destaque de atuação</strong> (work highlight) forte para uma submissão de ranking — usando a skill "interview me" do bloco acima. O destaque é o coração da submissão e o que mais dá trabalho. O formulário pede vários; aqui você faz <strong>um</strong>, e repete o processo para os demais.
 </div>
 
 <div class="callout time">
-  <div class="callout-label">Ferramenta: Claude Desktop · usa a skill "interview me" do bloco anterior</div>
+  <div class="callout-label">Ferramenta: Claude Desktop · usa a skill "interview me" do bloco acima</div>
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Baixe o <strong>formulário de submissão</strong>. O Chambers publica um modelo pronto: <a href="https://assets.chambers.com/submission_forms/chambers_submission_form.doc" target="_blank">formulário do Chambers (.doc)</a>. O Legal 500 segue a mesma lógica (work highlights + referees) — <a href="https://www.legal500.com/the-legal-500-submission-information/" target="_blank">informações aqui</a>.</span></li>
-  <li><span class="step-n">2</span><span>No Claude Desktop, <strong>carregue a skill "interview me"</strong> (do bloco anterior) e <strong>anexe o formulário</strong>.</span></li>
-  <li><span class="step-n">3</span><span>Cole o prompt abaixo — ele diz à skill que você vai preencher esta submissão e pede que ela entreviste você campo por campo.</span></li>
-  <li><span class="step-n">4</span><span>Responda à entrevista: ela cobre área, departamento, os <em>work highlights</em> (papel, complexidade, valor, resultado) e os clientes / referees.</span></li>
-  <li><span class="step-n">5</span><span>Ao final, ela <strong>preenche o formulário</strong>. Revise — você assina.</span></li>
+  <li><span class="step-n">1</span><span>Dê uma olhada no formulário real para ver onde o destaque entra: <a href="https://assets.chambers.com/submission_forms/chambers_submission_form.doc" target="_blank">formulário do Chambers (.doc)</a>. O Legal 500 segue a mesma lógica — <a href="https://www.legal500.com/the-legal-500-submission-information/" target="_blank">informações aqui</a>.</span></li>
+  <li><span class="step-n">2</span><span><strong>Carregue a skill "interview me":</strong> cole o conteúdo da skill (do bloco acima) no início de uma conversa nova — ou, se você já salvou como Claude Skill, ela já está disponível.</span></li>
+  <li><span class="step-n">3</span><span>Cole o prompt abaixo. Ele aciona a skill para te entrevistar sobre <strong>um</strong> caso de destaque.</span></li>
+  <li><span class="step-n">4</span><span>Responda à entrevista, uma pergunta por vez.</span></li>
+  <li><span class="step-n">5</span><span>Ao final, ela escreve o destaque pronto para colar no formulário. Revise — você assina.</span></li>
 </ol>
 
 <div class="callout prompt">
-Vou preencher um formulário de submissão de ranking jurídico (Chambers / Legal 500), anexado a esta conversa. Use a skill "interview me" para me entrevistar e reunir tudo o que o formulário pede — campo por campo, com atenção especial aos "work highlights" (papel do escritório, complexidade, valor envolvido, resultado e por que importou) e aos clientes / referees.
+Usando a skill "Thought Partner: Interview Me" que está carregada nesta conversa, me entreviste em português sobre UM caso de destaque do nosso escritório, para eu escrever um "work highlight" (destaque de atuação) de uma submissão de ranking — Chambers / Legal 500.
 
-Diferencie o que é publicável do que é confidencial. Não invente nada: se eu não souber um campo, pergunte ou marque [VERIFICAR].
+Cubra, ao longo da entrevista:
+- área de atuação e o cliente (e o que é publicável ou confidencial)
+- papel do escritório e quem liderou
+- complexidade: o que tornou o caso difícil ou inovador
+- valor envolvido e relevância (econômica, estratégica, de precedente)
+- resultado e impacto para o cliente
+- referência ou depoimento de cliente, se houver
 
-Quando a entrevista terminar, preencha o formulário anexado com as minhas respostas e me devolva a versão preenchida.</div>
+Não invente nada — se eu não souber algo, pergunte ou marque [VERIFICAR]. Quando terminar, escreva o destaque pronto para colar no formulário, numa versão curta (2–3 linhas) e numa versão longa.</div>
 
 <div class="callout pratica">
   <div class="callout-label">🧭 Na prática</div>
-  Submissão de ranking é o tipo de tarefa que toma horas: caçar informação de vários casos, lembrar valores e datas, redigir cada highlight. A skill "interview me" + o formulário transformam isso numa conversa guiada — e você sai com o formulário preenchido.
+  Um destaque de atuação toma tempo: lembrar valores, datas, o papel exato do time, e escrever bem. A skill "interview me" puxa tudo isso de você numa conversa guiada — e você sai com o texto pronto. Para a submissão inteira, é só repetir o processo para cada caso.
 </div>
 
 <div class="callout tip">
-  <div class="callout-label">💡 Não faz submissão de ranking? Use o tempo do lab para outra coisa</div>
-  <ul style="margin:6px 0 0;">
-    <li><strong>Timesheets:</strong> "A partir da minha agenda e dos documentos que editei ontem, rascunhe as descrições de lançamento de horas por cliente / matéria — eu reviso."</li>
-    <li><strong>Organizar</strong> uma pasta de processo — renomear, agrupar, indexar.</li>
-    <li><strong>Rascunhar</strong> um documento a partir de um template seu + o guia de estilo que você criou hoje.</li>
-  </ul>
+  <div class="callout-label">💡 Não vai fazer submissão de ranking? Crie um prompt sob medida</div>
+  Use a mesma skill "interview me" para <strong>escrever um bom prompt</strong> para uma tarefa que você repete. Diga a ela: "me ajude a criar um ótimo prompt para [a tarefa]" — por exemplo, resumir uma decisão, revisar uma cláusula de não-concorrência, ou responder um tipo recorrente de e-mail. Ela te entrevista sobre o que a tarefa precisa e devolve um prompt afiado, pronto para reutilizar (ou virar skill).
 </div>
 
 <hr>
@@ -561,7 +564,7 @@ Quando a entrevista terminar, preencha o formulário anexado com as minhas respo
     <li>Sei o que é o <strong>Cowork</strong> e quando usá-lo.</li>
     <li>Vi o Cowork organizar uma pasta de arquivos e gerar um resumo em Word.</li>
     <li>Tenho um <strong>guia de estilo</strong>, extraído dos meus documentos, para redigir novos na minha voz.</li>
-    <li>Sei usar o <strong>"interview me"</strong> para preencher uma submissão de ranking.</li>
+    <li>Sei usar o <strong>"interview me"</strong> para escrever um destaque de submissão de ranking.</li>
     <li>Sei monitorar o uso e <strong>economizar tokens</strong> escolhendo o modelo certo.</li>
   </ul>
 </div>
