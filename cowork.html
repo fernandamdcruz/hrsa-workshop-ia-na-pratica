@@ -195,7 +195,8 @@
   <p>Com a extensão, o Claude passa a ler e operar o que está na sua tela — páginas, sistemas, processos eletrônicos, qualquer coisa que você esteja vendo no navegador.</p>
   <ol class="steps">
     <li><span class="step-n">1</span><span>No Chrome, instale: <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn" target="_blank">Claude para Chrome</a>.</span></li>
-    <li><span class="step-n">2</span><span>Faça login com a sua conta do Claude. O ícone aparece na barra do navegador, pronto para usar.</span></li>
+    <li><span class="step-n">2</span><span>Faça login com a sua conta do Claude.</span></li>
+    <li><span class="step-n">3</span><span><strong>Fixe a extensão</strong> para ela ficar sempre visível: clique no ícone de quebra-cabeça (extensões) na barra do Chrome e no alfinete ao lado do Claude. Confirme que o ícone do Claude apareceu na barra.</span></li>
   </ol>
 </div>
 
@@ -213,11 +214,16 @@
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Baixe a pasta de exemplo — atas do Conselho do Parque Villa Lobos: <a href="https://drive.google.com/drive/folders/1f_q1Th3OAz0qW7NMKTFBs4F-s-mfWk7f?usp=sharing" target="_blank">pasta de exemplo (Drive)</a>. Salve no seu computador.</span></li>
+  <li><span class="step-n">1</span><span>Abra a <a href="https://drive.google.com/drive/folders/14zgoex6fGb0lB50151d0SnqZOWJPQRVd?usp=drive_link" target="_blank">pasta de exemplos (Drive)</a> e baixe a pasta <strong>"Atas do Conselho do Parque Villa Lobos"</strong> inteira: nos três pontinhos (⋮) da pasta → <strong>Fazer download</strong> (o Drive entrega um .zip). Descompacte no seu computador.</span></li>
   <li><span class="step-n">2</span><span>No Claude Desktop, abra o Cowork e <strong>aponte para a pasta baixada</strong> — você não precisa subir os arquivos um a um; é só dizer onde a pasta está.</span></li>
   <li><span class="step-n">3</span><span>Rode o <strong>primeiro</strong> prompt (organizar) e acompanhe a renomeação.</span></li>
   <li><span class="step-n">4</span><span>Depois, rode o <strong>segundo</strong> prompt (gerar o Word). Abra o arquivo gerado.</span></li>
 </ol>
+
+<div class="callout warning">
+  <div class="callout-label">⏱ O que esperar</div>
+  Pode levar alguns minutos — tarefas com muitos arquivos demoram um pouco, e isso é normal (no Sonnet, um pouco mais). Se o Cowork encontrar arquivos <strong>duplicados</strong>, ele <strong>avisa e pede confirmação</strong> antes de remover qualquer coisa — nada some sem o seu OK.
+</div>
 
 <p><strong>Parte 1 — organizar e renomear</strong></p>
 
@@ -257,9 +263,9 @@ Use as atas desta pasta como fonte. Não invente: se algo não estiver claro num
 </div>
 
 <ol class="steps">
-  <li><span class="step-n">1</span><span>Reúna <strong>10 a 15 documentos seus do mesmo tipo</strong> — e-mails, memorandos, atualizações de caso, o que você escreve com frequência. Anonimize o que for de cliente. Não trouxe nada? Baixe a <a href="https://drive.google.com/drive/folders/10MrGGM9B-ZkeDvHtNXGSlIL7yP5JBQUC?usp=drive_link" target="_blank">pasta de exemplo (Drive)</a> — decisões da ministra Cármen Lúcia (STF).</span></li>
+  <li><span class="step-n">1</span><span>Reúna <strong>10 a 15 documentos seus do mesmo tipo</strong> — e-mails, memorandos, atualizações de caso, o que você escreve com frequência. Anonimize o que for de cliente. Não trouxe nada? Abra a <a href="https://drive.google.com/drive/folders/14zgoex6fGb0lB50151d0SnqZOWJPQRVd?usp=drive_link" target="_blank">pasta de exemplos (Drive)</a> e baixe a pasta <strong>"Carmen Lucia - decisoes monocraticas"</strong> (três pontinhos ⋮ → Fazer download) — decisões da ministra Cármen Lúcia (STF).</span></li>
   <li><span class="step-n">2</span><span>No Claude, aponte o Cowork para a pasta (ou anexe os arquivos).</span></li>
-  <li><span class="step-n">3</span><span><strong>Parte 1 — criar:</strong> o Claude confirma a pasta, o tipo de documento e de quem é o estilo, lê tudo, e devolve um guia em <code>.md</code>. Salve como Claude Skill.</span></li>
+  <li><span class="step-n">3</span><span><strong>Parte 1 — criar:</strong> o Claude confirma a pasta, o tipo de documento e de quem é o estilo, lê tudo, e monta o guia. Peça para ele <strong>empacotar como skill</strong> e clique em <strong>Save skill</strong> — depois é só chamar com <code>/</code>.</span></li>
   <li><span class="step-n">4</span><span><strong>Parte 2 — testar:</strong> ele rascunha um documento novo no estilo do guia.</span></li>
   <li><span class="step-n">5</span><span><strong>Parte 3 — ajustar:</strong> você diz o que gostou e o que não, e ele refina o guia.</span></li>
 </ol>
@@ -282,7 +288,7 @@ Depois, leia todos e identifique o estilo de escrita dessa pessoa nesse tipo de 
 - vocabulário e expressões recorrentes — e o que evita
 - como explica pontos técnicos ou jurídicos
 
-Produza um guia de estilo em formato .md, com frontmatter no topo (name, description), pronto para eu salvar como Claude Skill. Inclua 2 ou 3 exemplos curtos de "antes / depois" tirados dos próprios documentos. Baseie-se apenas no que está nos documentos — não invente traços que você não observou.</div>
+Produza um guia de estilo com frontmatter no topo (name, description) e empacote como uma skill, pronta para eu salvar com o botão "Save skill". Inclua 2 ou 3 exemplos curtos de "antes / depois" tirados dos próprios documentos. Baseie-se apenas no que está nos documentos — não invente traços que você não observou.</div>
 
 <p><strong>Parte 2 — testar: rascunhar um documento no estilo</strong></p>
 
@@ -306,7 +312,7 @@ Antes de atualizar, me faça estas perguntas de uma vez só — eu respondo tudo
 - O que não soou certo, ou o que você mudaria?
 - Alguma regra nova para o guia? (ex.: evitar voz passiva, frases mais curtas, fecho mais direto)
 
-Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a versão nova do .md.</div>
+Depois da minha resposta, atualize o guia incorporando os ajustes e empacote a versão nova como skill ("Save skill"). Se já existir uma skill com o mesmo nome, o Claude avisa que vai substituir a anterior — é só confirmar.</div>
 
 <div class="callout tip">
   <div class="callout-label">💡 Poucos documentos? Combine com o "interview me"</div>
@@ -314,13 +320,13 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
 </div>
 
 <div class="callout tip">
-  <div class="callout-label">💡 Onde guardar — Skill, Project ou colar</div>
+  <div class="callout-label">💡 Salve como skill e chame com /</div>
+  O jeito mais prático: peça para o Claude <strong>empacotar o guia como skill</strong> e clique em <strong>Save skill</strong>. Depois de salva, é só digitar <code>/</code> em qualquer conversa para chamá-la pelo nome — o guia fica sempre à mão, sem colar nada.
   <ul style="margin:6px 0 0;">
-    <li><strong>Claude Skill:</strong> suba o <code>.md</code> no Claude (Configurações → Skills) e ele fica sempre disponível.</li>
-    <li><strong>Project:</strong> anexe o guia a um Project específico (ex.: um cliente ou um tipo de documento).</li>
+    <li><strong>Project:</strong> alternativa — anexe o guia a um Project específico (ex.: um cliente ou um tipo de documento).</li>
     <li><strong>Colar na hora:</strong> funciona, mas você repete toda vez.</li>
   </ul>
-  Nas outras ferramentas, o equivalente é o <strong>Custom GPT</strong> (ChatGPT) ou a <strong>Gem</strong> (Gemini).
+  Nas outras ferramentas, o equivalente da skill é o <strong>Custom GPT</strong> (ChatGPT) ou a <strong>Gem</strong> (Gemini).
 </div>
 
 <div class="callout pratica">
@@ -341,7 +347,12 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
 
 <h3>Monitore o seu uso</h3>
 
-<p>No Claude Desktop, o seu uso fica no <strong>canto inferior direito</strong> — clique no ícone para ver quanto resta (limite de 5 horas e limite semanal). Quando começar a apertar, mude para um modelo mais barato.</p>
+<p>No Claude Desktop, o seu uso fica no <strong>canto inferior direito</strong> — clique no ícone para ver quanto resta (limite de 5 horas e limite semanal). Esse ícone nem sempre aparece; o caminho garantido é <strong>clicar no seu nome → Configurações → Uso</strong>. Quando começar a apertar, mude para um modelo mais barato.</p>
+
+<div class="callout warning">
+  <div class="callout-label">⚠ O Opus gasta mais rápido</div>
+  O <strong>Opus consome o seu limite bem mais rápido</strong> que o Sonnet. Num teste real, no plano Pro, o uso semanal já marcava <strong>26% na metade do workshop</strong> rodando em Sonnet — com Opus o tempo todo, dá para bater o teto antes do fim. É por isso a recomendação abaixo.
+</div>
 
 <figure class="shot">
   <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="No Claude Desktop, o uso aparece no canto inferior direito, ao clicar no ícone do perfil.">
@@ -358,7 +369,7 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
     <rect x="220" y="52" width="430" height="9" rx="4.5" fill="#efeff2"/>
     <rect x="220" y="72" width="360" height="9" rx="4.5" fill="#efeff2"/>
     <rect x="540" y="285" width="96" height="22" rx="11" fill="#f1f1f3" stroke="#e0e0e4"/>
-    <text x="588" y="300" font-family="Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">Opus 4.8</text>
+    <text x="588" y="300" font-family="Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">Sonnet 4.6</text>
     <circle cx="688" cy="296" r="11" fill="#ffffff" stroke="#FFCC00" stroke-width="2.5"/>
     <path d="M688 296 L688 286 A10 10 0 0 1 697 300 Z" fill="#3b82c4"/>
     <rect x="430" y="120" width="272" height="120" rx="10" fill="#ffffff" stroke="#FFCC00" stroke-width="2.5"/>
@@ -392,15 +403,15 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
     <div class="cost-track"><div class="cost-fill" style="width:100%"></div></div>
     <div class="cost-mult">10× <span class="lbl">indisponível</span></div>
   </div>
-  <div class="cost-row start">
+  <div class="cost-row">
     <div class="cost-name">Opus</div>
     <div class="cost-track"><div class="cost-fill" style="width:50%"></div></div>
-    <div class="cost-mult">5× <span class="lbl">← comece aqui</span></div>
+    <div class="cost-mult">5× <span class="lbl">← só quando precisar</span></div>
   </div>
-  <div class="cost-row">
+  <div class="cost-row start">
     <div class="cost-name">Sonnet</div>
     <div class="cost-track"><div class="cost-fill" style="width:30%"></div></div>
-    <div class="cost-mult">3× <span class="lbl">← quando apertar</span></div>
+    <div class="cost-mult">3× <span class="lbl">← comece aqui</span></div>
   </div>
   <div class="cost-row">
     <div class="cost-name">Haiku</div>
@@ -413,15 +424,15 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
 
 <table>
   <tr><th>Modelo</th><th>Para que serve</th></tr>
-  <tr><td><strong>Opus</strong></td><td>O dia a dia de vocês — qualidade primeiro. Raciocínio jurídico, análise, redação.</td></tr>
-  <tr><td><strong>Sonnet</strong></td><td>Forte e mais barato. Para onde descer quando o limite começar a apertar.</td></tr>
-  <tr><td><strong>Haiku</strong></td><td>O mais barato, mas provavelmente leve demais para o trabalho jurídico de vocês — na prática, o piso é o Sonnet.</td></tr>
+  <tr><td><strong>Sonnet</strong></td><td>O cavalo de batalha — forte e econômico. Dá conta da maior parte do trabalho e poupa o seu limite. <strong>Comece por ele.</strong></td></tr>
+  <tr><td><strong>Opus</strong></td><td>Para quando a qualidade importa mais que velocidade e uso — raciocínio jurídico mais difícil, análise complexa. Consome o limite bem mais rápido.</td></tr>
+  <tr><td><strong>Haiku</strong></td><td>O mais barato, mas provavelmente leve demais para o trabalho jurídico de vocês.</td></tr>
   <tr><td><strong>Fable</strong></td><td>O mais novo da família — topo de linha. <em>(Indisponível aqui.)</em></td></tr>
 </table>
 
 <div class="callout pratica">
   <div class="callout-label">🧭 Regra de bolso</div>
-  Trabalhem no <strong>Opus</strong> — qualidade primeiro, que é o que o trabalho de vocês pede. Quando o limite de uso começar a apertar, desçam para o <strong>Sonnet</strong>: continua forte e custa menos. O <strong>Haiku</strong> é mais barato ainda, mas provavelmente leve demais para o que vocês fazem.
+  Comecem no <strong>Sonnet</strong> para a maior parte das tarefas; subam para o <strong>Opus</strong> só quando a qualidade importar mais que velocidade ou uso.
 </div>
 
 <hr>
@@ -432,7 +443,12 @@ Depois da minha resposta, atualize o guia incorporando os ajustes e me devolva a
 
 <p>Funciona porque a IA puxa de você o contexto que está na sua cabeça, mas não no papel. O resultado sai personalizado, não genérico.</p>
 
-<p><strong>A skill que vocês vão usar</strong> — copie e cole, ou salve como Claude Skill. Diga a ela o que você está fazendo (ex.: "uma submissão de ranking") e ela conduz a entrevista <strong>em português</strong>. <a href="hrsa-skills/thought-partner-interview-me.md" class="skill-download" download>📄 baixar .md</a></p>
+<p><strong>A skill que vocês vão usar.</strong> Diga a ela o que você está fazendo (ex.: "uma submissão de ranking") e ela conduz a entrevista <strong>em português</strong>. <a href="hrsa-skills/thought-partner-interview-me.md" class="skill-download" download>📄 baixar .md</a></p>
+
+<div class="callout tip">
+  <div class="callout-label">💡 O jeito recomendado — transformar em skill</div>
+  Baixe o <code>.md</code> acima e salve numa pasta. No Claude Desktop, diga ao Cowork: <em>"olhe o arquivo .md nesta pasta e transforme numa skill"</em> e clique em <strong>Save skill</strong>. Depois é só digitar <code>/interview-me</code> em qualquer conversa para acionar a entrevista. Concreto, fácil de repetir — e mostra na prática o valor das skills.
+</div>
 
 <div class="callout prompt">
 # Thought Partner: Interview Me
@@ -567,7 +583,7 @@ Não invente nada — se eu não souber algo, pergunte ou marque [VERIFICAR]. Qu
 
 <div class="callout tip">
   <div class="callout-label">💡 Para os mais avançados — Claude Code</div>
-  Se o Cowork ficar lento ou não fizer exatamente o que você pediu, existe um irmão mais poderoso: o <strong>Claude Code</strong>. É mais rápido e mais capaz — mas roda no <strong>terminal</strong>, então é menos amigável e intimida no começo. Se você se sentir à vontade e quiser ir além, vale experimentar: <a href="https://www.claude.com/product/claude-code" target="_blank">claude.com/product/claude-code</a>.
+  Se o Cowork ficar lento ou não fizer exatamente o que você pediu, existe um irmão mais poderoso: o <strong>Claude Code</strong> — mais rápido e mais capaz. Se você já tem o Claude Desktop, ele aparece direto no <strong>menu do app</strong> (aba <em>Code</em>); também dá para rodar no <strong>terminal</strong>, um caminho mais avançado que depende do seu setup. Vale experimentar quando quiser ir além: <a href="https://www.claude.com/product/claude-code" target="_blank">claude.com/product/claude-code</a>.
 </div>
 
 <hr>
